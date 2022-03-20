@@ -1,0 +1,96 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>640</x><y>150</y><w>210</w><h>90</h></coordinates><panel_attributes>Guild
+&lt;&lt;Abstract class&gt;&gt;
+--
+#List&lt;NPC&gt; Faculty
+--
++void LoadNPCs()
++NPC GenerateNPC()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>480</x><y>150</y><w>120</w><h>90</h></coordinates><panel_attributes>NPC
+&lt;&lt;Abstract class&gt;&gt;
+--
+
+--
++void Accept(Player)
++void Deny(Player)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>280</x><y>10</y><w>160</w><h>90</h></coordinates><panel_attributes>Assassin
+--
+-int MinReward
+-int MaxReward
+-bool IsBusy
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>280</x><y>120</y><w>160</w><h>90</h></coordinates><panel_attributes>Thieve
+--
+-int Fee
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>280</x><y>230</y><w>160</w><h>90</h></coordinates><panel_attributes>Beggar
+--
+-int Fee
+-InvItem Item
+-BeggarType Type 
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>280</x><y>340</y><w>160</w><h>90</h></coordinates><panel_attributes>Clown
+--
+-ClownType Type
+-int Reward
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>90</x><y>10</y><w>140</w><h>210</h></coordinates><panel_attributes>BeggarType
+&lt;&lt;Enum&gt;&gt;
+--
+Twitcher
+Drooler
+Dribbler
+Mumbler
+Mutterer
+WalkingAlongShouters 
+Demanders
+JimmyCallers 
+PennyForMeal
+TuppenceForTea
+BeerNeeders</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>90</x><y>250</y><w>140</w><h>180</h></coordinates><panel_attributes>ClownType
+&lt;&lt;Enum&gt;&gt;
+--
+Muggin
+Gull
+Dupe
+Butt
+Fool
+Tomfool
+StupidFool
+ArchFool
+CompleteFool</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>930</x><y>10</y><w>180</w><h>90</h></coordinates><panel_attributes>AssassinsGuild
+--
+
+--
++bool CheckOrder(int)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>930</x><y>120</y><w>180</w><h>90</h></coordinates><panel_attributes>ThievesGuild
+--
+-int MaxThieves
+-int DefaultFee
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>930</x><y>340</y><w>180</w><h>90</h></coordinates><panel_attributes>ClownsGuild
+--
+-Dictionatry&lt;ClownType, int&gt; 
+               RewardTable
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>930</x><y>230</y><w>180</w><h>90</h></coordinates><panel_attributes>BeggarsGuild
+--
+-Dictionatry&lt;BeggarType, int&gt; 
+               FeeTable
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>604</x><y>258</y><w>210</w><h>80</h></coordinates><panel_attributes>EventGenerator
+&lt;&lt;Static class&gt;&gt;
+--
+-List&lt;Guild&gt; GuildList
+--
++Event GenerateEvent()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>604</x><y>368</y><w>210</w><h>80</h></coordinates><panel_attributes>Event
+--
++Guild Guild
++NPC Npc
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>84</x><y>468</y><w>210</w><h>90</h></coordinates><panel_attributes>InvItem
+--
++int Id
++string Name
++string Description
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>592</x><y>180</y><w>70</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>50;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>432</x><y>50</y><w>70</w><h>170</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;30;10;30;150;50;150</additional_attributes></element><element><id>Relation</id><coordinates><x>432</x><y>150</y><w>70</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;30;10;30;50;50;50</additional_attributes></element><element><id>Relation</id><coordinates><x>432</x><y>190</y><w>70</w><h>210</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;190;30;190;30;10;50;10</additional_attributes></element><element><id>Relation</id><coordinates><x>432</x><y>190</y><w>70</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;90;30;90;30;10;50;10</additional_attributes></element><element><id>Relation</id><coordinates><x>842</x><y>50</y><w>110</w><h>170</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>90;10;60;10;60;150;10;150</additional_attributes></element><element><id>Relation</id><coordinates><x>842</x><y>150</y><w>110</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>90;10;60;10;60;50;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>842</x><y>190</y><w>110</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>90;90;60;90;60;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>842</x><y>190</y><w>110</w><h>220</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>90;200;60;200;60;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>222</x><y>190</y><w>80</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>60;100;30;100;30;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>222</x><y>360</y><w>80</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>60;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>732</x><y>230</y><w>30</w><h>50</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;10;30</additional_attributes></element><element><id>Relation</id><coordinates><x>702</x><y>330</y><w>30</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;40;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>702</x><y>440</y><w>30</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;40;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>604</x><y>478</y><w>210</w><h>140</h></coordinates><panel_attributes>Player
+--
+-int HighScore
++string Name
++int Budget
++Dictionary&lt;InvItem, int&gt; Inventory
++bool IsAlive
+--
+-void ProcessEvent(Event)
++void GetItem(InvItem)</panel_attributes><additional_attributes></additional_attributes></element></diagram>

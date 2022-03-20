@@ -1,0 +1,11 @@
+D:\Docs\C#\Ankh-Morpork\Game\bin\Debug\Game.exe.config
+D:\Docs\C#\Ankh-Morpork\Game\bin\Debug\Game.exe
+D:\Docs\C#\Ankh-Morpork\Game\bin\Debug\Game.pdb
+D:\Docs\C#\Ankh-Morpork\Game\bin\Debug\Newtonsoft.Json.dll
+D:\Docs\C#\Ankh-Morpork\Game\bin\Debug\Newtonsoft.Json.xml
+D:\Docs\C#\Ankh-Morpork\Game\obj\Debug\Game.csproj.AssemblyReference.cache
+D:\Docs\C#\Ankh-Morpork\Game\obj\Debug\Game.csproj.SuggestedBindingRedirects.cache
+D:\Docs\C#\Ankh-Morpork\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
+D:\Docs\C#\Ankh-Morpork\Game\obj\Debug\Game.csproj.CopyComplete
+D:\Docs\C#\Ankh-Morpork\Game\obj\Debug\Game.exe
+D:\Docs\C#\Ankh-Morpork\Game\obj\Debug\Game.pdb
