@@ -4,16 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ankh_Morpork
+namespace Game
 {
     internal abstract class Guild
     {
         internal Guild()
         {
             faculty = new List<Npc>();
-            loadData();
+            loadNpcs();
             if (faculty.Count == 0)
                 throw new DllNotFoundException("Error: Source file absent or damaged");
+            loadData();
         }
         internal string Name { get => name;}
         internal string Description { get => description;}
@@ -24,6 +25,7 @@ namespace Ankh_Morpork
         protected string description;
         protected List<Npc> faculty;
 
+        protected abstract void loadNpcs();
         protected abstract void loadData();
     }
 }

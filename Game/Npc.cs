@@ -4,17 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ankh_Morpork
+namespace Game
 {
     internal abstract class Npc
     {
-
-        internal string Name { get => name;}
-
-        internal Npc(string name)
+        internal readonly string Name;
+        internal readonly string Message;
+        internal Npc(string name, string message)
         {
-            this.name = name;
+            Name = name;
+            Message = message;
         }
-        protected string name;
+        internal abstract void Accept(Player player);
+        internal virtual void Deny(Player player)
+        {
+            player.IsAlive = false;
+            Console.WriteLine("Player died");
+        }
     }
 }

@@ -48,11 +48,13 @@
   <ItemGroup>
     <Compile Include="AssassinNpc.cs" />
     <Compile Include="AssassinsGuild.cs" />
+    <Compile Include="Config.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="EventBuilder.cs" />
     <Compile Include="Guild.cs" />
     <Compile Include="Npc.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View.cs" />

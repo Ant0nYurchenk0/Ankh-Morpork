@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ankh_Morpork
+namespace Game
 {
     internal static class Controller
     {
+        private static Player player; 
         internal static void Run()
         { 
             goToMenu();
@@ -19,23 +20,39 @@ namespace Ankh_Morpork
         }
         private static void play()
         {
+            var player = new Player();
             var i = 5;
-            while (i-- > 0)
+            while (player.IsAlive)
             {
-                Console.Clear();
                 var newEvent = EventBuilder.CreateEvent();
                 View.DisplayEvent(newEvent);
                 var responce = View.ReadResponce();
-                if (responce == "q")
-                    Run();
-                Console.WriteLine($"Your responce is {responce}");
-                Console.WriteLine("Press any key to proceed");
-                Console.ReadKey();
+                switch (responce)
+                {
+                    case "1":
+                        newEvent.Npc.Accept(player);
+                        break;
+                    case "2":
+                        newEvent.Npc.Deny(player);
+                        break;
+                    case "3":
+                        View.Help(newEvent);
+                        break;
+                    case "q":
+                        Run();
+                        break;
+                }
             }
+            View.GameOver();
+            Run();
         }
         internal static void Init()
         {
+            Config.ConfigPath = @"Config.json";
+            Config.LoadConfig();
+            player = new Player();
             EventBuilder.LoadGuilds();
         }
+
     }
 }

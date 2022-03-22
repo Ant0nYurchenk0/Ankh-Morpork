@@ -1,3 +1,6 @@
 [
-  {"name":  "robert"}
+  {"Name" : "Robert von Schneider", "Message" : "I came to kill you!!! Do you want to redeem yourself?!", "MinReward" : 15, "MaxReward" : 30},
+  {"Name" : "Alberto", "Message" : "I came to kill you!!! Do you want to redeem yourself?!", "MinReward" : 10, "MaxReward" : 20},
+  {"Name" : "Vitalii", "Message" : "I came to kill you!!! Do you want to redeem yourself?!", "MinReward" : 7, "MaxReward" : 12},
+  {"Name" : "Tamara Leonidovna", "Message" : "I came to kill you!!! Do you want to redeem yourself?!", "MinReward" : 15, "MaxReward" : 19}
 ]

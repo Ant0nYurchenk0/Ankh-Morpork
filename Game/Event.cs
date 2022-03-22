@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ankh_Morpork
+namespace Game
 {
     internal struct Event
     {
-        internal Npc Npc { get => npc;}
-        internal Event(Npc npc)
+        internal readonly Npc Npc;
+        internal readonly Guild Guild;
+        internal Event(Npc npc, Guild guild)
         {
-            this.npc = npc;
+            Npc = npc;
+            Guild = guild;
         }
-        private Npc npc;
-
     }
 }

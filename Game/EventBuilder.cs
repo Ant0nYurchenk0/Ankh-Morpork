@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ankh_Morpork
+namespace Game
 {
     internal static class EventBuilder
     {
@@ -12,11 +12,9 @@ namespace Ankh_Morpork
         {
             var rnd = new Random();
             var randomGuildNumber = rnd.Next(0, guilds.Count);
-            return new Event(guilds[randomGuildNumber].GetNpc());
-
-            
+            var selectedGuild = guilds[randomGuildNumber];
+            return new Event(selectedGuild.GetNpc(), selectedGuild);
         }
-
         internal static void LoadGuilds()
         {
             guilds = new List<Guild>();
