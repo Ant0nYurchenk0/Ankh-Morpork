@@ -11,20 +11,16 @@ namespace Game
     internal static class Config
     {
         internal static string ConfigPath { get; set; }
-        public static string AssassinsGuildNpcsPath { get => assassinsGuildNpcsPath;}
-        public static string AssassinsGuildPath { get => assassinsGuildPath;}
+        public static string AssassinsGuildNpcsPath { get ; private set; }
+        public static string AssassinsGuildPath { get; private set; }
 
         internal static void LoadConfig()
         {
             var configString = File.ReadAllText(ConfigPath);
             var config = JObject.Parse(configString);
-            assassinsGuildNpcsPath = config["AssassinsGuildNpcsPath"].ToString();
-            assassinsGuildPath = config["AssassinsGuildPath"].ToString();
+            AssassinsGuildNpcsPath = config["AssassinsGuildNpcsPath"].ToString();
+            AssassinsGuildPath = config["AssassinsGuildPath"].ToString();
         }
-        private static string assassinsGuildNpcsPath;
-        private static string assassinsGuildPath;
-
-
-        
+       
     }
 }
