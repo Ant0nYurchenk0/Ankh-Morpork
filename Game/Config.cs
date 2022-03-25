@@ -14,6 +14,8 @@ namespace Game
         internal static string PlayerDataPath { get ; private set; }
         internal static string AssassinsGuildNpcsPath { get ; private set; }
         internal static string AssassinsGuildPath { get; private set; }
+        internal static string ThievesGuildNpcsPath { get ; private set; }
+        internal static string ThievesGuildPath { get; private set; }
 
         internal static void LoadConfig()
         {
@@ -22,6 +24,8 @@ namespace Game
             PlayerDataPath = config["PlayerDataPath"].ToString();
             AssassinsGuildNpcsPath = config["AssassinsGuildNpcsPath"].ToString();
             AssassinsGuildPath = config["AssassinsGuildPath"].ToString();
+            ThievesGuildNpcsPath = config["ThievesGuildNpcsPath"].ToString();
+            ThievesGuildPath = config["ThievesGuildPath"].ToString();
         }
        
     }

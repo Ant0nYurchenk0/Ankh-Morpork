@@ -1,5 +1,7 @@
 {
   "PlayerDataPath": "..\\..\\Source\\Player.json",
   "AssassinsGuildNpcsPath": "..\\..\\Source\\Npcs\\AGNpcs.json",
-  "AssassinsGuildPath": "..\\..\\Source\\Guilds\\AG.json"
+  "AssassinsGuildPath": "..\\..\\Source\\Guilds\\AG.json",
+  "ThievesGuildNpcsPath": "..\\..\\Source\\Npcs\\TGNpcs.json",
+  "ThievesGuildPath": "..\\..\\Source\\Guilds\\TG.json"
 }

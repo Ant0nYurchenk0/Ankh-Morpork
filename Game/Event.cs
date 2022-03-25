@@ -21,6 +21,8 @@ namespace Game
         internal void Resolve(Player player)
         {
             var isNew = true;
+            if (Npc == null)
+                resolved = true;
             while (!resolved)
             {
                 View.DisplayEvent(this, isNew);
