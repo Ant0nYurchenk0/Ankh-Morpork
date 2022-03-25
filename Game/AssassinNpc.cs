@@ -12,13 +12,15 @@ namespace Game
         internal int MaxReward { get; private set; }
         internal string OfferMessage { get; private set; }
         internal bool IsBusy { get; set; }
+        internal AssassinsGuild Guild { get; private set; }
 
-        public AssassinNpc(string name, string meetMessage, string acceptMessage, string denyMessage, string offerMessage, int minReward, int maxReward) 
+        public AssassinNpc(string name, string meetMessage, string acceptMessage, string denyMessage, string offerMessage, int minReward, int maxReward, AssassinsGuild guild) 
             : base(name, meetMessage, acceptMessage, denyMessage)
         {
             MinReward = minReward;
             MaxReward = maxReward;
             OfferMessage = offerMessage;
+            Guild = guild;
         }
 
         internal override void Accept(Player player)
@@ -26,7 +28,7 @@ namespace Game
             View.ShowMessage(OfferMessage);
             var reward = int.Parse(View.ReadResponce(0));
             if (player.TryDecreaseMoney(reward)
-                && AssassinsGuild.CheckOrder(reward))
+                && Guild.CheckOrder(reward))
             {
                 View.ShowMessage(AcceptMessage);
                 return;

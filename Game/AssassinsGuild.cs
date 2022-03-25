@@ -23,7 +23,8 @@ namespace Game
                                             npc["DenyMessage"].ToString(),
                                             npc["OfferMessage"].ToString(),
                                             (int)npc["MinReward"],
-                                            (int)npc["MaxReward"]));
+                                            (int)npc["MaxReward"],
+                                            this));
             }
             Color = ConsoleColor.DarkGray;
         }
@@ -32,7 +33,7 @@ namespace Game
             OccupyFaculty(); // randomize the availability of each assassin
             return base.GetNpc();
         }
-        internal static bool CheckOrder(int reward)
+        internal bool CheckOrder(int reward)
         {
             foreach(AssassinNpc npc in Npcs)
             {

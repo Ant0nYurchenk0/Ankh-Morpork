@@ -10,15 +10,15 @@ namespace Game
     {
         public string Name { get; protected set; }
         public string Description { get; protected set; }
-        public static List<Npc> Npcs { get; protected set; }
+        public List<Npc> Npcs { get; protected set; }
         public ConsoleColor Color { get; protected set; }
         internal Guild()
         {
+            LoadData();
             Npcs = new List<Npc>();
             LoadNpcs();
             if (Npcs.Count == 0)
                 throw new DllNotFoundException(Message.FILE_ACCESS_ERROR);
-            LoadData();
         }
         internal virtual Npc GetNpc()
         {
