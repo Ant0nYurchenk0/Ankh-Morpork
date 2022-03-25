@@ -10,38 +10,54 @@ namespace Game
 {
     internal class AssassinsGuild : Guild
     {
-        protected override void loadNpcs()
+        public string OfferMessage { get; protected set; }
+        protected override void LoadNpcs()
         {
-            var npcJson = File.ReadAllText(Config.AssassinsGuildNpcsPath);
+            var npcJson = ServiceFile.ReadFile(Config.AssassinsGuildNpcsPath);
             var listOfNpcs = JArray.Parse(npcJson);
             foreach (JObject npc in listOfNpcs.Children<JObject>())
             {
-                faculty.Add(new AssassinNpc(npc["Name"].ToString(),
-                                            npc["Message"].ToString(),
+                Npcs.Add(new AssassinNpc(npc["Name"].ToString(),
+                                            npc["MeetMessage"].ToString(),
+                                            npc["AcceptMessage"].ToString(),
+                                            npc["DenyMessage"].ToString(),
+                                            npc["OfferMessage"].ToString(),
                                             (int)npc["MinReward"],
                                             (int)npc["MaxReward"]));
             }
-        }
-        protected override void loadData()
-        {
-            var guildData = JObject.Parse(File.ReadAllText(Config.AssassinsGuildPath));
-            name = guildData["Name"].ToString();
-            description = guildData["Description"].ToString();
+            Color = ConsoleColor.DarkGray;
         }
         internal override Npc GetNpc()
         {
-            occupyFaculty(); // randomize the availability of each assassin
-            var rnd = new Random();
-            var randomNpcNumber = rnd.Next(0, faculty.Count);
-            return faculty[randomNpcNumber];
+            OccupyFaculty(); // randomize the availability of each assassin
+            return base.GetNpc();
         }
-        private void occupyFaculty()
+        internal static bool CheckOrder(int reward)
+        {
+            foreach(AssassinNpc npc in Npcs)
+            {
+                if (!npc.IsBusy 
+                    && npc.MaxReward >= reward
+                    && npc.MinReward <= reward)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        protected override void LoadData()
+        {
+            var configStr = ServiceFile.ReadFile(Config.AssassinsGuildPath);
+            var guildData = JObject.Parse(configStr);
+            Name = guildData["Name"].ToString();
+            Description = guildData["Description"].ToString();
+        }
+        private void OccupyFaculty()
         {
             var rnd = new Random();
-            foreach (AssassinNpc npc in faculty)
+            foreach (AssassinNpc npc in Npcs)
             {
-                npc.IsBusy = Convert.ToBoolean(rnd.Next());
-                
+                npc.IsBusy = Convert.ToBoolean(rnd.Next(0, 2));  
             }
         }
     }

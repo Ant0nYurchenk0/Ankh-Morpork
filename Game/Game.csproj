@@ -50,13 +50,18 @@
     <Compile Include="AssassinsGuild.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Controller.cs" />
+    <Compile Include="EndOfGameException.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="EventBuilder.cs" />
+    <Compile Include="Path.cs" />
     <Compile Include="Guild.cs" />
+    <Compile Include="Message.cs" />
     <Compile Include="Npc.cs" />
+    <Compile Include="Option.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceFileReader.cs" />
     <Compile Include="View.cs" />
   </ItemGroup>
   <ItemGroup>

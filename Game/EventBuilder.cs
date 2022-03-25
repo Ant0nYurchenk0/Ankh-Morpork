@@ -11,16 +11,16 @@ namespace Game
         internal static Event CreateEvent()
         {
             var rnd = new Random();
-            var randomGuildNumber = rnd.Next(0, guilds.Count);
-            var selectedGuild = guilds[randomGuildNumber];
+            var randomGuildNumber = rnd.Next(0, _guilds.Count);
+            var selectedGuild = _guilds[randomGuildNumber];
             return new Event(selectedGuild.GetNpc(), selectedGuild);
         }
         internal static void LoadGuilds()
         {
-            guilds = new List<Guild>();
-            guilds.Add(new AssassinsGuild());
+            _guilds = new List<Guild>();
+            _guilds.Add(new AssassinsGuild());
         }
 
-        private static List<Guild> guilds;
+        private static List<Guild> _guilds;
     }
 }

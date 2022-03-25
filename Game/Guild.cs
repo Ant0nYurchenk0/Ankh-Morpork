@@ -8,23 +8,26 @@ namespace Game
 {
     internal abstract class Guild
     {
+        public string Name { get; protected set; }
+        public string Description { get; protected set; }
+        public static List<Npc> Npcs { get; protected set; }
+        public ConsoleColor Color { get; protected set; }
         internal Guild()
         {
-            faculty = new List<Npc>();
-            loadNpcs();
-            if (faculty.Count == 0)
-                throw new DllNotFoundException("Error: Source file absent or damaged");
-            loadData();
+            Npcs = new List<Npc>();
+            LoadNpcs();
+            if (Npcs.Count == 0)
+                throw new DllNotFoundException(Message.FILE_ACCESS_ERROR);
+            LoadData();
         }
-        internal string Name { get => name;}
-        internal string Description { get => description;}
-        internal List<Npc> Faculty { get => faculty;}
+        internal virtual Npc GetNpc()
+        {
+            var rnd = new Random();
+            var randomNpcNumber = rnd.Next(0, Npcs.Count);
+            return Npcs[randomNpcNumber];
+        }
 
-        protected string name;
-        protected string description;
-        protected List<Npc> faculty;
-        internal abstract Npc GetNpc();
-        protected abstract void loadNpcs();
-        protected abstract void loadData();
+        protected abstract void LoadNpcs();
+        protected abstract void LoadData();
     }
 }

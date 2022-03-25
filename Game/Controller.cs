@@ -6,53 +6,68 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    internal static class Controller
+    internal class Controller
     {
-        private static Player player; 
-        internal static void Run()
+        private Player _player;
+        private bool _gameStarted = false;
+        internal void Run()
         { 
-            goToMenu();
-            play();
+            Play();
         }
-        private static void goToMenu()
+        private void GoToMenu()
         {
-
-        }
-        private static void play()
-        {
-            var player = new Player();
-            var i = 5;
-            while (player.IsAlive)
+            while (!_gameStarted)
             {
-                var newEvent = EventBuilder.CreateEvent();
-                View.DisplayEvent(newEvent);
-                var responce = View.ReadResponce();
-                switch (responce)
+                View.ShowMenu(_player);
+                var options = View.ShowOptions(Option.START, Option.RESET, Option.QUIT);
+                switch (View.ReadResponce(options))
                 {
                     case "1":
-                        newEvent.Npc.Accept(player);
+                        StartGame();
                         break;
                     case "2":
-                        newEvent.Npc.Deny(player);
+                        ResetPlayer();
                         break;
                     case "3":
-                        View.Help(newEvent);
-                        break;
-                    case "q":
-                        Run();
+                        Quit();
                         break;
                 }
             }
+        }
+        private void Play()
+        {
+            using (_player = new Player())
+            {
+                while (_player.IsAlive)
+                {
+                    GoToMenu();
+                    var newEvent = EventBuilder.CreateEvent();
+                    newEvent.Resolve(_player);
+                    System.Threading.Thread.Sleep(2000);
+                }
+            }
             View.GameOver();
+            _gameStarted = false;
             Run();
         }
-        internal static void Init()
+        internal void Init()
         {
-            Config.ConfigPath = @"Config.json";
+            Config.ConfigPath = Path.CONFIG_PATH;
             Config.LoadConfig();
-            player = new Player();
             EventBuilder.LoadGuilds();
         }
-
+        private void StartGame()
+        {
+            View.StartGame();
+            _gameStarted = true;
+        }
+        private void ResetPlayer()
+        {
+            _player.Reset();
+        }
+        private void Quit()
+        {
+            throw new EndOfGameException(Message.PROGRAM_END);
+        }
     }
 }

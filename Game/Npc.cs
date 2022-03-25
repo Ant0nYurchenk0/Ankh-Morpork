@@ -8,18 +8,22 @@ namespace Game
 {
     internal abstract class Npc
     {
-        internal readonly string Name;
-        internal readonly string Message;
-        internal Npc(string name, string message)
+        internal string Name { get; private set; }
+        internal string MeetMessage { get; private set; }
+        internal string AcceptMessage { get; private set; }
+        internal string DenyMessage { get; private set; }
+        internal Npc(string name, string meetMessage, string acceptMessage, string denyMessage)
         {
             Name = name;
-            Message = message;
+            MeetMessage = meetMessage;
+            AcceptMessage = acceptMessage;
+            DenyMessage = denyMessage;
         }
         internal abstract void Accept(Player player);
         internal virtual void Deny(Player player)
         {
+            View.ShowMessage(DenyMessage);
             player.IsAlive = false;
-            Console.WriteLine("Player died");
         }
     }
 }

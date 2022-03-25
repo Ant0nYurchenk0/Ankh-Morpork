@@ -10,8 +10,9 @@ namespace Game
     {
         static void Main(string[] args)
         {
-                Controller.Init();
-                Controller.Run();
+            var controller = new Controller();
+                controller.Init();
+                controller.Run();
             //try
             //{
             //}
