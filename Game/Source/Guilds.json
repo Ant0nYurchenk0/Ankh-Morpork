@@ -118,5 +118,39 @@
         "DenyMessage": "But PLEASE!!!"
       }
     ]
+  },
+  {
+    "Name": "Clowns' Guild",
+    "Description": "Walking the city you might meet one of a very good friends.\n\tThe friend works as a fool and will ask you for help.\n\tYou have to pretend to be a fool (pick the same practice as a friend) and that’s how they can earn some money.",
+    "Npcs": [
+      {
+        "Name": "Margaret",
+        "Type": "CompleteFool",
+        "MeetMessage": "Gimme something, dear stranger",
+        "AcceptMessage": "God bless you, adventurer",
+        "DenyMessage": "But PLEASE!!!"
+      },
+      {
+        "Name": "Vasylii",
+        "Type": "Tomfool",
+        "MeetMessage": "Hey Jimmy, gimme something",
+        "AcceptMessage": "God bless you, adventurer",
+        "DenyMessage": "But PLEASE!!!"
+      },
+      {
+        "Name": "Peter",
+        "Type": "Gull",
+        "MeetMessage": "Gimme something, dear stranger",
+        "AcceptMessage": "God bless you, adventurer",
+        "DenyMessage": "But PLEASE!!!"
+      },
+      {
+        "Name": "Shiz",
+        "Type": "Muggins",
+        "MeetMessage": "Gimme something, dear stranger",
+        "AcceptMessage": "God bless you, adventurer",
+        "DenyMessage": "But PLEASE!!!"
+      }
+    ]
   }
 ]
