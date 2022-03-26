@@ -1,6 +1,0 @@
-{
-  "Name": "Thieves' Guild",
-  "Description": "You can get robbed anytime and will have to pay a standard fee in amount 10 AM$ to the guild member.\n\tBut total number of thefts during the game can’t be greater then socially acceptable number of thefts.",
-  "DefaultFee": 10,
-  "MaxThieves": 6
-}

@@ -13,8 +13,11 @@ namespace Game
         public string OfferMessage { get; protected set; }
         protected override void LoadNpcs()
         {
-            var npcJson = ServiceFile.ReadFile(Config.AssassinsGuildNpcsPath);
-            var listOfNpcs = JArray.Parse(npcJson);
+            var npcJson = ServiceFile.ReadFile(Config.GuildsPath);
+            var listOfGuilds = JArray.Parse(npcJson);
+            var listOfNpcs = (from guild in listOfGuilds
+                             where guild["Name"].ToString() == "Assassins' Guild"
+                             select guild["Npcs"]).FirstOrDefault() as JArray;
             foreach (JObject npc in listOfNpcs.Children<JObject>())
             {
                 Npcs.Add(new AssassinNpc(npc["Name"].ToString(),
@@ -48,8 +51,11 @@ namespace Game
         }
         protected override void LoadData()
         {
-            var configStr = ServiceFile.ReadFile(Config.AssassinsGuildPath);
-            var guildData = JObject.Parse(configStr);
+            var configStr = ServiceFile.ReadFile(Config.GuildsPath);
+            var guilds = JArray.Parse(configStr);
+            var guildData = (from guild in guilds.Children<JObject>()
+                            where guild["Name"].ToString() == "Assassins' Guild"
+                            select guild).FirstOrDefault();
             Name = guildData["Name"].ToString();
             Description = guildData["Description"].ToString();
         }

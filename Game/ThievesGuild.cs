@@ -13,8 +13,11 @@ namespace Game
         private int _maxThieves;
         protected override void LoadData()
         {
-            var configStr = ServiceFile.ReadFile(Config.ThievesGuildPath);
-            var guildData = JObject.Parse(configStr);
+            var configStr = ServiceFile.ReadFile(Config.GuildsPath);
+            var guilds = JArray.Parse(configStr);
+            var guildData = (from guild in guilds.Children<JObject>()
+                             where guild["Name"].ToString() == "Thieves' Guild"
+                             select guild).FirstOrDefault();
             Name = guildData["Name"].ToString();
             Description = guildData["Description"].ToString();
             DefaultFee = (int)guildData["DefaultFee"];
@@ -23,17 +26,20 @@ namespace Game
 
         protected override void LoadNpcs()
         {
-            var npcJson = ServiceFile.ReadFile(Config.ThievesGuildNpcsPath);
-            var listOfNpcs = JArray.Parse(npcJson);
+            var npcJson = ServiceFile.ReadFile(Config.GuildsPath);
+            var listOfGuilds = JArray.Parse(npcJson);
+            var listOfNpcs = (from guild in listOfGuilds
+                              where guild["Name"].ToString() == "Thieves' Guild"
+                              select guild["Npcs"]).FirstOrDefault() as JArray;
             var counter = 0;
             foreach (JObject npc in listOfNpcs.Children<JObject>())
             {
-                if (counter >= _maxThieves) break;
+                if (counter > _maxThieves) break;
+                counter++;
                 Npcs.Add(new ThieveNpc(npc["Name"].ToString(),
                                             npc["MeetMessage"].ToString(),
                                             npc["AcceptMessage"].ToString(),
                                             npc["DenyMessage"].ToString()));
-                counter++;
             }
             Color = ConsoleColor.DarkMagenta;
         }

@@ -17,8 +17,6 @@ namespace Game
             LoadData();
             Npcs = new List<Npc>();
             LoadNpcs();
-            if (Npcs.Count == 0)
-                throw new DllNotFoundException(Message.FILE_ACCESS_ERROR);
         }
         internal virtual Npc GetNpc()
         {

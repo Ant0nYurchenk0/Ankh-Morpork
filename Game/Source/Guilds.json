@@ -1,0 +1,88 @@
+[
+  {
+    "Name": "Assassins' Guild",
+    "Description": "The Ankh-Morpork Assassins' Guild is a school for professional killers.\n\tIt is pretty easy to get into a trouble in the Shades and make enemies.\n\tSomeone definitely wants to kill you.\n\tYou can create a contract with the guild to kill the enemy first.\n\tEach assassin takes the contract only if not occupied.",
+    "Npcs": [
+      {
+        "Name": "Robert von Schneider",
+        "MeetMessage": "I came to kill you!!! Do you want to redeem yourself?!",
+        "OfferMessage": "OK, how much you offer?",
+        "AcceptMessage": "Now we are talking!!! Now, get out, I wanna never see you again",
+        "DenyMessage": "WRONG! These are your last words!",
+        "MinReward": 15,
+        "MaxReward": 30
+      },
+      {
+        "Name": "Alberto",
+        "MeetMessage": "I came to kill you!!! Do you want to redeem yourself?!",
+        "OfferMessage": "OK, how much you offer?",
+        "AcceptMessage": "Now we are talking!!! Now, get out, I wanna never see you again",
+        "DenyMessage": "WRONG! These are your last words!",
+        "MinReward": 10,
+        "MaxReward": 20
+      },
+      {
+        "Name": "Vitalii",
+        "MeetMessage": "I came to kill you!!! Do you want to redeem yourself?!",
+        "OfferMessage": "OK, how much you offer?",
+        "AcceptMessage": "Now we are talking!!! Now, get out, I wanna never see you again",
+        "DenyMessage": "WRONG! These are your last words!",
+        "MinReward": 7,
+        "MaxReward": 12
+      },
+      {
+        "Name": "Tamara Leonidovna",
+        "MeetMessage": "I came to kill you!!! Do you want to redeem yourself?!",
+        "OfferMessage": "OK, how much you offer?",
+        "AcceptMessage": "Now we are talking!!! Now, get out, I wanna never see you again",
+        "DenyMessage": "WRONG! These are your last words!",
+        "MinReward": 15,
+        "MaxReward": 19
+      }
+    ]
+  },
+  {
+    "Name": "Thieves' Guild",
+    "Description": "You can get robbed anytime and will have to pay a standard fee in amount 10 AM$ to the guild member.\n\tBut total number of thefts during the game can’t be greater then socially acceptable number of thefts.",
+    "Npcs": [
+      {
+        "Name": "Tolik",
+        "MeetMessage": "Gop stop, money or life",
+        "AcceptMessage": "Nice",
+        "DenyMessage": "*Knife under the rib*"
+      },
+      {
+        "Name": "Grisha",
+        "MeetMessage": "Gop stop, money or life",
+        "AcceptMessage": "Nice",
+        "DenyMessage": "*Knife under the rib*"
+      },
+      {
+        "Name": "Vittorio",
+        "MeetMessage": "Gop stop, money or life",
+        "AcceptMessage": "Nice",
+        "DenyMessage": "*Knife under the rib*"
+      },
+      {
+        "Name": "Ibrahim",
+        "MeetMessage": "Gop stop, money or life",
+        "AcceptMessage": "Nice",
+        "DenyMessage": "*Knife under the rib*"
+      },
+      {
+        "Name": "Abdul",
+        "MeetMessage": "Gop stop, money or life",
+        "AcceptMessage": "Nice",
+        "DenyMessage": "*Knife under the rib*"
+      },
+      {
+        "Name": "George",
+        "MeetMessage": "Gop stop, money or life",
+        "AcceptMessage": "Nice",
+        "DenyMessage": "*Knife under the rib*"
+      }
+    ],
+    "DefaultFee": 10,
+    "MaxThieves": 6
+  }
+]
