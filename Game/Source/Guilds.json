@@ -84,5 +84,39 @@
     ],
     "DefaultFee": 10,
     "MaxThieves": 6
+  },
+  {
+    "Name": "Beggars' Guild",
+    "Description": "The Beggars' Guild is the oldest, largest and (perhaps surprisingly) richest of the city's many guilds.\n\tIt has a very strict code of practice and enforced hierarchy.\n\tAnyone attempting to move above his position or perform his sanctioned role out of his assigned area or time period is harshly dealt with.",
+    "Npcs": [
+      {
+        "Name": "Tolik",
+        "Type": "Twitcher",
+        "MeetMessage": "Gimme something, dear stranger",
+        "AcceptMessage": "God bless you, adventurer",
+        "DenyMessage": "But PLEASE!!!"
+      },
+      {
+        "Name": "Tommy",
+        "Type": "JimmyCaller",
+        "MeetMessage": "Hey Jimmy, gimme something",
+        "AcceptMessage": "God bless you, adventurer",
+        "DenyMessage": "But PLEASE!!!"
+      },
+      {
+        "Name": "Alcogolic",
+        "Type": "BeerNeeder",
+        "MeetMessage": "Gimme something, dear stranger",
+        "AcceptMessage": "God bless you, adventurer",
+        "DenyMessage": "But PLEASE!!!"
+      },
+      {
+        "Name": "Edward",
+        "Type": "TuppenceForTea",
+        "MeetMessage": "Gimme something, dear stranger",
+        "AcceptMessage": "God bless you, adventurer",
+        "DenyMessage": "But PLEASE!!!"
+      }
+    ]
   }
 ]

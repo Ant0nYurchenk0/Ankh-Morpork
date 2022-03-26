@@ -8,8 +8,8 @@ namespace Game
 {
     internal class AssassinNpc : Npc
     {
-        internal int MinReward { get; private set; }
-        internal int MaxReward { get; private set; }
+        internal double MinReward { get; private set; }
+        internal double MaxReward { get; private set; }
         internal string OfferMessage { get; private set; }
         internal bool IsBusy { get; set; }
         internal AssassinsGuild Guild { get; private set; }

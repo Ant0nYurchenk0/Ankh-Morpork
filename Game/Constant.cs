@@ -28,6 +28,8 @@ namespace Game
         internal const string MaxThieves = "MaxThieves";
         internal const string DefaultFee = "DefaultFee";
 
+        internal const string Type = "Type";
+
         internal const string HighScore = "HighScore";
 
     }

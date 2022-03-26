@@ -1,0 +1,13 @@
+{
+  "Twitcher" : 3,
+  "Drooler" : 2,
+  "Dribbler": 1,
+  "Mumbler": 1,
+  "Mutterer": 0.9,
+  "WalkingAlongShouter": 0.8,
+  "Demander": 0.6,
+  "JimmyCaller": 0.5,
+  "PennyForMeal": 0.08,
+  "TuppenceForTea": 0.02,
+  "BeerNeeder": 0
+}

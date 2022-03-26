@@ -14,7 +14,7 @@ namespace Game
         internal bool IsAlive { get; set; }
         internal int CurrentScore { get; private set; } = 0;
         internal int HighScore { get; private set; }
-        internal int Money { get; private set; } = 100;
+        internal double Money { get; private set; } = 100;
         private JObject _playerData;
 
         internal Player()
@@ -31,7 +31,7 @@ namespace Game
                 HighScore = CurrentScore;
 
         }
-        internal bool TryDecreaseMoney(int reward)
+        internal bool TryDecreaseMoney(double reward)
         {
             if (reward > Money)
                 return false;

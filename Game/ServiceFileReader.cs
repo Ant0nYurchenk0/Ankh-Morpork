@@ -14,9 +14,9 @@ namespace Game
             using (var reader = new StreamReader(File.OpenRead(path)))
             {
                 var line = string.Empty;
-                while (!string.IsNullOrEmpty(line = reader.ReadLine()))
+                while ((line = reader.ReadLine()) != null)
                 {
-                    result.Append("\n"+line);
+                    result.Append("\n" + line);
                 }
             }
             return result.ToString();
