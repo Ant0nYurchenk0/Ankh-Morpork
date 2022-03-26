@@ -38,7 +38,6 @@ namespace Game
             Console.ResetColor();
             return options.Length;
         }
-
         internal static void ShowMenu(Player player)
         {
             Console.Clear();

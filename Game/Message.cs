@@ -8,8 +8,8 @@ namespace Game
 {
     internal static class Message
     {
-        internal const string FILE_ACCESS_ERROR = "Error: Source file absent or damaged";
-        internal const string PROGRAM_END = "Program ended";
+        internal const string FileAccessError = "Error: Source file absent or damaged";
+        internal const string ProgramEnd = "Program ended";
     }
 
 }

@@ -53,7 +53,7 @@ namespace Game
         }
         internal void Init()
         {
-            Config.ConfigPath = Path.CONFIG_PATH;
+            Config.ConfigPath = Path.ConfigPath;
             Config.LoadConfig();
             EventBuilder.LoadGuilds();
         }
@@ -68,7 +68,7 @@ namespace Game
         }
         private void Quit()
         {
-            throw new EndOfGameException(Message.PROGRAM_END);
+            throw new EndOfGameException(Message.ProgramEnd);
         }
     }
 }

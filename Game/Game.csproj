@@ -49,6 +49,7 @@
     <Compile Include="AssassinNpc.cs" />
     <Compile Include="AssassinsGuild.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="Constant.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="EndOfGameException.cs" />
     <Compile Include="Event.cs" />

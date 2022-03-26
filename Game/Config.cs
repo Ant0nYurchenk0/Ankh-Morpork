@@ -18,8 +18,8 @@ namespace Game
         {
             var configString = ServiceFile.ReadFile(ConfigPath);
             var config = JObject.Parse(configString);
-            PlayerDataPath = config["PlayerDataPath"].ToString();
-            GuildsPath = config["GuildsPath"].ToString();
+            PlayerDataPath = config[Path.PlayerDataConfigPath].ToString();
+            GuildsPath = config[Path.GuildDataConfigPath].ToString();
         }
        
     }

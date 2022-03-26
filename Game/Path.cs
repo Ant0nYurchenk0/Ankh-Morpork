@@ -8,7 +8,10 @@ namespace Game
 {
     internal static class Path
     {
-        internal const string CONFIG_PATH = "Config.json";
+        internal const string ConfigPath = "Config.json";
+
+        internal const string PlayerDataConfigPath = "PlayerDataPath";
+        internal const string GuildDataConfigPath = "GuildsPath";
     }
 
 }
