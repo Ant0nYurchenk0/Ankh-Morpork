@@ -22,7 +22,7 @@ namespace Game
             IsAlive = true;
             var configStr = ServiceFile.ReadFile(Config.PlayerDataPath);
             _playerData = JObject.Parse(configStr);
-            HighScore = (int)_playerData["HighScore"];
+            HighScore = (int)_playerData[Constant.HighScore];
         }
         internal void IncreaseScore()
         {
@@ -48,14 +48,14 @@ namespace Game
         }
         public void Dispose()
         {
-            if ((int)_playerData["HighScore"] < HighScore)
+            if ((int)_playerData[Constant.HighScore] < HighScore)
             {
                 LogData();
             }
         }
         private void LogData()
         {
-            _playerData["HighScore"] = HighScore;
+            _playerData[Constant.HighScore] = HighScore;
             string updatedData = JsonConvert.SerializeObject(_playerData);
             ServiceFile.WriteToFile(Config.PlayerDataPath, updatedData);
         }

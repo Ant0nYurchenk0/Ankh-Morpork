@@ -16,12 +16,12 @@ namespace Game
             var configStr = ServiceFile.ReadFile(Config.GuildsPath);
             var guilds = JArray.Parse(configStr);
             var guildData = (from guild in guilds.Children<JObject>()
-                             where guild["Name"].ToString() == "Thieves' Guild"
+                             where guild[Constant.Name].ToString() == Constant.ThievesGuild
                              select guild).FirstOrDefault();
-            Name = guildData["Name"].ToString();
-            Description = guildData["Description"].ToString();
-            DefaultFee = (int)guildData["DefaultFee"];
-            _maxThieves = (int)guildData["MaxThieves"];
+            Name = guildData[Constant.Name].ToString();
+            Description = guildData[Constant.Description].ToString();
+            DefaultFee = (int)guildData[Constant.DefaultFee];
+            _maxThieves = (int)guildData[Constant.MaxThieves];
         }
 
         protected override void LoadNpcs()
@@ -29,17 +29,17 @@ namespace Game
             var npcJson = ServiceFile.ReadFile(Config.GuildsPath);
             var listOfGuilds = JArray.Parse(npcJson);
             var listOfNpcs = (from guild in listOfGuilds
-                              where guild["Name"].ToString() == "Thieves' Guild"
-                              select guild["Npcs"]).FirstOrDefault() as JArray;
+                              where guild[Constant.Name].ToString() == Constant.ThievesGuild
+                              select guild[Constant.Npcs]).FirstOrDefault() as JArray;
             var counter = 0;
             foreach (JObject npc in listOfNpcs.Children<JObject>())
             {
                 if (counter > _maxThieves) break;
                 counter++;
-                Npcs.Add(new ThieveNpc(npc["Name"].ToString(),
-                                            npc["MeetMessage"].ToString(),
-                                            npc["AcceptMessage"].ToString(),
-                                            npc["DenyMessage"].ToString()));
+                Npcs.Add(new ThieveNpc(npc[Constant.Name].ToString(),
+                                            npc[Constant.MeetMessage].ToString(),
+                                            npc[Constant.AcceptMessage].ToString(),
+                                            npc[Constant.DenyMessage].ToString()));
             }
             Color = ConsoleColor.DarkMagenta;
         }

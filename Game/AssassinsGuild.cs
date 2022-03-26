@@ -16,17 +16,17 @@ namespace Game
             var npcJson = ServiceFile.ReadFile(Config.GuildsPath);
             var listOfGuilds = JArray.Parse(npcJson);
             var listOfNpcs = (from guild in listOfGuilds
-                             where guild["Name"].ToString() == "Assassins' Guild"
-                             select guild["Npcs"]).FirstOrDefault() as JArray;
+                             where guild[Constant.Name].ToString() == Constant.AssassinsGuild
+                              select guild[Constant.Npcs]).FirstOrDefault() as JArray;
             foreach (JObject npc in listOfNpcs.Children<JObject>())
             {
-                Npcs.Add(new AssassinNpc(npc["Name"].ToString(),
-                                            npc["MeetMessage"].ToString(),
-                                            npc["AcceptMessage"].ToString(),
-                                            npc["DenyMessage"].ToString(),
-                                            npc["OfferMessage"].ToString(),
-                                            (int)npc["MinReward"],
-                                            (int)npc["MaxReward"],
+                Npcs.Add(new AssassinNpc(npc[Constant.Name].ToString(),
+                                            npc[Constant.MeetMessage].ToString(),
+                                            npc[Constant.AcceptMessage].ToString(),
+                                            npc[Constant.DenyMessage].ToString(),
+                                            npc[Constant.OfferMessage].ToString(),
+                                            (int)npc[Constant.MinReward],
+                                            (int)npc[Constant.MaxReward],
                                             this));
             }
             Color = ConsoleColor.DarkGray;
@@ -54,10 +54,10 @@ namespace Game
             var configStr = ServiceFile.ReadFile(Config.GuildsPath);
             var guilds = JArray.Parse(configStr);
             var guildData = (from guild in guilds.Children<JObject>()
-                            where guild["Name"].ToString() == "Assassins' Guild"
+                            where guild[Constant.Name].ToString() == Constant.AssassinsGuild
                             select guild).FirstOrDefault();
-            Name = guildData["Name"].ToString();
-            Description = guildData["Description"].ToString();
+            Name = guildData[Constant.Name].ToString();
+            Description = guildData[Constant.Description].ToString();
         }
         private void OccupyFaculty()
         {

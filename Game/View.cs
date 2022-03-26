@@ -82,7 +82,7 @@ namespace Game
                 Console.Clear();
             Console.WriteLine($"-{message}");  
         }
-        private static void WaitForKey()
+        internal static void WaitForKey()
         {
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("\n Press any key to continue...");

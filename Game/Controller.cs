@@ -13,6 +13,7 @@ namespace Game
         internal void Run()
         { 
             Play();
+            View.WaitForKey();
         }
         private void GoToMenu()
         {
