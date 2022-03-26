@@ -15,7 +15,7 @@ namespace Game
             Console.Clear();
             Console.WriteLine("Welcome to Ankh-Morpork");
         }
-        internal static void DisplayEvent(Event _event, bool newEvent = true)
+        internal static void ShowEvent(Event _event, bool newEvent = true)
         {
             if (newEvent)
             {

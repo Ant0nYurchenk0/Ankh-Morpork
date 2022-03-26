@@ -1,5 +1,7 @@
 {
   "PlayerDataPath": "..\\..\\Source\\Player.json",
   "GuildsPath": "..\\..\\Source\\Guilds.json",
-  "BeggarTypesPath": "..\\..\\Source\\Types\\Beggars.json"
+  "BeggarTypesPath": "..\\..\\Source\\Types\\Beggars.json",
+  "ClownTypesPath": "..\\..\\Source\\Types\\Clowns.json"
+
 }

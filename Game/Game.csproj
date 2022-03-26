@@ -50,6 +50,8 @@
     <Compile Include="AssassinsGuild.cs" />
     <Compile Include="BeggarNpc.cs" />
     <Compile Include="BeggarsGuild.cs" />
+    <Compile Include="ClownNpc.cs" />
+    <Compile Include="ClownsGuild.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Constant.cs" />
     <Compile Include="Controller.cs" />

@@ -126,30 +126,30 @@
       {
         "Name": "Margaret",
         "Type": "CompleteFool",
-        "MeetMessage": "Gimme something, dear stranger",
-        "AcceptMessage": "God bless you, adventurer",
-        "DenyMessage": "But PLEASE!!!"
+        "MeetMessage": "Hello adventurer, wanna check your IQ",
+        "AcceptMessage": "Wow, you just as dumb as I am, take it...",
+        "DenyMessage": "Meh"
       },
       {
         "Name": "Vasylii",
         "Type": "Tomfool",
-        "MeetMessage": "Hey Jimmy, gimme something",
-        "AcceptMessage": "God bless you, adventurer",
-        "DenyMessage": "But PLEASE!!!"
+        "MeetMessage": "Hello adventurer, wanna check your IQ",
+        "AcceptMessage": "Wow, you just as dumb as I am, take it...",
+        "DenyMessage": "Meh"
       },
       {
         "Name": "Peter",
         "Type": "Gull",
-        "MeetMessage": "Gimme something, dear stranger",
-        "AcceptMessage": "God bless you, adventurer",
-        "DenyMessage": "But PLEASE!!!"
+        "MeetMessage": "Hello adventurer, wanna check your IQ",
+        "AcceptMessage": "Wow, you just as dumb as I am, take it...",
+        "DenyMessage": "Meh"
       },
       {
         "Name": "Shiz",
         "Type": "Muggins",
-        "MeetMessage": "Gimme something, dear stranger",
-        "AcceptMessage": "God bless you, adventurer",
-        "DenyMessage": "But PLEASE!!!"
+        "MeetMessage": "Hello adventurer, wanna check your IQ",
+        "AcceptMessage": "Wow, you just as dumb as I am, take it...",
+        "DenyMessage": "Meh"
       }
     ]
   }

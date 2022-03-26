@@ -24,6 +24,7 @@ namespace Game
             _guilds.Add(new AssassinsGuild());
             _guilds.Add(new ThievesGuild());
             _guilds.Add(new BeggarsGuild());
+            _guilds.Add(new ClownsGuild());
         }
 
         private static List<Guild> _guilds;

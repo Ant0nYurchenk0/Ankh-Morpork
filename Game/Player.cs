@@ -31,6 +31,10 @@ namespace Game
                 HighScore = CurrentScore;
 
         }
+        internal void IncreaseMoney(double amount)
+        {
+            Money += amount;
+        }
         internal bool TryDecreaseMoney(double reward)
         {
             if (reward > Money)

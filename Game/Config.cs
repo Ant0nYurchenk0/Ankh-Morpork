@@ -14,6 +14,7 @@ namespace Game
         internal static string GuildsPath { get; private set; }
         internal static string PlayerDataPath { get ; private set; }
         internal static string BeggarTypesPath { get ; private set; }
+        internal static string ClownTypesPath { get ; private set; }
 
         internal static void LoadConfig()
         {
@@ -22,7 +23,7 @@ namespace Game
             PlayerDataPath = config[Path.PlayerDataConfigPath].ToString();
             GuildsPath = config[Path.GuildDataConfigPath].ToString();
             BeggarTypesPath = config[Path.BeggarTypesPath].ToString();
+            ClownTypesPath = config[Path.ClownTypesPath].ToString() ;
         }
-       
     }
 }

@@ -25,7 +25,7 @@ namespace Game
                 resolved = true;
             while (!resolved)
             {
-                View.DisplayEvent(this, isNew);
+                View.ShowEvent(this, isNew);
                 View.ShowInventory(player);
                 var options = View.ShowOptions(Option.ACCEPT, Option.DENY, Option.HELP);
                 switch (View.ReadResponce(options))
