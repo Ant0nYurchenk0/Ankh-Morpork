@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Game
 {
@@ -21,10 +19,10 @@ namespace Game
         internal static void LoadGuilds()
         {
             _guilds = new List<Guild>();
-            _guilds.Add(new AssassinsGuild());
-            _guilds.Add(new ThievesGuild());
-            _guilds.Add(new BeggarsGuild());
-            _guilds.Add(new ClownsGuild());
+            _guilds.Add(new AssassinsGuild(Constant.AssassinsGuild, ConsoleColor.DarkGray));
+            _guilds.Add(new ThievesGuild(Constant.ThievesGuild, ConsoleColor.DarkMagenta));
+            _guilds.Add(new BeggarsGuild(Constant.BeggarsGuild, ConsoleColor.DarkRed));
+            _guilds.Add(new ClownsGuild(Constant.ClownsGuild, ConsoleColor.DarkYellow));
         }
 
         private static List<Guild> _guilds;

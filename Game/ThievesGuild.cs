@@ -1,9 +1,5 @@
 ﻿using System;
 using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Game
 {
@@ -11,26 +7,17 @@ namespace Game
     {
         internal static double DefaultFee { get; private set; }
         private int _maxThieves;
-        protected override void LoadData()
+
+        public ThievesGuild(string guildName, ConsoleColor color = ConsoleColor.White) : base(guildName, color){}
+
+        protected override void InitFields(JObject guildData)
         {
-            var configStr = ServiceFile.ReadFile(Config.GuildsPath);
-            var guilds = JArray.Parse(configStr);
-            var guildData = (from guild in guilds.Children<JObject>()
-                             where guild[Constant.Name].ToString() == Constant.ThievesGuild
-                             select guild).FirstOrDefault();
-            Name = guildData[Constant.Name].ToString();
-            Description = guildData[Constant.Description].ToString();
             DefaultFee = (int)guildData[Constant.DefaultFee];
             _maxThieves = (int)guildData[Constant.MaxThieves];
         }
 
-        protected override void LoadNpcs()
+        protected override void CreateNpcs(JArray listOfNpcs)
         {
-            var npcJson = ServiceFile.ReadFile(Config.GuildsPath);
-            var listOfGuilds = JArray.Parse(npcJson);
-            var listOfNpcs = (from guild in listOfGuilds
-                              where guild[Constant.Name].ToString() == Constant.ThievesGuild
-                              select guild[Constant.Npcs]).FirstOrDefault() as JArray;
             var counter = 0;
             foreach (JObject npc in listOfNpcs.Children<JObject>())
             {
@@ -41,7 +28,6 @@ namespace Game
                                             npc[Constant.AcceptMessage].ToString(),
                                             npc[Constant.DenyMessage].ToString()));
             }
-            Color = ConsoleColor.DarkMagenta;
         }
         internal override Npc GetNpc()
         {

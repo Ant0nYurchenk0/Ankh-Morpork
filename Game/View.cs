@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Globalization;
 
 namespace Game
 {
@@ -17,10 +13,17 @@ namespace Game
         }
         internal static void ShowEvent(Event _event, bool newEvent = true)
         {
+            var secondsToWait = rnd.Next(1, 5);
             if (newEvent)
             {
-                Console.Write("\nAs you walk along the street, you meet... ");
-                Thread.Sleep(rnd.Next(1, 5)*1000);
+                Console.Write("\nAs you walk along the street, you meet");
+                Thread.Sleep(500);                    
+                for (int i = 0; i < secondsToWait*2; i++)
+                {
+                    Console.Write('.');
+                    Thread.Sleep(500);                    
+                }
+                Console.Write(' ');
             }
             Console.ForegroundColor = _event.Guild.Color;
             Console.Write($"{_event.Npc.Name} of {_event.Guild.Name}");

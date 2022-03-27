@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Game
 {
@@ -12,8 +11,10 @@ namespace Game
         public string Description { get; protected set; }
         public List<Npc> Npcs { get; protected set; }
         public ConsoleColor Color { get; protected set; }
-        internal Guild()
+        internal Guild(string guildName, ConsoleColor color = ConsoleColor.White)
         {
+            Name = guildName;
+            Color = color;
             LoadData();
             Npcs = new List<Npc>();
             LoadNpcs();
@@ -24,8 +25,26 @@ namespace Game
             var randomNpcNumber = rnd.Next(0, Npcs.Count);
             return Npcs[randomNpcNumber];
         }
-
-        protected abstract void LoadNpcs();
-        protected abstract void LoadData();
+        protected virtual void LoadNpcs()
+        {
+            var npcJson = ServiceFile.ReadFile(Config.GuildsPath);
+            var listOfGuilds = JArray.Parse(npcJson);
+            var listOfNpcs = (from guild in listOfGuilds
+                              where guild[Constant.Name].ToString() == Name
+                              select guild[Constant.Npcs]).FirstOrDefault() as JArray;
+            CreateNpcs(listOfNpcs);
+        }
+        protected virtual void LoadData()
+        {
+            var configStr = ServiceFile.ReadFile(Config.GuildsPath);
+            var guilds = JArray.Parse(configStr);
+            var guildData = (from guild in guilds.Children<JObject>()
+                             where guild[Constant.Name].ToString() == Name
+                             select guild).FirstOrDefault();
+            Description = guildData[Constant.Description].ToString();
+            InitFields(guildData);
+        }
+        protected virtual void InitFields(JObject guildData) { }
+        protected abstract void CreateNpcs(JArray listOfNpcs);
     }
 }

@@ -1,41 +1,41 @@
-[
+﻿[
   {
     "Name": "Assassins' Guild",
     "Description": "The Ankh-Morpork Assassins' Guild is a school for professional killers.\n\tIt is pretty easy to get into a trouble in the Shades and make enemies.\n\tSomeone definitely wants to kill you.\n\tYou can create a contract with the guild to kill the enemy first.\n\tEach assassin takes the contract only if not occupied.",
     "Npcs": [
       {
         "Name": "Robert von Schneider",
-        "MeetMessage": "I came to kill you!!! Do you want to redeem yourself?!",
-        "OfferMessage": "OK, how much you offer?",
-        "AcceptMessage": "Now we are talking!!! Now, get out, I wanna never see you again",
-        "DenyMessage": "WRONG! These are your last words!",
+        "MeetMessage": "Hey mister, hold on, I came to kill you! And bribery is TOTALLY not an option!!!",
+        "OfferMessage": "OK, how much you WILL DEFINITELY NOT give me?",
+        "AcceptMessage": "Fine, mister, see you soon",
+        "DenyMessage": "With the power given to me by the Assassins' Guild of Shades, I take your life!",
         "MinReward": 15,
         "MaxReward": 30
       },
       {
         "Name": "Alberto",
-        "MeetMessage": "I came to kill you!!! Do you want to redeem yourself?!",
-        "OfferMessage": "OK, how much you offer?",
-        "AcceptMessage": "Now we are talking!!! Now, get out, I wanna never see you again",
-        "DenyMessage": "WRONG! These are your last words!",
+        "MeetMessage": "Let's be clear, I came to kill you, you can redeem yourself, your action..?",
+        "OfferMessage": "What's your offer'",
+        "AcceptMessage": "Ok, fine",
+        "DenyMessage": "Ok, fine",
         "MinReward": 10,
         "MaxReward": 20
       },
       {
-        "Name": "Vitalii",
-        "MeetMessage": "I came to kill you!!! Do you want to redeem yourself?!",
+        "Name": "Vittorio",
+        "MeetMessage": "Hi, wanna live?",
         "OfferMessage": "OK, how much you offer?",
-        "AcceptMessage": "Now we are talking!!! Now, get out, I wanna never see you again",
-        "DenyMessage": "WRONG! These are your last words!",
+        "AcceptMessage": "Now, get out",
+        "DenyMessage": "Giuseppe's sending you best wishes...",
         "MinReward": 7,
         "MaxReward": 12
       },
       {
-        "Name": "Tamara Leonidovna",
-        "MeetMessage": "I came to kill you!!! Do you want to redeem yourself?!",
-        "OfferMessage": "OK, how much you offer?",
-        "AcceptMessage": "Now we are talking!!! Now, get out, I wanna never see you again",
-        "DenyMessage": "WRONG! These are your last words!",
+        "Name": "Tamara",
+        "MeetMessage": "Hey sweety, wanna have a lunch with me?",
+        "OfferMessage": "Pay for me",
+        "AcceptMessage": "Thanks for the drink, see you later",
+        "DenyMessage": "I am so sorry, I gotta go...",
         "MinReward": 15,
         "MaxReward": 19
       }
@@ -43,43 +43,43 @@
   },
   {
     "Name": "Thieves' Guild",
-    "Description": "You can get robbed anytime and will have to pay a standard fee in amount 10 AM$ to the guild member.\n\tBut total number of thefts during the game can�t be greater then socially acceptable number of thefts.",
+    "Description": "You can get robbed anytime and will have to pay a standard fee to the guild member.\n\tBut total number of thefts during the game can't be greater then socially acceptable number of thefts.",
     "Npcs": [
       {
-        "Name": "Tolik",
-        "MeetMessage": "Gop stop, money or life",
-        "AcceptMessage": "Nice",
+        "Name": "Benjamin",
+        "MeetMessage": "Hey, you, gimme your wallet",
+        "AcceptMessage": "Good lether",
+        "DenyMessage": "Your choice"
+      },
+      {
+        "Name": "Vitya",
+        "MeetMessage": "Gop stop",
+        "AcceptMessage": "...",
         "DenyMessage": "*Knife under the rib*"
       },
       {
-        "Name": "Grisha",
-        "MeetMessage": "Gop stop, money or life",
-        "AcceptMessage": "Nice",
-        "DenyMessage": "*Knife under the rib*"
-      },
-      {
-        "Name": "Vittorio",
-        "MeetMessage": "Gop stop, money or life",
-        "AcceptMessage": "Nice",
-        "DenyMessage": "*Knife under the rib*"
+        "Name": "Katy",
+        "MeetMessage": "Honey, whats that up in the sky",
+        "AcceptMessage": "*She disppeared as did your money*",
+        "DenyMessage": "*Her face is the last thing you see*"
       },
       {
         "Name": "Ibrahim",
-        "MeetMessage": "Gop stop, money or life",
-        "AcceptMessage": "Nice",
-        "DenyMessage": "*Knife under the rib*"
+        "MeetMessage": "جئت لأسرق منك",
+        "AcceptMessage": "لطيف",
+        "DenyMessage": "سأقتلك الآن"
       },
       {
-        "Name": "Abdul",
-        "MeetMessage": "Gop stop, money or life",
-        "AcceptMessage": "Nice",
-        "DenyMessage": "*Knife under the rib*"
+        "Name": "Franklin",
+        "MeetMessage": "Yo, nigga, money or life",
+        "AcceptMessage": "Wise choice",
+        "DenyMessage": "*BAM!*"
       },
       {
         "Name": "George",
-        "MeetMessage": "Gop stop, money or life",
-        "AcceptMessage": "Nice",
-        "DenyMessage": "*Knife under the rib*"
+        "MeetMessage": "Have some bucks?",
+        "AcceptMessage": "Yea? Fine",
+        "DenyMessage": "No? Fine"
       }
     ],
     "DefaultFee": 10,
@@ -87,11 +87,53 @@
   },
   {
     "Name": "Beggars' Guild",
-    "Description": "The Beggars' Guild is the oldest, largest and (perhaps surprisingly) richest of the city's many guilds.\n\tIt has a very strict code of practice and enforced hierarchy.\n\tAnyone attempting to move above his position or perform his sanctioned role out of his assigned area or time period is harshly dealt with.",
+    "Description": "The Beggars' Guild is the oldest, largest and (perhaps surprisingly) richest of the city's many guilds.\n\tIt has a very strict code of practice and enforced hierarchy.\n\tAnyone attempting to move above his position or perform his\n\tsanctioned role out of his assigned area or time period is harshly dealt with.",
     "Npcs": [
       {
-        "Name": "Tolik",
+        "Name": "Garold",
         "Type": "Twitcher",
+        "MeetMessage": "Toss a coin to your twitcher",
+        "AcceptMessage": "Thanks",
+        "DenyMessage": "Didn't wanna do that...!"
+      },
+      {
+        "Name": "Frank",
+        "Type": "Drooler",
+        "MeetMessage": "",
+        "AcceptMessage": "God bless you, adventurer",
+        "DenyMessage": "But PLEASE!!!"
+      },
+      {
+        "Name": "Marmelados",
+        "Type": "Dribbler",
+        "MeetMessage": "Wanna take a photo?",
+        "AcceptMessage": "It's a good one",
+        "DenyMessage": "Though I think you do..."
+      },
+      {
+        "Name": "Fat man",
+        "Type": "Mumbler",
+        "MeetMessage": "Asking for money is my job and duty",
+        "AcceptMessage": "He-he *slaps his belly*",
+        "DenyMessage": "*Sits on you*"
+      },
+      {
+        "Name": "Antonio",
+        "Type": "Mutterer",
+        "MeetMessage": "Dammi dei soldi",
+        "AcceptMessage": "Grazie",
+        "DenyMessage": "Ma per favore!!!"
+      },
+      {
+        "Name": "One-eye Walker",
+        "Type": "WalkingAlongShouter",
+        "MeetMessage": "Hey millionaire, wanna share your dirty money!?",
+        "AcceptMessage": "Good for you",
+        "DenyMessage": "This man killed my mom!!!!"
+      },
+      {
+        "Name": "Edward",
+        "Type": "Demander",
         "MeetMessage": "Gimme something, dear stranger",
         "AcceptMessage": "God bless you, adventurer",
         "DenyMessage": "But PLEASE!!!"
@@ -100,56 +142,98 @@
         "Name": "Tommy",
         "Type": "JimmyCaller",
         "MeetMessage": "Hey Jimmy, gimme something",
-        "AcceptMessage": "God bless you, adventurer",
-        "DenyMessage": "But PLEASE!!!"
+        "AcceptMessage": "Thanks, Jimmy",
+        "DenyMessage": "What the hell, Jimmy???"
       },
       {
-        "Name": "Alcogolic",
-        "Type": "BeerNeeder",
-        "MeetMessage": "Gimme something, dear stranger",
-        "AcceptMessage": "God bless you, adventurer",
-        "DenyMessage": "But PLEASE!!!"
+        "Name": "Billy",
+        "Type": "PennyForMeal",
+        "MeetMessage": "I wanna eat, adventurer, give me some money for meal",
+        "AcceptMessage": "Thanks a lot",
+        "DenyMessage": "You want me to starve!?"
       },
       {
-        "Name": "Edward",
+        "Name": "Valera the Bomzh",
         "Type": "TuppenceForTea",
-        "MeetMessage": "Gimme something, dear stranger",
-        "AcceptMessage": "God bless you, adventurer",
-        "DenyMessage": "But PLEASE!!!"
+        "MeetMessage": "Arrrkhh!!! Why'd wake me up, man",
+        "AcceptMessage": "Go your way",
+        "DenyMessage": "WTF, dude, you owe me"
+      },
+      {
+        "Name": "Valentine Half-glass",
+        "Type": "BeerNeeder",
+        "MeetMessage": "Hey, stranger, have some beer",
+        "AcceptMessage": "Ahhh, you saved my life",
+        "DenyMessage": "Have a swim then..."
       }
     ]
   },
   {
     "Name": "Clowns' Guild",
-    "Description": "Walking the city you might meet one of a very good friends.\n\tThe friend works as a fool and will ask you for help.\n\tYou have to pretend to be a fool (pick the same practice as a friend) and that�s how they can earn some money.",
+    "Description": "Walking the city you might meet one of a very good friends.\n\tThe friend works as a fool and will ask you for help.\n\tYou have to pretend to be a fool (pick the same practice as a friend).\n\tThat's how you can earn some money.",
     "Npcs": [
       {
         "Name": "Margaret",
-        "Type": "CompleteFool",
-        "MeetMessage": "Hello adventurer, wanna check your IQ",
-        "AcceptMessage": "Wow, you just as dumb as I am, take it...",
-        "DenyMessage": "Meh"
+        "Type": "Muggins",
+        "MeetMessage": "Hello adventurer",
+        "AcceptMessage": "Goodbye adventurer",
+        "DenyMessage": "Goodbye adventurer"
       },
       {
         "Name": "Vasylii",
-        "Type": "Tomfool",
-        "MeetMessage": "Hello adventurer, wanna check your IQ",
-        "AcceptMessage": "Wow, you just as dumb as I am, take it...",
-        "DenyMessage": "Meh"
-      },
-      {
-        "Name": "Peter",
         "Type": "Gull",
+        "MeetMessage": "You give me $1000, I give you $10000",
+        "AcceptMessage": "Ehmmmm, looks right, I guess...",
+        "DenyMessage": "Puf, lost opportunity"
+      },
+      {
+        "Name": "Vlad",
+        "Type": "Dupe",
+        "MeetMessage": "What card is in my pocket???",
+        "AcceptMessage": "... Right, I don't have pockets.... Whatever...'",
+        "DenyMessage": "Meh"
+      },
+      {
+        "Name": "Vadym",
+        "Type": "Butt",
+        "MeetMessage": "Give me a ride!!!",
+        "AcceptMessage": "Wiiiiiiiiiiii",
+        "DenyMessage": "You so boring"
+      },
+      {
+        "Name": "Andrew",
+        "Type": "Fool",
+        "MeetMessage": "Wanna have a drink?",
+        "AcceptMessage": "Thanks for the evening",
+        "DenyMessage": "Me too"
+      },
+      {
+        "Name": "Huan",
+        "Type": "Tomfool",
+        "MeetMessage": "Soy un idiota, quiero darte dinero.",
+        "AcceptMessage": "Aquí tomaló",
+        "DenyMessage": "No quieres no tienes que hacerlo"
+      },
+      {
+        "Name": "Ko-Ko-Ko",
+        "Type": "StupidFool",
         "MeetMessage": "Hello adventurer, wanna check your IQ",
         "AcceptMessage": "Wow, you just as dumb as I am, take it...",
         "DenyMessage": "Meh"
       },
       {
-        "Name": "Shiz",
-        "Type": "Muggins",
-        "MeetMessage": "Hello adventurer, wanna check your IQ",
-        "AcceptMessage": "Wow, you just as dumb as I am, take it...",
-        "DenyMessage": "Meh"
+        "Name": "Oldman Giuseppe",
+        "Type": "ArchFool",
+        "MeetMessage": "Once I was a boss...",
+        "AcceptMessage": "Take it, boy, I'm not gonna need it...",
+        "DenyMessage": "Fine, don't listen to me"
+      },
+      {
+        "Name": "Chel",
+        "Type": "CompleteFool",
+        "MeetMessage": "HA-HA-HA-HA-HA",
+        "AcceptMessage": "HA-HA",
+        "DenyMessage": "HA-HA-HA"
       }
     ]
   }
