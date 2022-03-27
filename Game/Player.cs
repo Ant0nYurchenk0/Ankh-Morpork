@@ -7,17 +7,19 @@ namespace Game
     internal class Player : IDisposable
     {
         internal bool IsAlive { get; set; }
-        internal int CurrentScore { get; private set; } = 0;
+        internal int CurrentScore { get; private set; }
         internal int HighScore { get; private set; }
-        internal double Money { get; private set; } = 100;
+        internal double Money { get; private set; }
         private JObject _playerData;
 
         internal Player()
         {
             IsAlive = true;
+            CurrentScore = 0;
             var configStr = ServiceFile.ReadFile(Config.PlayerDataPath);
             _playerData = JObject.Parse(configStr);
             HighScore = (int)_playerData[Constant.HighScore];
+            Money = (double)_playerData[Constant.Money];
         }
         internal void IncreaseScore()
         {

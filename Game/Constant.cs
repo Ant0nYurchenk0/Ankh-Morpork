@@ -25,6 +25,7 @@
         internal const string Type = "Type";
 
         internal const string HighScore = "HighScore";
+        internal const string Money = "Money";
 
     }
 }

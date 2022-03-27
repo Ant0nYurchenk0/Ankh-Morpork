@@ -9,7 +9,8 @@ namespace Game
         internal static void StartGame()
         {
             Console.Clear();
-            Console.WriteLine("Welcome to Ankh-Morpork");
+            Console.WriteLine("Welcome to Ankh-Morpork\n\n\tAnkh-Morpork lies on the River Ankh (the most polluted waterway on the\n\tDiscworld and reputedly solid enough to walk on),\n\twhere the fertile loam of the Sto Plains meets the Circle Sea. This,\n\tnaturally, puts it in an excellent trading position.\n\tThe central city divides more or less into Ankh(the posh part)\n\tand Morpork(the humble part, which includes the slum area known as\n\t\"the Shades\"), which are separated by the River Ankh.\n\n\tIt can be dangerous to walk the streets. So watch out!");
+            WaitForKey();
         }
         internal static void ShowEvent(Event _event, bool newEvent = true)
         {
@@ -44,7 +45,14 @@ namespace Game
         internal static void ShowMenu(Player player)
         {
             Console.Clear();
-            Console.WriteLine("\tANKH-MORPORK\n\t Main Menu");
+            Console.Write("\t");
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("ANKH-MORPORK");
+            Console.ResetColor();
+            Console.Write("\t ");
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("Main Menu");
+            Console.ResetColor();
             Console.WriteLine($"\nPlayer High Score: {player.HighScore}\n");
         }
         internal static string ReadResponce(int range)
@@ -96,7 +104,7 @@ namespace Game
             Console.Write("\t");
             Console.BackgroundColor = ConsoleColor.DarkGray;
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($" Money: {player.Money} ");
+            Console.WriteLine($" Money: {string.Format("{0:N2}", player.Money)} ");
             Console.ResetColor();
         }
     }

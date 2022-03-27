@@ -23,7 +23,7 @@ namespace Game
         {
             using (var writer = new StreamWriter(path, false))
             {
-                writer.Write(updatedData);
+                writer.WriteAsync(updatedData);
             }   
         }
     }
