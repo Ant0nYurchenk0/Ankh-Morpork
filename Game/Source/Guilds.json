@@ -14,8 +14,8 @@
       },
       {
         "Name": "Alberto",
-        "MeetMessage": "Let's be clear, I came to kill you, you can redeem yourself, your action..?",
-        "OfferMessage": "What's your offer'",
+        "MeetMessage": "Let's be clear, I came to kill you, you can redeem yourself, what do you do?",
+        "OfferMessage": "What's your offer",
         "AcceptMessage": "Ok, fine",
         "DenyMessage": "Ok, fine",
         "MinReward": 10,
@@ -48,7 +48,7 @@
       {
         "Name": "Benjamin",
         "MeetMessage": "Hey, you, gimme your wallet",
-        "AcceptMessage": "Good lether",
+        "AcceptMessage": "Nice lether",
         "DenyMessage": "Your choice"
       },
       {
@@ -58,7 +58,7 @@
         "DenyMessage": "*Knife under the rib*"
       },
       {
-        "Name": "Katy",
+        "Name": "Katie",
         "MeetMessage": "Honey, whats that up in the sky",
         "AcceptMessage": "*She disppeared as did your money*",
         "DenyMessage": "*Her face is the last thing you see*"
@@ -99,9 +99,9 @@
       {
         "Name": "Frank",
         "Type": "Drooler",
-        "MeetMessage": "",
-        "AcceptMessage": "God bless you, adventurer",
-        "DenyMessage": "But PLEASE!!!"
+        "MeetMessage": "The best is yet to come...",
+        "AcceptMessage": "Feels like summer wind",
+        "DenyMessage": "I'll do it my way!"
       },
       {
         "Name": "Marmelados",
@@ -111,11 +111,11 @@
         "DenyMessage": "Though I think you do..."
       },
       {
-        "Name": "Fat man",
+        "Name": "Billy",
         "Type": "Mumbler",
         "MeetMessage": "Asking for money is my job and duty",
-        "AcceptMessage": "He-he *slaps his belly*",
-        "DenyMessage": "*Sits on you*"
+        "AcceptMessage": "Ok, good",
+        "DenyMessage": "No, that's not how it works..."
       },
       {
         "Name": "Antonio",
@@ -125,7 +125,7 @@
         "DenyMessage": "Ma per favore!!!"
       },
       {
-        "Name": "One-eye Walker",
+        "Name": "One-eye Hog",
         "Type": "WalkingAlongShouter",
         "MeetMessage": "Hey millionaire, wanna share your dirty money!?",
         "AcceptMessage": "Good for you",
@@ -134,9 +134,9 @@
       {
         "Name": "Edward",
         "Type": "Demander",
-        "MeetMessage": "Gimme something, dear stranger",
+        "MeetMessage": "Gimme something",
         "AcceptMessage": "God bless you, adventurer",
-        "DenyMessage": "But PLEASE!!!"
+        "DenyMessage": "Why not!?"
       },
       {
         "Name": "Tommy",
@@ -146,14 +146,14 @@
         "DenyMessage": "What the hell, Jimmy???"
       },
       {
-        "Name": "Billy",
+        "Name": "Fat Man",
         "Type": "PennyForMeal",
         "MeetMessage": "I wanna eat, adventurer, give me some money for meal",
-        "AcceptMessage": "Thanks a lot",
+        "AcceptMessage": "He-he *slaps his belly*",
         "DenyMessage": "You want me to starve!?"
       },
       {
-        "Name": "Valera the Bomzh",
+        "Name": "Valera",
         "Type": "TuppenceForTea",
         "MeetMessage": "Arrrkhh!!! Why'd wake me up, man",
         "AcceptMessage": "Go your way",
@@ -180,28 +180,28 @@
         "DenyMessage": "Goodbye adventurer"
       },
       {
-        "Name": "Vasylii",
+        "Name": "Ilon",
         "Type": "Gull",
         "MeetMessage": "You give me $1000, I give you $10000",
         "AcceptMessage": "Ehmmmm, looks right, I guess...",
         "DenyMessage": "Puf, lost opportunity"
       },
       {
-        "Name": "Vlad",
+        "Name": "Pchel",
         "Type": "Dupe",
         "MeetMessage": "What card is in my pocket???",
-        "AcceptMessage": "... Right, I don't have pockets.... Whatever...'",
+        "AcceptMessage": "... Right, I don't have pockets.... Whatever...",
         "DenyMessage": "Meh"
       },
       {
-        "Name": "Vadym",
+        "Name": "Freddy",
         "Type": "Butt",
         "MeetMessage": "Give me a ride!!!",
         "AcceptMessage": "Wiiiiiiiiiiii",
         "DenyMessage": "You so boring"
       },
       {
-        "Name": "Andrew",
+        "Name": "Maximus",
         "Type": "Fool",
         "MeetMessage": "Wanna have a drink?",
         "AcceptMessage": "Thanks for the evening",

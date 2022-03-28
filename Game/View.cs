@@ -5,7 +5,6 @@ namespace Game
 {
     internal static class View
     {
-        private static Random rnd = new Random();
         internal static void StartGame()
         {
             Console.Clear();
@@ -14,7 +13,7 @@ namespace Game
         }
         internal static void ShowEvent(Event _event, bool newEvent = true)
         {
-            var secondsToWait = rnd.Next(1, 5);
+            var secondsToWait = EventBuilder.Random.Next(1, 5);
             if (newEvent)
             {
                 Console.Write("\nAs you walk along the street, you meet");

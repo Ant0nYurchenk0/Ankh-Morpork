@@ -12,7 +12,7 @@ namespace Game
 
         internal static void LoadConfig()
         {
-            var configString = ServiceFile.ReadFile(ConfigPath);
+            var configString = ServiceFile.ReadFileCache(ConfigPath);
             var config = JObject.Parse(configString);
             PlayerDataPath = config[Path.PlayerDataConfigPath].ToString();
             GuildsPath = config[Path.GuildDataConfigPath].ToString();

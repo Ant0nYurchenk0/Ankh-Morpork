@@ -21,13 +21,12 @@ namespace Game
         }
         internal virtual Npc GetNpc()
         {
-            var rnd = new Random();
-            var randomNpcNumber = rnd.Next(0, Npcs.Count);
+            var randomNpcNumber = EventBuilder.Random.Next(0, Npcs.Count);
             return Npcs[randomNpcNumber];
         }
         protected virtual void LoadNpcs()
         {
-            var npcJson = ServiceFile.ReadFile(Config.GuildsPath);
+            var npcJson = ServiceFile.ReadFileCache(Config.GuildsPath);
             var listOfGuilds = JArray.Parse(npcJson);
             var listOfNpcs = (from guild in listOfGuilds
                               where guild[Constant.Name].ToString() == Name
@@ -36,7 +35,7 @@ namespace Game
         }
         protected virtual void LoadData()
         {
-            var configStr = ServiceFile.ReadFile(Config.GuildsPath);
+            var configStr = ServiceFile.ReadFileCache(Config.GuildsPath);
             var guilds = JArray.Parse(configStr);
             var guildData = (from guild in guilds.Children<JObject>()
                              where guild[Constant.Name].ToString() == Name

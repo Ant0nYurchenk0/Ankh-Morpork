@@ -9,7 +9,7 @@ namespace Game
 
         protected override void CreateNpcs(JArray listOfNpcs)
         {
-            var typesJson = ServiceFile.ReadFile(Config.BeggarTypesPath);
+            var typesJson = ServiceFile.ReadFileCache(Config.BeggarTypesPath);
             var types = JObject.Parse(typesJson);
             foreach (JObject npc in listOfNpcs.Children<JObject>())
             {

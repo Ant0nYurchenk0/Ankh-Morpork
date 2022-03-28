@@ -10,7 +10,7 @@ namespace Game
         public string OfferMessage { get; protected set; }
         internal override Npc GetNpc()
         {
-            RandomizeAvailability(); // randomize the availability of each assassin
+            RandomizeAvailability();
             return base.GetNpc();
         }
         internal bool CheckOrder(int reward)
@@ -28,10 +28,9 @@ namespace Game
         }
         private void RandomizeAvailability()
         {
-            var rnd = new Random();
             foreach (AssassinNpc npc in Npcs)
             {
-                npc.IsBusy = Convert.ToBoolean(rnd.Next(0, 2));  
+                npc.IsBusy = Convert.ToBoolean(EventBuilder.Random.Next(0, 2));  
             }
         }
         protected override void CreateNpcs(JArray listOfNpcs)

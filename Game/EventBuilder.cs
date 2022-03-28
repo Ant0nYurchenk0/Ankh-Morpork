@@ -6,13 +6,13 @@ namespace Game
 {
     internal static class EventBuilder
     {
+        internal readonly static Random Random = new Random();
         internal static Event CreateEvent()
         {
-            var rnd = new Random();
             _guilds = (from guild in _guilds
                       where guild.Npcs.Count > 0
                       select guild).ToList();
-            var randomGuildNumber = rnd.Next(0, _guilds.Count);
+            var randomGuildNumber = Random.Next(0, _guilds.Count);
             var selectedGuild = _guilds[randomGuildNumber];
             return new Event(selectedGuild.GetNpc(), selectedGuild);
         }

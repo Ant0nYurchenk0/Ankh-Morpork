@@ -8,7 +8,7 @@ namespace Game
         internal ClownsGuild(string guildName, ConsoleColor color = ConsoleColor.White) : base(guildName, color) { }
         protected override void CreateNpcs(JArray listOfNpcs)
         {
-            var typesJson = ServiceFile.ReadFile(Config.ClownTypesPath);
+            var typesJson = ServiceFile.ReadFileCache(Config.ClownTypesPath);
             var types = JObject.Parse(typesJson);
             foreach (JObject npc in listOfNpcs.Children<JObject>())
             {
