@@ -12,6 +12,7 @@
         {
             if (player.TryDecreaseMoney(Fee))
             {
+                base.Accept(player);
                 View.ShowMessage(AcceptMessage);
                 return;
             }

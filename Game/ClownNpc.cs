@@ -11,6 +11,7 @@
 
         internal override void Accept(Player player)
         {
+            base.Accept(player);
             View.ShowMessage(AcceptMessage);
             player.IncreaseMoney(Reward);
         }

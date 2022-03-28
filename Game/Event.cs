@@ -32,7 +32,7 @@
                         break;
                     case "3":
                         Help();
-                        break;
+                        break;                 
                 }
                 isNew = false;
             }
@@ -41,7 +41,6 @@
         {
             Npc.Accept(player);
             resolved = true;
-            player.IncreaseScore();
         }
         private void Deny(Player player)
         {

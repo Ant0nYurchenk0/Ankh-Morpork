@@ -9,6 +9,7 @@
         {
             if (player.TryDecreaseMoney(ThievesGuild.DefaultFee))
             {
+                base.Accept(player);
                 View.ShowMessage(AcceptMessage);
                 return;
             }

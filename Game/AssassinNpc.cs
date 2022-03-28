@@ -24,6 +24,7 @@
             if (player.TryDecreaseMoney(reward)
                 && Guild.CheckOrder(reward))
             {
+                base.Accept(player);
                 View.ShowMessage(AcceptMessage);
                 return;
             }

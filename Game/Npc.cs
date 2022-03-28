@@ -13,7 +13,10 @@
             AcceptMessage = acceptMessage;
             DenyMessage = denyMessage;
         }
-        internal abstract void Accept(Player player);
+        internal virtual void Accept(Player player)
+        {
+            player.IncreaseScore();
+        }
         internal virtual void Deny(Player player)
         {
             View.ShowMessage(DenyMessage);
