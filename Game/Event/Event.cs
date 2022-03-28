@@ -49,7 +49,7 @@
         }
         private void Help()
         { 
-            View.ShowMessage(this.Guild.Description);
+            View.ShowMessage(Guild.Description);
         }
     }
 }
