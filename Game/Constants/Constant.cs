@@ -1,31 +1,31 @@
 ﻿namespace Game
 {
-    internal static class Constant
+    public static class Constant
     {
-        internal const string Name = "Name";
-        internal const string Npcs = "Npcs";
-        internal const string Description = "Description";
+        public const string Name = "Name";
+        public const string Npcs = "Npcs";
+        public const string Description = "Description";
 
-        internal const string AssassinsGuild = "Assassins' Guild";
-        internal const string ThievesGuild = "Thieves' Guild";
-        internal const string BeggarsGuild = "Beggars' Guild";
-        internal const string ClownsGuild = "Clowns' Guild";
+        public const string AssassinsGuild = "Assassins' Guild";
+        public const string ThievesGuild = "Thieves' Guild";
+        public const string BeggarsGuild = "Beggars' Guild";
+        public const string ClownsGuild = "Clowns' Guild";
 
-        internal const string MeetMessage = "MeetMessage";
-        internal const string AcceptMessage = "AcceptMessage";
-        internal const string DenyMessage = "DenyMessage";
+        public const string MeetMessage = "MeetMessage";
+        public const string AcceptMessage = "AcceptMessage";
+        public const string DenyMessage = "DenyMessage";
 
-        internal const string OfferMessage = "OfferMessage";
-        internal const string MinReward = "MinReward";
-        internal const string MaxReward = "MaxReward";
+        public const string OfferMessage = "OfferMessage";
+        public const string MinReward = "MinReward";
+        public const string MaxReward = "MaxReward";
 
-        internal const string MaxThieves = "MaxThieves";
-        internal const string DefaultFee = "DefaultFee";
+        public const string MaxThieves = "MaxThieves";
+        public const string DefaultFee = "DefaultFee";
 
-        internal const string Type = "Type";
+        public const string Type = "Type";
 
-        internal const string HighScore = "HighScore";
-        internal const string Money = "Money";
+        public const string HighScore = "HighScore";
+        public const string Money = "Money";
 
     }
 }

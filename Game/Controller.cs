@@ -1,10 +1,10 @@
 ﻿namespace Game
 {
-    internal class Controller
+    public class Controller
     {
         private Player _player;
         private bool _gameStarted = false;
-        internal void Run()
+        public void Run()
         { 
             Play();
             View.WaitForKey();
@@ -45,7 +45,7 @@
             _gameStarted = false;
             Run();
         }
-        internal void Init()
+        public void Init()
         {
             Config.ConfigPath = Path.ConfigPath;
             Config.LoadConfig();

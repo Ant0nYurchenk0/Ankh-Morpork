@@ -2,17 +2,19 @@
 
 namespace Game
 {
-    internal static class Config
+    public static class Config
     {
-        internal static string ConfigPath { get; set; }
-        internal static string GuildsPath { get; private set; }
-        internal static string PlayerDataPath { get ; private set; }
-        internal static string BeggarTypesPath { get ; private set; }
-        internal static string ClownTypesPath { get ; private set; }
+        public static string ConfigPath { get; set; }
+        public static string GuildsPath { get; private set; }
+        public static string PlayerDataPath { get ; private set; }
+        public static string BeggarTypesPath { get ; private set; }
+        public static string ClownTypesPath { get ; private set; }
+        private static IFileService _serviceFile; 
 
-        internal static void LoadConfig()
+        public static void LoadConfig()
         {
-            var configString = ServiceFile.ReadFileCache(ConfigPath);
+            _serviceFile = new FileService();
+            var configString = _serviceFile.ReadFileCache(ConfigPath);
             var config = JObject.Parse(configString);
             PlayerDataPath = config[Path.PlayerDataConfigPath].ToString();
             GuildsPath = config[Path.GuildDataConfigPath].ToString();

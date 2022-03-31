@@ -1,23 +1,23 @@
 ﻿namespace Game
 {
-    internal struct Event
+    public class Event : IEvent
     {
-        internal Npc Npc { get; private set; }
-        internal Guild Guild { get; private set; }
-        private bool resolved;
-        internal Event(Npc npc, Guild guild)
+        public INpc Npc { get; private set; }
+        public IGuild Guild { get; private set; }
+        public bool Resolved { get; private set; }
+        public Event(INpc npc, IGuild guild)
         {
             Npc = npc;
             Guild = guild;
-            resolved = false;
+            Resolved = false;
 
         }
-        internal void Resolve(Player player)
+        public void Resolve(IPlayer player)
         {
             var isNew = true;
             if (Npc == null)
-                resolved = true;
-            while (!resolved)
+                Resolved = true;
+            while (!Resolved)
             {
                 View.ShowEvent(this, isNew);
                 View.ShowInventory(player);
@@ -25,30 +25,30 @@
                 switch (View.ReadResponce(options))
                 {
                     case "1":
-                        Accept(player);   
+                        Accept(player);
                         break;
                     case "2":
                         Deny(player);
                         break;
                     case "3":
                         Help();
-                        break;                 
+                        break;
                 }
                 isNew = false;
             }
         }
-        private void Accept(Player player)
+        private void Accept(IPlayer player)
         {
             Npc.Accept(player);
-            resolved = true;
+            Resolved = true;
         }
-        private void Deny(Player player)
+        private void Deny(IPlayer player)
         {
             Npc.Deny(player);
-            resolved = true;
+            Resolved = true;
         }
         private void Help()
-        { 
+        {
             View.ShowMessage(Guild.Description);
         }
     }

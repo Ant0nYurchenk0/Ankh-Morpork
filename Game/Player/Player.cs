@@ -4,35 +4,37 @@ using Newtonsoft.Json;
 
 namespace Game
 {
-    internal class Player : IDisposable
+    public class Player : IDisposable, IPlayer
     {
-        internal bool IsAlive { get; set; }
-        internal int CurrentScore { get; private set; }
-        internal int HighScore { get; private set; }
-        internal double Money { get; private set; }
+        public bool IsAlive { get; set; }
+        public int CurrentScore { get; private set; }
+        public int HighScore { get; private set; }
+        public double Money { get; private set; }
         private JObject _playerData;
+        private static IFileService _serviceFile;
 
-        internal Player()
+        public Player(IFileService serviceFile = null)
         {
+            _serviceFile = serviceFile ?? new FileService();
             IsAlive = true;
             CurrentScore = 0;
-            var configStr = ServiceFile.ReadFile(Config.PlayerDataPath);
+            var configStr = _serviceFile.ReadFile(Config.PlayerDataPath);
             _playerData = JObject.Parse(configStr);
-            HighScore = (int)_playerData[Constant.HighScore];
-            Money = (double)_playerData[Constant.Money];
+            HighScore = (int)(_playerData[Constant.HighScore] ?? 0);
+            Money = (double)(_playerData[Constant.Money] ?? 0);
         }
-        internal void IncreaseScore()
+        public void IncreaseScore()
         {
             CurrentScore++;
-            if(CurrentScore >= HighScore)
+            if (CurrentScore >= HighScore)
                 HighScore = CurrentScore;
 
         }
-        internal void IncreaseMoney(double amount)
+        public void IncreaseMoney(double amount)
         {
             Money += amount;
         }
-        internal bool TryDecreaseMoney(double reward)
+        public bool TryDecreaseMoney(double reward)
         {
             if (reward > Money)
                 return false;
@@ -42,7 +44,7 @@ namespace Game
                 return true;
             }
         }
-        internal void Reset()
+        public void Reset()
         {
             HighScore = 0;
             LogData();
@@ -58,7 +60,7 @@ namespace Game
         {
             _playerData[Constant.HighScore] = HighScore;
             string updatedData = JsonConvert.SerializeObject(_playerData);
-            ServiceFile.WriteToFile(Config.PlayerDataPath, updatedData);
+            _serviceFile.WriteToFile(Config.PlayerDataPath, updatedData);
         }
     }
 }

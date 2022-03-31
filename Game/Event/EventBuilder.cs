@@ -4,19 +4,17 @@ using System.Linq;
 
 namespace Game
 {
-    internal static class EventBuilder
+    public static class EventBuilder
     {
-        internal readonly static Random Random = new Random();
-        internal static Event CreateEvent()
+        public readonly static Random Random = new Random();
+        public static Event CreateEvent()
         {
-            _guilds = (from guild in _guilds
-                      where guild.Npcs.Count > 0
-                      select guild).ToList();
+            _guilds = _guilds.Where(g => g.Npcs.Count > 0).ToList();
             var randomGuildNumber = Random.Next(0, _guilds.Count);
             var selectedGuild = _guilds[randomGuildNumber];
             return new Event(selectedGuild.GetNpc(), selectedGuild);
         }
-        internal static void LoadGuilds()
+        public static void LoadGuilds()
         {
             _guilds = new List<Guild>();
             _guilds.Add(new AssassinsGuild(Constant.AssassinsGuild, ConsoleColor.DarkGray));
@@ -25,6 +23,6 @@ namespace Game
             _guilds.Add(new ClownsGuild(Constant.ClownsGuild, ConsoleColor.DarkYellow));
         }
 
-        private static List<Guild> _guilds;
+        private static List<Guild> _guilds { get;  set; }
     }
 }

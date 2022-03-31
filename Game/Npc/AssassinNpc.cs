@@ -1,14 +1,15 @@
 ﻿namespace Game
 {
-    internal class AssassinNpc : Npc
+    public class AssassinNpc : Npc
     {
-        internal double MinReward { get; private set; }
-        internal double MaxReward { get; private set; }
-        internal string OfferMessage { get; private set; }
-        internal bool IsBusy { get; set; }
-        internal AssassinsGuild Guild { get; private set; }
+        public double MinReward { get; private set; }
+        public double MaxReward { get; private set; }
+        public string OfferMessage { get; private set; }
+        public bool IsBusy { get; set; }
+        public IAssassinsGuild Guild { get; private set; }
 
-        public AssassinNpc(string name, string meetMessage, string acceptMessage, string denyMessage, string offerMessage, int minReward, int maxReward, AssassinsGuild guild) 
+        public AssassinNpc(string name, string meetMessage, string acceptMessage, string denyMessage, 
+            string offerMessage, double minReward, double maxReward, IAssassinsGuild guild) 
             : base(name, meetMessage, acceptMessage, denyMessage)
         {
             MinReward = minReward;
@@ -17,10 +18,10 @@
             Guild = guild;
         }
 
-        internal override void Accept(Player player)
+        public override void Accept(IPlayer player)
         {
             View.ShowMessage(OfferMessage);
-            var reward = int.Parse(View.ReadResponce(0));
+            var reward = double.Parse(View.ReadResponce(0));
             if (player.TryDecreaseMoney(reward)
                 && Guild.CheckOrder(reward))
             {

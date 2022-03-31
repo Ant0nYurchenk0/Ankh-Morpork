@@ -1,14 +1,14 @@
 ﻿namespace Game
 {
-    internal class BeggarNpc : Npc
+    public class BeggarNpc : Npc
     {
-        internal double Fee { get; private set; }
-        internal BeggarNpc(string name, string meetMessage, string acceptMessage, string denyMessage, double fee)
+        public double Fee { get; private set; }
+        public BeggarNpc(string name, string meetMessage, string acceptMessage, string denyMessage, double fee)
             : base(name, meetMessage, acceptMessage, denyMessage)
         {
             Fee = fee;  
         }
-        internal override void Accept(Player player)
+        public override void Accept(IPlayer player)
         {
             if (player.TryDecreaseMoney(Fee))
             {

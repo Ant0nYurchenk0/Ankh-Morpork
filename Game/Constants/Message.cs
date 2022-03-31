@@ -1,9 +1,9 @@
 ﻿namespace Game
 {
-    internal static class Message
+    public static class Message
     {
-        internal const string FileAccessError = "Error: Source file absent or damaged";
-        internal const string ProgramEnd = "Program ended";
+        public const string FileAccessError = "Error: Source file absent or damaged";
+        public const string ProgramEnd = "Program ended";
     }
 
 }

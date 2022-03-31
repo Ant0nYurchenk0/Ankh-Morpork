@@ -1,12 +1,12 @@
 ﻿namespace Game
 {
-    internal static class Option
+    public static class Option
     {
-        internal const string ACCEPT = "Accept";
-        internal const string DENY = "Deny";
-        internal const string HELP = "Wait, What?";
-        internal const string QUIT = "Quit";
-        internal const string START = "Start Game";
-        internal const string RESET = "Reset Player";
+        public const string ACCEPT = "Accept";
+        public const string DENY = "Deny";
+        public const string HELP = "Wait, What?";
+        public const string QUIT = "Quit";
+        public const string START = "Start Game";
+        public const string RESET = "Reset Player";
     }
 }

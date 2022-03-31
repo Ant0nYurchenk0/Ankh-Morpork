@@ -2,7 +2,7 @@
 
 namespace Game
 {
-    internal class EndOfGameException : Exception
+    public class EndOfGameException : Exception
     {
         public EndOfGameException() : base() { }
         public EndOfGameException(string message) : base(message) { }

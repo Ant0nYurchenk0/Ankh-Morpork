@@ -1,13 +1,13 @@
 ﻿namespace Game
 {
-    internal static class Path
+    public static class Path
     {
-        internal const string ConfigPath = "Config.json";
+        public const string ConfigPath = "Config.json";
 
-        internal const string PlayerDataConfigPath = "PlayerDataPath";
-        internal const string GuildDataConfigPath = "GuildsPath";
-        internal const string BeggarTypesPath = "BeggarTypesPath";
-        internal const string ClownTypesPath = "ClownTypesPath";
+        public const string PlayerDataConfigPath = "PlayerDataPath";
+        public const string GuildDataConfigPath = "GuildsPath";
+        public const string BeggarTypesPath = "BeggarTypesPath";
+        public const string ClownTypesPath = "ClownTypesPath";
     }
 
 }

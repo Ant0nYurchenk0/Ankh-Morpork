@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 namespace Game
 {
-    internal static class ServiceFile
+    public class FileService :IFileService
     {
         private static Dictionary<string, string> _cache = new Dictionary<string, string>();
-        public static string ReadFileCache(string path)
+        public string ReadFileCache(string path)
         {
             var content = string.Empty;
             if (_cache.TryGetValue(path, out var cachedContent)) return cachedContent;
@@ -15,7 +15,7 @@ namespace Game
             _cache.Add(path, content);
             return content;
         }
-        public static string ReadFile(string path)
+        public string ReadFile(string path)
         {
             var result = new StringBuilder();
             using (var reader = new StreamReader(File.OpenRead(path)))
@@ -29,7 +29,7 @@ namespace Game
             return result.ToString();
         }
 
-        internal static void WriteToFile(string path, string updatedData)
+        public void WriteToFile(string path, string updatedData)
         {
             using (var writer = new StreamWriter(path, false))
             {
