@@ -29,8 +29,7 @@ namespace Npc
         {
             _fakeGuild.Setup(r => r.CheckOrder(It.IsAny<double>())).Returns(guildResponce);
             _player.Setup(p=>p.TryDecreaseMoney(It.IsAny<double>())).Returns(playerResponce);
-            var input = new StringReader("1");
-            Console.SetIn(input);
+            Console.SetIn(new StringReader("1"));
             var assassinNpc = new AssassinNpc(FakeNpcName, string.Empty, string.Empty, string.Empty, string.Empty, 0, 0, _fakeGuild.Object);
 
             assassinNpc.Accept(_player.Object);

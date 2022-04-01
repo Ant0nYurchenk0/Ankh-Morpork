@@ -26,7 +26,7 @@ namespace Npc
             beggarNpc.Accept(_player.Object);
 
             _player.Verify(p => p.TryDecreaseMoney(_fee), Times.Once);
-            Assert.That(_player.Object.IsAlive, Is.True);
+            Assert.That(_player.Object.IsAlive == true);
         }
         [Test]
         public void Deny_WhenCalled_PlayerIsDead()
@@ -35,7 +35,7 @@ namespace Npc
 
             beggarNpc.Deny(_player.Object);
 
-            Assert.That(_player.Object.IsAlive, Is.False);
+            Assert.That(_player.Object.IsAlive == false);
         }
     }
 }

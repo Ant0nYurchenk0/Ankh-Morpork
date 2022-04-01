@@ -8,7 +8,9 @@ namespace Game
         {
             try
             {
+                var view = new View();
                 var controller = new Controller();
+                controller.View = view; 
                 controller.Init();
                 controller.Run();
             }

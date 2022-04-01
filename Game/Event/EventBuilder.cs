@@ -9,7 +9,7 @@ namespace Game
         public readonly static Random Random = new Random();
         public static Event CreateEvent()
         {
-            _guilds = _guilds.Where(g => g.Npcs.Count > 0).ToList();
+            _guilds = _guilds.Where(g => g.IsActive).ToList();
             var randomGuildNumber = Random.Next(0, _guilds.Count);
             var selectedGuild = _guilds[randomGuildNumber];
             return new Event(selectedGuild.GetNpc(), selectedGuild);

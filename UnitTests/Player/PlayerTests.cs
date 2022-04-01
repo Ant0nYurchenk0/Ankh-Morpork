@@ -19,7 +19,6 @@ namespace Player
                 Constant.HighScore, _highscore, Constant.Money, _money)+"}");
             _fakeFileService.Setup(f => f.WriteToFile(Config.PlayerDataPath, It.IsAny<string>()));
             _player = new Game.Player(_fakeFileService.Object);
-
         }
         [Test]
         public void IncreaseScore_CurrentScoreIsZero_CurrentScoreOneMoreThanInitial()

@@ -17,8 +17,7 @@ namespace Guild
         {
             _fakeNpcArray = new JArray();
             _fakeNpc = new JObject();
-            var name = new JValue(FakeNpcName);
-            _fakeNpc[Constant.Name] = name;
+            _fakeNpc[Constant.Name] = new JValue(FakeNpcName);
             _fakeNpcArray.Add(_fakeNpc);
             _dataRetriever = new Mock<IDataRetrieveService>();
             _dataRetriever.Setup(d => d.RetrieveNpcs(It.IsAny<string>(), It.IsAny<string>())).Returns(_fakeNpcArray);
@@ -28,7 +27,9 @@ namespace Guild
         public void GetNpc_OneNpcInList_NpcThatIsInList()
         {
             var assassinsGuild = new AssassinsGuild(Constant.AssassinsGuild, default, _dataRetriever.Object);
+
             var npc = assassinsGuild.GetNpc();
+
             Assert.IsTrue(npc.Name == FakeNpcName);
             Assert.IsTrue(assassinsGuild.Npcs.Contains(npc));
         }

@@ -17,8 +17,8 @@ namespace Guild
         {
             _fakeNpcArray = new JArray();
             _fakeNpc = new JObject();
-            var name = new JValue(FakeNpcName);
-            _fakeNpc[Constant.Name] = name;
+            _fakeNpc[Constant.Name] = new JValue(FakeNpcName);
+            _fakeNpcArray.Add(_fakeNpc);
             _dataRetriever = new Mock<IDataRetrieveService>();
             _dataRetriever.Setup(d => d.RetrieveNpcs(It.IsAny<string>(), It.IsAny<string>())).Returns(_fakeNpcArray);
             _dataRetriever.Setup(d => d.RetrieveGuildData(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).Returns("");
@@ -27,18 +27,12 @@ namespace Guild
         [Test]
         public void GetNpc_OneNpcInList_NpcThatIsInList()
         {
-            PushOneNpc();
             var beggarsGuild = new ClownsGuild(Constant.BeggarsGuild, default, _dataRetriever.Object);
 
             var npc = beggarsGuild.GetNpc();
 
             Assert.That(npc.Name == FakeNpcName);
             Assert.That(beggarsGuild.Npcs.Contains(npc));
-        }
-
-        private void PushOneNpc()
-        {
-            _fakeNpcArray.Add(_fakeNpc);
         }
     }
 }

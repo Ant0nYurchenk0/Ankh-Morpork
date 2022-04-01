@@ -14,6 +14,7 @@ namespace Npc
         public void SetUp()
         {
             _player = new Mock<IPlayer>();
+            _player.SetupProperty(p => p.IsAlive, true);
         }
 
         [Test]
@@ -33,6 +34,8 @@ namespace Npc
             clownNpc.Deny(_player.Object);
 
             _player.Verify(p => p.IncreaseMoney(It.IsAny<double>()), Times.Never);
+            _player.Verify(p => p.TryDecreaseMoney(It.IsAny<double>()), Times.Never);
+            Assert.That(_player.Object.IsAlive == true);
         }
     }
 }

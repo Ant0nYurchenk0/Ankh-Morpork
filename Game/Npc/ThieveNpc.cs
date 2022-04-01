@@ -2,8 +2,10 @@
 {
     public class ThieveNpc : Npc
     {
-        public ThieveNpc(string name, string meetMessage, string acceptMessage, string denyMessage, IThievesGuild guild) 
-            : base(name, meetMessage, acceptMessage, denyMessage)
+        public ThieveNpc(string name, string meetMessage, string acceptMessage, string denyMessage, 
+            IThievesGuild guild, 
+            IView view = null) 
+            : base(name, meetMessage, acceptMessage, denyMessage, view)
         {
             _guild = guild;
         }
@@ -13,7 +15,7 @@
             if (player.TryDecreaseMoney(_guild.DefaultFee))
             {
                 base.Accept(player);
-                View.ShowMessage(AcceptMessage);
+                _view.ShowMessage(AcceptMessage);
                 return;
             }
             else

@@ -3,25 +3,25 @@ using System.Threading;
 
 namespace Game
 {
-    public static class View
+    public class View : IView
     {
-        public static void StartGame()
+        public void StartGame()
         {
             Console.Clear();
             Console.WriteLine("Welcome to Ankh-Morpork\n\n\tAnkh-Morpork lies on the River Ankh (the most polluted waterway on the\n\tDiscworld and reputedly solid enough to walk on),\n\twhere the fertile loam of the Sto Plains meets the Circle Sea. This,\n\tnaturally, puts it in an excellent trading position.\n\tThe central city divides more or less into Ankh(the posh part)\n\tand Morpork(the humble part, which includes the slum area known as\n\t\"the Shades\"), which are separated by the River Ankh.\n\n\tIt can be dangerous to walk the streets. So watch out!");
             WaitForKey();
         }
-        public static void ShowEvent(Event _event, bool newEvent = true)
+        public void ShowEvent(IEvent _event, bool newEvent = true)
         {
             var secondsToWait = EventBuilder.Random.Next(1, 5);
             if (newEvent)
             {
                 Console.Write("\nAs you walk along the street, you meet");
-                Thread.Sleep(500);                    
-                for (int i = 0; i < secondsToWait*2; i++)
+                Thread.Sleep(500);
+                for (int i = 0; i < secondsToWait * 2; i++)
                 {
                     Console.Write('.');
-                    Thread.Sleep(500);                    
+                    Thread.Sleep(500);
                 }
                 Console.Write(' ');
             }
@@ -31,17 +31,17 @@ namespace Game
             Console.WriteLine(":");
             Console.WriteLine($"-{_event.Npc.MeetMessage}");
         }
-        public static int ShowOptions(params string[] options)
+        public int ShowOptions(params string[] options)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             for (int i = 0; i < options.Length; i++)
             {
-                Console.WriteLine($" {i+1}.{options[i]}");
+                Console.WriteLine($" {i + 1}.{options[i]}");
             }
             Console.ResetColor();
             return options.Length;
         }
-        public static void ShowMenu(Player player)
+        public void ShowMenu(IPlayer player)
         {
             Console.Clear();
             Console.Write("\t");
@@ -54,19 +54,19 @@ namespace Game
             Console.ResetColor();
             Console.WriteLine($"\nPlayer High Score: {player.HighScore}\n");
         }
-        public static string ReadResponce(int range)
+        public string ReadResponce(int range)
         {
             var responceReceived = false;
             var rawResponce = string.Empty;
-            while(!responceReceived)
+            while (!responceReceived)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.Write("Write your respone: ");
                 Console.ResetColor();
                 rawResponce = Console.ReadLine();
                 if (int.TryParse(rawResponce, out var responce)
-                    && (range == 0 
-                        || (responce > 0 
+                    && (range == 0
+                        || (responce > 0
                             && responce <= range)))
                     responceReceived = true;
                 else
@@ -74,31 +74,31 @@ namespace Game
                     Console.BackgroundColor = ConsoleColor.Red;
                     Console.WriteLine("Try again.");
                     Console.ResetColor();
-                } 
+                }
             }
             return rawResponce;
         }
-        public static void GameOver()
+        public void GameOver()
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Game Over");
             Console.ResetColor();
             WaitForKey();
         }
-        public static void ShowMessage(string message, bool clearPage = false)
+        public void ShowMessage(string message, bool clearPage = false)
         {
             if (clearPage)
                 Console.Clear();
-            Console.WriteLine($"-{message}");  
+            Console.WriteLine($"-{message}");
         }
-        public static void WaitForKey()
+        public void WaitForKey()
         {
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("\n Press any key to continue...");
             Console.ResetColor();
             Console.ReadKey();
         }
-        public static void ShowInventory(IPlayer player)
+        public void ShowInventory(IPlayer player)
         {
             Console.Write("\t");
             Console.BackgroundColor = ConsoleColor.DarkGray;

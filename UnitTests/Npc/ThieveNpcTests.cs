@@ -21,7 +21,7 @@ namespace Npc
         [Test]
         [TestCase(true)]
         [TestCase(false)]
-        public void Accept_WhenCalled_AffectNpc(bool responce)
+        public void Accept_WhenCalled_AffectPlayerBasedOnResponce(bool responce)
         {
             _player.Setup(p => p.TryDecreaseMoney(It.IsAny<double>())).Returns(responce);
             var thieveNpc = new ThieveNpc(FakeNpcName, string.Empty, string.Empty, string.Empty, _fakeGuild.Object);

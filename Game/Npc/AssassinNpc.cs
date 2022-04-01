@@ -9,8 +9,9 @@
         public IAssassinsGuild Guild { get; private set; }
 
         public AssassinNpc(string name, string meetMessage, string acceptMessage, string denyMessage, 
-            string offerMessage, double minReward, double maxReward, IAssassinsGuild guild) 
-            : base(name, meetMessage, acceptMessage, denyMessage)
+            string offerMessage, double minReward, double maxReward, IAssassinsGuild guild, 
+            IView view = null) 
+            : base(name, meetMessage, acceptMessage, denyMessage, view)
         {
             MinReward = minReward;
             MaxReward = maxReward;
@@ -20,13 +21,13 @@
 
         public override void Accept(IPlayer player)
         {
-            View.ShowMessage(OfferMessage);
-            var reward = double.Parse(View.ReadResponce(0));
+            _view.ShowMessage(OfferMessage);
+            var reward = double.Parse(_view.ReadResponce(0));
             if (player.TryDecreaseMoney(reward)
                 && Guild.CheckOrder(reward))
             {
                 base.Accept(player);
-                View.ShowMessage(AcceptMessage);
+                _view.ShowMessage(AcceptMessage);
                 return;
             }
             else

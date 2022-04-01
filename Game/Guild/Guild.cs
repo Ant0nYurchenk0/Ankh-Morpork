@@ -11,12 +11,14 @@ namespace Game
         public string Description { get; protected set; }
         public List<Npc> Npcs { get; protected set; }
         public ConsoleColor Color { get; protected set; }
+        public bool IsActive { get; protected set; }
         protected static IDataRetrieveService _dataRetriever;
         public Guild(string guildName, ConsoleColor color = ConsoleColor.White, IDataRetrieveService dataRetriever = null)
         {
             _dataRetriever = dataRetriever ?? new DataRetrieveService();
             Name = guildName;
             Color = color;
+            IsActive = true;
             LoadData();
             Npcs = new List<Npc>();
             LoadNpcs();

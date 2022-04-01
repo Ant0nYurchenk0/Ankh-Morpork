@@ -3,8 +3,10 @@
     public class BeggarNpc : Npc
     {
         public double Fee { get; private set; }
-        public BeggarNpc(string name, string meetMessage, string acceptMessage, string denyMessage, double fee)
-            : base(name, meetMessage, acceptMessage, denyMessage)
+        public BeggarNpc(string name, string meetMessage, string acceptMessage, string denyMessage, 
+            double fee,
+            IView view = null)
+            : base(name, meetMessage, acceptMessage, denyMessage, view)
         {
             Fee = fee;  
         }
@@ -13,7 +15,7 @@
             if (player.TryDecreaseMoney(Fee))
             {
                 base.Accept(player);
-                View.ShowMessage(AcceptMessage);
+                _view.ShowMessage(AcceptMessage);
                 return;
             }
             else

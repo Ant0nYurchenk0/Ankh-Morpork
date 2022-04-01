@@ -6,12 +6,14 @@
         public string MeetMessage { get; private set; }
         public string AcceptMessage { get; private set; }
         public string DenyMessage { get; private set; }
-        public Npc(string name, string meetMessage, string acceptMessage, string denyMessage)
+        protected IView _view;
+        public Npc(string name, string meetMessage, string acceptMessage, string denyMessage, IView view = null)
         {
             Name = name;
             MeetMessage = meetMessage;
             AcceptMessage = acceptMessage;
             DenyMessage = denyMessage;
+            _view = view ?? new View();
         }
         public virtual void Accept(IPlayer player)
         {
@@ -19,7 +21,7 @@
         }
         public virtual void Deny(IPlayer player)
         {
-            View.ShowMessage(DenyMessage);
+            _view.ShowMessage(DenyMessage);
             player.IsAlive = false;
         }
     }

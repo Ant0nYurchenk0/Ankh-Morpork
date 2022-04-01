@@ -3,8 +3,10 @@
     public class ClownNpc : Npc
     {
         public double Reward { get; private set; }
-        public ClownNpc(string name, string meetMessage, string acceptMessage, string denyMessage, double reward) 
-            : base(name, meetMessage, acceptMessage, denyMessage)
+        public ClownNpc(string name, string meetMessage, string acceptMessage, string denyMessage, 
+            double reward,
+            IView view = null) 
+            : base(name, meetMessage, acceptMessage, denyMessage, view)
         {
             Reward = reward;
         }
@@ -12,12 +14,12 @@
         public override void Accept(IPlayer player)
         {
             base.Accept(player);
-            View.ShowMessage(AcceptMessage);
+            _view.ShowMessage(AcceptMessage);
             player.IncreaseMoney(Reward);
         }
         public override void Deny(IPlayer player)
         {
-            View.ShowMessage(DenyMessage);
+            _view.ShowMessage(DenyMessage);
         }
     }
 }

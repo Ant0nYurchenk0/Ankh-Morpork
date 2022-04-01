@@ -18,8 +18,9 @@ namespace Guild
         {
             _fakeNpcArray = new JArray();
             _fakeNpc = new JObject();
-            var name = new JValue(FakeNpcName);
-            _fakeNpc[Constant.Name] = name;
+            _fakeNpc[Constant.Name] = new JValue(FakeNpcName);
+            _fakeNpcArray.Add(_fakeNpc);
+
             _dataRetriever = new Mock<IDataRetrieveService>();
             _dataRetriever.Setup(d => d.RetrieveNpcs(It.IsAny<string>(), It.IsAny<string>())).Returns(_fakeNpcArray);
             _dataRetriever.Setup(d => d.RetrieveGuildData(Constant.MaxThieves, It.IsAny<string>(), It.IsAny<string>()))
@@ -28,33 +29,21 @@ namespace Guild
         [Test]
         public void GetNpc_OneNpcInList_NpcThatIsInList()
         {
-            PushOneNpc();
             var thievesGuild = new ThievesGuild(Constant.ThievesGuild, default, _dataRetriever.Object);
 
             var npc = thievesGuild.GetNpc();
 
-            Assert.IsTrue(npc.Name == FakeNpcName);
-            Assert.IsFalse(thievesGuild.Npcs.Contains(npc));
+            Assert.That(npc.Name == FakeNpcName);
         }
         [Test]
-        public void Npcs_MoreThanMaxPossibleThievesInArray_CountEqualToMax()
+        public void IsActive_CalledMaxTimes_IsActiveFalse()
         {
-            PushMoreThanMaxNpcs();
-
             var thievesGuild = new ThievesGuild(Constant.ThievesGuild, default, _dataRetriever.Object);
 
-            Assert.That(thievesGuild.Npcs.Count <= MaxThieves);            
-        }
-        private void PushMoreThanMaxNpcs()
-        {
-            _fakeNpcArray.Clear();
-            for (int i = 0; i < MaxThieves + 1; i++)
-                _fakeNpcArray.Add(_fakeNpc);
-        }
-        private void PushOneNpc()
-        {
-            _fakeNpcArray.Add(_fakeNpc);
+            for(int i = 0; i< MaxThieves; i++)
+                thievesGuild.GetNpc();
 
+            Assert.That(thievesGuild.IsActive == false);            
         }
     }
 }

@@ -2,6 +2,7 @@
 {
     public class Controller
     {
+        public IView View { get; set; }
         private Player _player;
         private bool _gameStarted = false;
         public void Run()
