@@ -1,21 +1,21 @@
-﻿namespace Game
+﻿using System;
+
+namespace Game
 {
     public class ThieveNpc : Npc
     {
-        public ThieveNpc(string name, string meetMessage, string acceptMessage, string denyMessage, 
-            IThievesGuild guild, 
-            IView view = null) 
-            : base(name, meetMessage, acceptMessage, denyMessage, view)
-        {
-            _guild = guild;
-        }
-        private IThievesGuild _guild;
+        public ThieveNpc(IView view = null) : base(view) {}
+        public IThievesGuild Guild { get; set; }
         public override void Accept(IPlayer player)
         {
-            if (player.TryDecreaseMoney(_guild.DefaultFee))
+            if (player.TryDecreaseMoney(Guild.DefaultFee))
             {
                 base.Accept(player);
-                _view.ShowMessage(AcceptMessage);
+                try
+                {
+                    _view.ShowMessage(Messages[Constant.AcceptMessage]);
+                }
+                catch (Exception) { }
                 return;
             }
             else

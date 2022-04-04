@@ -5,8 +5,7 @@ namespace Game
 {
     public class AssassinsGuild : Guild, IAssassinsGuild
     {
-        public AssassinsGuild(string guildName, ConsoleColor color = ConsoleColor.White,
-            IDataRetrieveService dataRetriever = null)
+        public AssassinsGuild(string guildName, ConsoleColor color = ConsoleColor.White, IDataRetrieveService dataRetriever = null)
             : base(guildName, color, dataRetriever) { }
 
         public string OfferMessage { get; protected set; }
@@ -37,16 +36,16 @@ namespace Game
         }
         protected override void CreateNpcs(JArray listOfNpcs)
         {
+            var builder = new AssassinBuilder();
             foreach (JObject npc in listOfNpcs.Children<JObject>())
             {
-                Npcs.Add(new AssassinNpc((npc[Constant.Name] ?? string.Empty).ToString(),
-                                            (npc[Constant.MeetMessage] ?? string.Empty).ToString(),
-                                            (npc[Constant.AcceptMessage] ?? string.Empty).ToString(),
-                                            (npc[Constant.DenyMessage] ?? string.Empty).ToString(),
-                                            (npc[Constant.OfferMessage] ?? string.Empty).ToString(),
-                                            (double)(npc[Constant.MinReward] ?? 0),
-                                            (double)(npc[Constant.MaxReward] ?? 0),
-                                            this));
+                builder.Reset();
+                builder.AddMaxReward(Convert.ToDouble(npc[Constant.MaxReward]));
+                builder.AddMinReward(Convert.ToDouble(npc[Constant.MinReward]));
+                builder.AddMessages(_dataRetriever.RetrieveMessages(npc));
+                builder.AddName(Convert.ToString(npc[Constant.Name]));
+                builder.AddGuild(this);
+                Npcs.Add(builder.GetNpc());
             }
         }
     }

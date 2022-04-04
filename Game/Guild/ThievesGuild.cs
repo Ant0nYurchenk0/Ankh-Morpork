@@ -20,13 +20,14 @@ namespace Game
 
         protected override void CreateNpcs(JArray listOfNpcs)
         {
+            var builder = new ThieveBuilder();
             foreach (JObject npc in listOfNpcs.Children<JObject>())
             {
-                Npcs.Add(new ThieveNpc((npc[Constant.Name] ?? string.Empty).ToString(),
-                                            (npc[Constant.MeetMessage] ?? string.Empty).ToString(),
-                                            (npc[Constant.AcceptMessage] ?? string.Empty).ToString(),
-                                            (npc[Constant.DenyMessage] ?? string.Empty).ToString(), 
-                                            this));
+                builder.Reset();
+                builder.AddName(Convert.ToString(npc[Constant.Name]));
+                builder.AddMessages(_dataRetriever.RetrieveMessages(npc));
+                builder.AddGuild(this);
+                Npcs.Add(builder.GetNpc());
             }
         }
         public override Npc GetNpc()

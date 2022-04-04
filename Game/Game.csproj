@@ -63,6 +63,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builders\AssassinBuilder.cs" />
+    <Compile Include="Builders\BeggarBuilder.cs" />
+    <Compile Include="Builders\ClownBuilder.cs" />
+    <Compile Include="Builders\IAssassinBuilder.cs" />
+    <Compile Include="Builders\IBeggarBuilder.cs" />
+    <Compile Include="Builders\IClownBuilder.cs" />
+    <Compile Include="Builders\INpcBuilder.cs" />
+    <Compile Include="Builders\IThieveBuilder.cs" />
+    <Compile Include="Builders\ThieveBuilder.cs" />
     <Compile Include="Event\IEvent.cs" />
     <Compile Include="Guild\IAssassinsGuild.cs" />
     <Compile Include="Guild\IThievesGuild.cs" />

@@ -8,15 +8,16 @@ namespace Game
         public void StartGame()
         {
             Console.Clear();
-            Console.WriteLine("Welcome to Ankh-Morpork\n\n\tAnkh-Morpork lies on the River Ankh (the most polluted waterway on the\n\tDiscworld and reputedly solid enough to walk on),\n\twhere the fertile loam of the Sto Plains meets the Circle Sea. This,\n\tnaturally, puts it in an excellent trading position.\n\tThe central city divides more or less into Ankh(the posh part)\n\tand Morpork(the humble part, which includes the slum area known as\n\t\"the Shades\"), which are separated by the River Ankh.\n\n\tIt can be dangerous to walk the streets. So watch out!");
-            WaitForKey();
+            Console.WriteLine("It can be dangerous to walk the streets. So watch out!\n");
+            Thread.Sleep(500);            
         }
         public void ShowEvent(IEvent _event, bool newEvent = true)
         {
+            Console.WriteLine(new string('-', 100));
             var secondsToWait = EventBuilder.Random.Next(1, 5);
             if (newEvent)
             {
-                Console.Write("\nAs you walk along the street, you meet");
+                Console.Write("As you walk along the street, you meet");
                 Thread.Sleep(500);
                 for (int i = 0; i < secondsToWait * 2; i++)
                 {
@@ -29,7 +30,7 @@ namespace Game
             Console.Write($"{_event.Npc.Name} of {_event.Guild.Name}");
             Console.ResetColor();
             Console.WriteLine(":");
-            Console.WriteLine($"-{_event.Npc.MeetMessage}");
+            Console.WriteLine($"-{_event.Npc.Messages[Constant.MeetMessage]}");
         }
         public int ShowOptions(params string[] options)
         {
@@ -61,7 +62,7 @@ namespace Game
             while (!responceReceived)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.Write("Write your respone: ");
+                Console.Write("Write your response: ");
                 Console.ResetColor();
                 rawResponce = Console.ReadLine();
                 if (int.TryParse(rawResponce, out var responce)
@@ -103,8 +104,45 @@ namespace Game
             Console.Write("\t");
             Console.BackgroundColor = ConsoleColor.DarkGray;
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($" Money: {string.Format("{0:N2}", player.Money)} ");
+            var intMoney = (int)player.Money;
+            var decimalMoney = (int)((player.Money - intMoney)*100);
+            Console.WriteLine($" AM: {intMoney} " +
+                $" Pennies: {decimalMoney} " +
+                $"\t Score: {player.CurrentScore} ");
             Console.ResetColor();
+        }
+
+        public void ShowTutorial()
+        {
+            Console.Clear();
+            Console.WriteLine("Welcome to Ankh-Morpork\n\n\tAnkh-Morpork lies on the River Ankh (the most polluted waterway on the\n" +
+                "\tDiscworld and reputedly solid enough to walk on),\n" +
+                "\twhere the fertile loam of the Sto Plains meets the Circle Sea. This,\n" +
+                "\tnaturally, puts it in an excellent trading position.\n\tThe central city divides more or less into Ankh(the posh part)\n" +
+                "\tand Morpork(the humble part, which includes the slum area known as\n" +
+                "\t\"the Shades\"), which are separated by the River Ankh.");
+            WaitForKey();
+            Console.Clear();
+            Console.WriteLine("During the game, you walk along the street and meet guild representatives,\n" +
+                "who might have a deal for you, which you can accept, deny, or ask for more information.\n" +
+                "You will be prompted with options like these:");
+            var range = ShowOptions("Option 1", "Option 2");
+            Console.WriteLine("To choose either of them, you have to type in the number of the desired option.\n" +
+                "In case if you write a wrong number or any other invalid string, you will be asked to type it again.\n" +
+                "Try it now:");
+            ReadResponce(range);
+            Console.WriteLine("Great!");
+            WaitForKey();
+            Console.Clear();
+            Console.WriteLine("In some cases, after choosing an option, you will be prompted with a following dialog.\n" +
+                "The response you have to type in there depends on what an npc asks you to do, so follow along.\n" +
+                "For example after accepting an assassin\'s deal you will be asked to write\n" +
+                "the amount you are ready to pay for the deal.");
+            WaitForKey();
+            Console.Clear();
+            Console.WriteLine("Player Highscore is counted by the amount of successfully accepted guild deals.\n" +
+                "In other words, if you accept and don't get killed, you get your point, otherwise, you don't.");
+            WaitForKey();
         }
     }
 }

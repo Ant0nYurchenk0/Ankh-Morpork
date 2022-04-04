@@ -38,6 +38,24 @@
         "DenyMessage": "I am so sorry, I gotta go...",
         "MinReward": 15,
         "MaxReward": 19
+      },
+      {
+        "Name": "The Two Coin Butcher",
+        "MeetMessage": "Hey you, someone wants to kill you, do you want us to kill him first",
+        "OfferMessage": "Okey then,what is your deal?",
+        "AcceptMessage": "Nice, glad to deal with you.",
+        "DenyMessage": "Unfortunately, it's not enough.",
+        "MinReward": 1,
+        "MaxReward": 9
+      },
+      {
+        "Name": "Ivan",
+        "MeetMessage": "Hey you, someone wants to kill you, do you want us to kill him first",
+        "OfferMessage": "Okey then,what is your deal?",
+        "AcceptMessage": "Nice, glad to deal with you.",
+        "DenyMessage": "Unfortunately, it's not enough.",
+        "MinReward": 0,
+        "MaxReward": 0
       }
     ]
   },
@@ -87,14 +105,14 @@
   },
   {
     "Name": "Beggars' Guild",
-    "Description": "The Beggars' Guild is the oldest, largest and (perhaps surprisingly) richest of the city's many guilds.\n\tIt has a very strict code of practice and enforced hierarchy.\n\tAnyone attempting to move above his position or perform his\n\tsanctioned role out of his assigned area or time period is harshly dealt with.",
+    "Description": "The Beggars' Guild is the oldest, largest and (perhaps surprisingly) richest of the city's many guilds.\n\tIt has a very strict code of practice and enforced hierarchy.\n\tAnyone attempting to move above his position or perform his\n\tsanctioned role out of his assigned area or time period is harshly dealt with.\n\tWhen Player bumps into one of the beggars (randomly) it is needed to give\n\talms or the beggar will chase the Player to death.\n\tExcept the 11th level as they need beer, not money.",
     "Npcs": [
       {
         "Name": "Garold",
         "Type": "Twitcher",
         "MeetMessage": "Toss a coin to your twitcher",
         "AcceptMessage": "Thanks",
-        "DenyMessage": "Didn't wanna do that...!"
+        "DenyMessage": "Didn't wanna do that..."
       },
       {
         "Name": "Frank",
@@ -162,7 +180,7 @@
       {
         "Name": "Valentine Half-glass",
         "Type": "BeerNeeder",
-        "MeetMessage": "Hey, stranger, have some beer",
+        "MeetMessage": "Why lie? I need a beer.",
         "AcceptMessage": "Ahhh, you saved my life",
         "DenyMessage": "Have a swim then..."
       }
@@ -210,7 +228,7 @@
       {
         "Name": "Huan",
         "Type": "Tomfool",
-        "MeetMessage": "Soy un idiota, quiero darte dinero.",
+        "MeetMessage": "Quiero darte dinero.",
         "AcceptMessage": "Aquí tomaló",
         "DenyMessage": "No quieres no tienes que hacerlo"
       },

@@ -10,12 +10,15 @@ namespace Npc
         private Mock<IPlayer> _player;
         private Mock<IThievesGuild> _fakeGuild;
         private const string FakeNpcName = "FakeNpc";
+        private ThieveBuilder _builder = new ThieveBuilder();
         [SetUp]
         public void SetUp()
         {
             _player = new Mock<IPlayer>();
             _player.SetupProperty(p => p.IsAlive, true);
             _fakeGuild = new Mock<IThievesGuild>();
+            _builder.Reset();
+            _builder.AddName(FakeNpcName);
         }
 
         [Test]
@@ -23,8 +26,10 @@ namespace Npc
         [TestCase(false)]
         public void Accept_WhenCalled_AffectPlayerBasedOnResponce(bool responce)
         {
+
             _player.Setup(p => p.TryDecreaseMoney(It.IsAny<double>())).Returns(responce);
-            var thieveNpc = new ThieveNpc(FakeNpcName, string.Empty, string.Empty, string.Empty, _fakeGuild.Object);
+            _builder.AddGuild(_fakeGuild.Object);
+            var thieveNpc = _builder.GetNpc();
 
             thieveNpc.Accept(_player.Object);
 
@@ -34,7 +39,8 @@ namespace Npc
         [Test]
         public void Deny_WhenCalled_PlayerIsDead()
         {
-            var thieveNpc = new ThieveNpc(FakeNpcName, string.Empty, string.Empty, string.Empty, _fakeGuild.Object);
+            _builder.AddGuild(_fakeGuild.Object);
+            var thieveNpc = _builder.GetNpc();
 
             thieveNpc.Deny(_player.Object);
 

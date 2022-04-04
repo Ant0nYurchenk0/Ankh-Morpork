@@ -12,12 +12,15 @@ namespace Npc
         private Mock<IPlayer> _player;
         private Mock<IAssassinsGuild> _fakeGuild;        
         private const string FakeNpcName = "FakeNpc";
+        private AssassinBuilder _builder = new AssassinBuilder();
         [SetUp]
         public void SetUp()
         {
             _player = new Mock<IPlayer>();
             _player.SetupProperty(p => p.IsAlive, true);
             _fakeGuild = new Mock<IAssassinsGuild>();
+            _builder.Reset();
+            _builder.AddName(FakeNpcName);            
         }
 
         [Test]
@@ -30,7 +33,8 @@ namespace Npc
             _fakeGuild.Setup(r => r.CheckOrder(It.IsAny<double>())).Returns(guildResponce);
             _player.Setup(p=>p.TryDecreaseMoney(It.IsAny<double>())).Returns(playerResponce);
             Console.SetIn(new StringReader("1"));
-            var assassinNpc = new AssassinNpc(FakeNpcName, string.Empty, string.Empty, string.Empty, string.Empty, 0, 0, _fakeGuild.Object);
+            _builder.AddGuild(_fakeGuild.Object);
+            var assassinNpc = _builder.GetNpc();
 
             assassinNpc.Accept(_player.Object);
 
@@ -40,7 +44,7 @@ namespace Npc
         [Test]
         public void Deny_WhenCalled_PlayerIsDead()
         {
-            var assassinNpc = new AssassinNpc(FakeNpcName, string.Empty, string.Empty, string.Empty, string.Empty, 0, 0, _fakeGuild.Object);
+            var assassinNpc = _builder.GetNpc();
 
             assassinNpc.Deny(_player.Object);
 

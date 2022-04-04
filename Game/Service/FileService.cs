@@ -10,7 +10,7 @@ namespace Game
         public string ReadFileCache(string path)
         {
             var content = string.Empty;
-            if (_cache.TryGetValue(path, out var cachedContent)) return cachedContent;
+            if (_cache.TryGetValue(path, out content)) return content;
             content = ReadFile(path).ToString();
             _cache.Add(path, content);
             return content;

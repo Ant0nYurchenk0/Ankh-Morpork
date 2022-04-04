@@ -54,6 +54,8 @@
         }
         private void StartGame()
         {
+            if (_player.HighScore == 0)
+                View.ShowTutorial();
             View.StartGame();
             _gameStarted = true;
         }

@@ -1,18 +1,18 @@
-﻿namespace Game
+﻿using System;
+using System.Collections.Generic;
+
+namespace Game
 {
     public abstract class Npc : INpc
     {
-        public string Name { get; private set; }
-        public string MeetMessage { get; private set; }
-        public string AcceptMessage { get; private set; }
-        public string DenyMessage { get; private set; }
+        public string Name { get; set; }
+
+        public Dictionary<string, string> Messages { get; set; }
+
         protected IView _view;
-        public Npc(string name, string meetMessage, string acceptMessage, string denyMessage, IView view = null)
+        public Npc(IView view = null)
         {
-            Name = name;
-            MeetMessage = meetMessage;
-            AcceptMessage = acceptMessage;
-            DenyMessage = denyMessage;
+            Messages = new Dictionary<string, string>();
             _view = view ?? new View();
         }
         public virtual void Accept(IPlayer player)
@@ -21,8 +21,15 @@
         }
         public virtual void Deny(IPlayer player)
         {
-            _view.ShowMessage(DenyMessage);
+            try
+            {
+                _view.ShowMessage(Messages[Constant.DenyMessage]);
+            }
+            catch(Exception) { }
+            finally
+            {
             player.IsAlive = false;
+            }
         }
     }
 }

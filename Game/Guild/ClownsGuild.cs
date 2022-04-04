@@ -9,14 +9,14 @@ namespace Game
             : base(guildName, color, dataRetriever) { }
         protected override void CreateNpcs(JArray listOfNpcs)
         {
-            var types = _dataRetriever.RetrieveTypes(Config.ClownTypesPath);
+            var builder = new ClownBuilder();
             foreach (JObject npc in listOfNpcs.Children<JObject>())
             {
-                Npcs.Add(new ClownNpc((npc[Constant.Name] ?? string.Empty).ToString(),
-                                            (npc[Constant.MeetMessage] ?? string.Empty).ToString(),
-                                            (npc[Constant.AcceptMessage] ?? string.Empty).ToString(),
-                                            (npc[Constant.DenyMessage] ?? string.Empty).ToString(),
-                                            (double)(types[(npc[Constant.Type] ?? string.Empty).ToString()] ?? 0)));
+                builder.Reset();
+                builder.AddName(Convert.ToString(npc[Constant.Name]));
+                builder.AddMessages(_dataRetriever.RetrieveMessages(npc));
+                builder.AddReward(_dataRetriever.RetrieveFromType(Config.ClownTypesPath, Convert.ToString(npc[Constant.Type])));
+                Npcs.Add(builder.GetNpc());
             }
         }
     }

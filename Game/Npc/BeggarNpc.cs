@@ -1,21 +1,21 @@
-﻿namespace Game
+﻿using System;
+
+namespace Game
 {
     public class BeggarNpc : Npc
     {
-        public double Fee { get; private set; }
-        public BeggarNpc(string name, string meetMessage, string acceptMessage, string denyMessage, 
-            double fee,
-            IView view = null)
-            : base(name, meetMessage, acceptMessage, denyMessage, view)
-        {
-            Fee = fee;  
-        }
+        public double Fee { get;  set; }
+        public BeggarNpc(IView view = null) : base(view) {}
         public override void Accept(IPlayer player)
         {
             if (player.TryDecreaseMoney(Fee))
             {
                 base.Accept(player);
-                _view.ShowMessage(AcceptMessage);
+                try
+                {
+                _view.ShowMessage(Messages[Constant.AcceptMessage]);
+                }
+                catch(Exception) { }
                 return;
             }
             else

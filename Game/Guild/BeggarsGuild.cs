@@ -10,14 +10,14 @@ namespace Game
 
         protected override void CreateNpcs(JArray listOfNpcs)
         {
-            var types = _dataRetriever.RetrieveTypes(Config.BeggarTypesPath);
+            var builder = new BeggarBuilder();
             foreach (JObject npc in listOfNpcs.Children<JObject>())
             {
-                Npcs.Add(new BeggarNpc((npc[Constant.Name] ?? string.Empty).ToString(),
-                                            (npc[Constant.MeetMessage] ?? string.Empty).ToString(),
-                                            (npc[Constant.AcceptMessage] ?? string.Empty).ToString(),
-                                            (npc[Constant.DenyMessage] ?? string.Empty).ToString(),
-                                            (double)(types[npc[Constant.Type].ToString()] ?? 0)));
+                builder.Reset();
+                builder.AddFee(_dataRetriever.RetrieveFromType(Config.BeggarTypesPath, Convert.ToString(npc[Constant.Type])));
+                builder.AddName(Convert.ToString(npc[Constant.Name]));
+                builder.AddMessages(_dataRetriever.RetrieveMessages(npc));
+                Npcs.Add(builder.GetNpc());
             }
         }
     }

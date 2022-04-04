@@ -14,6 +14,13 @@ namespace Game
         {
             _serviceFile = serviceFile ?? new FileService();
         }
+
+        public double RetrieveFromType(string path, string type)
+        {
+            var types =RetrieveTypes(path);
+            return Convert.ToDouble(types[type]);
+        }
+
         public string RetrieveGuildData(string fieldName, string guildName, string path)
         {
             var json = _serviceFile.ReadFileCache(path);
@@ -22,6 +29,16 @@ namespace Game
                 .Where(guild => guild[Constant.Name].ToString() == guildName)
                 .FirstOrDefault();
             return guildData[fieldName].ToString();            
+        }
+
+        public Dictionary<string, string> RetrieveMessages(JObject npc)
+        {
+            var result = new Dictionary<string, string>();
+            result.Add(Constant.MeetMessage, Convert.ToString(npc[Constant.MeetMessage]));
+            result.Add(Constant.AcceptMessage, Convert.ToString(npc[Constant.AcceptMessage]));
+            result.Add(Constant.DenyMessage, Convert.ToString(npc[Constant.DenyMessage]));
+            result.Add(Constant.OfferMessage, Convert.ToString(npc[Constant.OfferMessage]));
+            return result;
         }
 
         public JArray RetrieveNpcs(string guildName, string path)
@@ -37,8 +54,9 @@ namespace Game
 
         public JObject RetrieveTypes(string path)
         {
-            var json = _serviceFile.ReadFileCache(Config.BeggarTypesPath);
+            var json = _serviceFile.ReadFileCache(path);
             return JObject.Parse(json);
         }
+        
     }
 }

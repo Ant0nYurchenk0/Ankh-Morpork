@@ -11,5 +11,6 @@
         int ShowOptions(params string[] options);
         void StartGame();
         void WaitForKey();
+        void ShowTutorial();
     }
 }
