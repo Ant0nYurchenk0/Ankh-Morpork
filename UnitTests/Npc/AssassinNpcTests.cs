@@ -30,15 +30,15 @@ namespace Npc
         [TestCase(false, false, false)]
         public void Accept_WhenCalled_AffectNpc(bool guildResponce, bool playerResponce, bool isAlive)
         {
-            _fakeGuild.Setup(r => r.CheckOrder(It.IsAny<double>())).Returns(guildResponce);
-            _player.Setup(p=>p.TryDecreaseMoney(It.IsAny<double>())).Returns(playerResponce);
+            _fakeGuild.Setup(r => r.CheckOrder(It.IsAny<decimal>())).Returns(guildResponce);
+            _player.Setup(p=>p.TryDecreaseMoney(It.IsAny<decimal>())).Returns(playerResponce);
             Console.SetIn(new StringReader("1"));
             _builder.AddGuild(_fakeGuild.Object);
             var assassinNpc = _builder.GetNpc();
 
             assassinNpc.Accept(_player.Object);
 
-            _player.Verify(p => p.TryDecreaseMoney(It.IsAny<double>()), Times.Once);
+            _player.Verify(p => p.TryDecreaseMoney(It.IsAny<decimal>()), Times.Once);
             Assert.That(_player.Object.IsAlive == isAlive); 
         }
         [Test]
@@ -48,7 +48,7 @@ namespace Npc
 
             assassinNpc.Deny(_player.Object);
 
-            _player.Verify(p => p.TryDecreaseMoney(It.IsAny<double>()), Times.Never);
+            _player.Verify(p => p.TryDecreaseMoney(It.IsAny<decimal>()), Times.Never);
             Assert.That(_player.Object.IsAlive == false); 
         }
     }

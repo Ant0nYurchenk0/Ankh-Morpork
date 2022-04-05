@@ -9,7 +9,7 @@ namespace Game
         public bool IsAlive { get; set; }
         public int CurrentScore { get; private set; }
         public int HighScore { get; private set; }
-        public double Money { get; private set; }
+        public decimal Money { get; private set; }
         private JObject _playerData;
         private static IFileService _serviceFile;
 
@@ -21,8 +21,9 @@ namespace Game
             var configStr = _serviceFile.ReadFile(Config.PlayerDataPath);
             _playerData = JObject.Parse(configStr);
             HighScore = (int)(_playerData[Constant.HighScore] ?? 0);
-            Money = (double)(_playerData[Constant.Money] ?? 0);
+            Money = (decimal)(_playerData[Constant.Money] ?? 0);
         }
+
         public void IncreaseScore()
         {
             CurrentScore++;
@@ -30,11 +31,13 @@ namespace Game
                 HighScore = CurrentScore;
 
         }
-        public void IncreaseMoney(double amount)
+
+        public void IncreaseMoney(decimal amount)
         {
             Money += amount;
         }
-        public bool TryDecreaseMoney(double reward)
+
+        public bool TryDecreaseMoney(decimal reward)
         {
             if (reward > Money)
                 return false;
@@ -44,11 +47,13 @@ namespace Game
                 return true;
             }
         }
+
         public void Reset()
         {
             HighScore = 0;
             LogData();
         }
+
         public void Dispose()
         {
             if ((int)_playerData[Constant.HighScore] < HighScore)
@@ -56,6 +61,7 @@ namespace Game
                 LogData();
             }
         }
+
         private void LogData()
         {
             _playerData[Constant.HighScore] = HighScore;

@@ -10,7 +10,7 @@ namespace Player
         private Game.Player _player;
         private Mock<IFileService> _fakeFileService;
         private int _highscore = 1;
-        private double _money = 10;
+        private decimal _money = 10;
         [SetUp]
         public void SetUp()
         {
@@ -44,7 +44,7 @@ namespace Player
         [TestCase(10, true)]
         [TestCase(11, false)]
         [TestCase(9, true)]
-        public void TryDecreaseMoney_DependingOnFee_GetResponce(double fee, bool responce)
+        public void TryDecreaseMoney_DependingOnFee_GetResponce(decimal fee, bool responce)
         {
             Assert.That(_player.TryDecreaseMoney(fee) == responce);
         }

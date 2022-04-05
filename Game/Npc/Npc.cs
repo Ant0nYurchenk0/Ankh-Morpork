@@ -15,10 +15,12 @@ namespace Game
             Messages = new Dictionary<string, string>();
             _view = view ?? new View();
         }
+
         public virtual void Accept(IPlayer player)
         {
             player.IncreaseScore();
         }
+
         public virtual void Deny(IPlayer player)
         {
             try

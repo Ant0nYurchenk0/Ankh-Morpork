@@ -2,6 +2,6 @@
 {
     internal interface IBeggarBuilder : INpcBuilder<BeggarNpc>
     {
-        void AddFee(double fee);
+        void AddFee(decimal fee);
     }
 }

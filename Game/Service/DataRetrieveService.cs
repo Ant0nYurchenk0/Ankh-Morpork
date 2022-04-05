@@ -15,10 +15,10 @@ namespace Game
             _serviceFile = serviceFile ?? new FileService();
         }
 
-        public double RetrieveFromType(string path, string type)
+        public decimal RetrieveFromType(string path, string type)
         {
             var types =RetrieveTypes(path);
-            return Convert.ToDouble(types[type]);
+            return Convert.ToDecimal(types[type]);
         }
 
         public string RetrieveGuildData(string fieldName, string guildName, string path)

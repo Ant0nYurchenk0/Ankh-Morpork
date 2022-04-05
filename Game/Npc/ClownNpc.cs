@@ -4,7 +4,7 @@ namespace Game
 {
     public class ClownNpc : Npc
     {
-        public double Reward { get; set; }
+        public decimal Reward { get; set; }
         public ClownNpc(IView view = null) : base(view) {}
 
         public override void Accept(IPlayer player)
@@ -20,10 +20,11 @@ namespace Game
                 player.IncreaseMoney(Reward);
             }
         }
+
         public override void Deny(IPlayer player)
         {
             try
-            {
+            {                
                 _view.ShowMessage(Messages[Constant.DenyMessage]);
             }
             catch (Exception) { }

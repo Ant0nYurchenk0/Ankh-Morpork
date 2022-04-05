@@ -11,11 +11,12 @@ namespace Game
             Console.WriteLine("It can be dangerous to walk the streets. So watch out!\n");
             Thread.Sleep(500);            
         }
-        public void ShowEvent(IEvent _event, bool newEvent = true)
+
+        public void ShowEvent(IEvent newEvent, bool isNew = true)
         {
             Console.WriteLine(new string('-', 100));
             var secondsToWait = EventBuilder.Random.Next(1, 5);
-            if (newEvent)
+            if (isNew)
             {
                 Console.Write("As you walk along the street, you meet");
                 Thread.Sleep(500);
@@ -26,12 +27,13 @@ namespace Game
                 }
                 Console.Write(' ');
             }
-            Console.ForegroundColor = _event.Guild.Color;
-            Console.Write($"{_event.Npc.Name} of {_event.Guild.Name}");
+            Console.ForegroundColor = newEvent.Guild.Color;
+            Console.Write($"{newEvent.Npc.Name} of {newEvent.Guild.Name}");
             Console.ResetColor();
             Console.WriteLine(":");
-            Console.WriteLine($"-{_event.Npc.Messages[Constant.MeetMessage]}");
+            Console.WriteLine($"-{newEvent.Npc.Messages[Constant.MeetMessage]}");
         }
+
         public int ShowOptions(params string[] options)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -42,6 +44,7 @@ namespace Game
             Console.ResetColor();
             return options.Length;
         }
+
         public void ShowMenu(IPlayer player)
         {
             Console.Clear();
@@ -55,7 +58,8 @@ namespace Game
             Console.ResetColor();
             Console.WriteLine($"\nPlayer High Score: {player.HighScore}\n");
         }
-        public string ReadResponce(int range)
+
+        public string ReadResponse(int range)
         {
             var responceReceived = false;
             var rawResponce = string.Empty;
@@ -79,6 +83,7 @@ namespace Game
             }
             return rawResponce;
         }
+
         public void GameOver()
         {
             Console.ForegroundColor = ConsoleColor.Red;
@@ -86,12 +91,14 @@ namespace Game
             Console.ResetColor();
             WaitForKey();
         }
+
         public void ShowMessage(string message, bool clearPage = false)
         {
             if (clearPage)
                 Console.Clear();
             Console.WriteLine($"-{message}");
         }
+
         public void WaitForKey()
         {
             Console.ForegroundColor = ConsoleColor.DarkGray;
@@ -99,6 +106,7 @@ namespace Game
             Console.ResetColor();
             Console.ReadKey();
         }
+
         public void ShowInventory(IPlayer player)
         {
             Console.Write("\t");
@@ -130,7 +138,7 @@ namespace Game
             Console.WriteLine("To choose either of them, you have to type in the number of the desired option.\n" +
                 "In case if you write a wrong number or any other invalid string, you will be asked to type it again.\n" +
                 "Try it now:");
-            ReadResponce(range);
+            ReadResponse(range);
             Console.WriteLine("Great!");
             WaitForKey();
             Console.Clear();

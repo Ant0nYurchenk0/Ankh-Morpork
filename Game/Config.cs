@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using System;
 
 namespace Game
 {
@@ -14,12 +15,19 @@ namespace Game
         public static void LoadConfig()
         {
             _serviceFile = new FileService();
-            var configString = _serviceFile.ReadFileCache(ConfigPath);
-            var config = JObject.Parse(configString);
-            PlayerDataPath = config[Path.PlayerDataConfigPath].ToString();
-            GuildsPath = config[Path.GuildDataConfigPath].ToString();
-            BeggarTypesPath = config[Path.BeggarTypesPath].ToString();
-            ClownTypesPath = config[Path.ClownTypesPath].ToString() ;
+            try
+            {
+                var configString = _serviceFile.ReadFileCache(ConfigPath);
+                var config = JObject.Parse(configString);
+                PlayerDataPath = config[Path.PlayerDataConfigPath].ToString();
+                GuildsPath = config[Path.GuildDataConfigPath].ToString();
+                BeggarTypesPath = config[Path.BeggarTypesPath].ToString();
+                ClownTypesPath = config[Path.ClownTypesPath].ToString() ;
+            }
+            catch 
+            {
+                throw new ArgumentException(Message.FileAccessError);
+            }
         }
     }
 }

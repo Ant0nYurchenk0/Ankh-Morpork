@@ -5,12 +5,12 @@
         int CurrentScore { get; }
         int HighScore { get; }
         bool IsAlive { get; set; }
-        double Money { get; }
+        decimal Money { get; }
 
         void Dispose();
-        void IncreaseMoney(double amount);
+        void IncreaseMoney(decimal amount);
         void IncreaseScore();
         void Reset();
-        bool TryDecreaseMoney(double reward);
+        bool TryDecreaseMoney(decimal reward);
     }
 }

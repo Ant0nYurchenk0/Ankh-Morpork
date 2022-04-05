@@ -6,6 +6,7 @@ namespace Game
 {
     public static class EventBuilder
     {
+        private static List<Guild> _guilds { get;  set; }
         public readonly static Random Random = new Random();
         public static Event CreateEvent()
         {
@@ -14,6 +15,7 @@ namespace Game
             var selectedGuild = _guilds[randomGuildNumber];
             return new Event(selectedGuild.GetNpc(), selectedGuild);
         }
+
         public static void LoadGuilds()
         {
             _guilds = new List<Guild>();
@@ -23,6 +25,5 @@ namespace Game
             _guilds.Add(new ClownsGuild(Constant.ClownsGuild, ConsoleColor.DarkYellow));
         }
 
-        private static List<Guild> _guilds { get;  set; }
     }
 }

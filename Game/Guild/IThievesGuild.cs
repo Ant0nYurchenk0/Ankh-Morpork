@@ -2,6 +2,6 @@
 {
     public interface IThievesGuild
     {
-        double DefaultFee { get; }
+        decimal DefaultFee { get; }
     }
 }

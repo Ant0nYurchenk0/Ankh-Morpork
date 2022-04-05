@@ -27,13 +27,13 @@ namespace Npc
         public void Accept_WhenCalled_AffectPlayerBasedOnResponce(bool responce)
         {
 
-            _player.Setup(p => p.TryDecreaseMoney(It.IsAny<double>())).Returns(responce);
+            _player.Setup(p => p.TryDecreaseMoney(It.IsAny<decimal>())).Returns(responce);
             _builder.AddGuild(_fakeGuild.Object);
             var thieveNpc = _builder.GetNpc();
 
             thieveNpc.Accept(_player.Object);
 
-            _player.Verify(p => p.TryDecreaseMoney(It.IsAny<double>()), Times.Once);
+            _player.Verify(p => p.TryDecreaseMoney(It.IsAny<decimal>()), Times.Once);
             Assert.That(_player.Object.IsAlive == responce);
         }
         [Test]
@@ -44,7 +44,7 @@ namespace Npc
 
             thieveNpc.Deny(_player.Object);
 
-            _player.Verify(p => p.TryDecreaseMoney(It.IsAny<double>()), Times.Never);
+            _player.Verify(p => p.TryDecreaseMoney(It.IsAny<decimal>()), Times.Never);
             Assert.That(_player.Object.IsAlive == false);
         }
     }

@@ -9,6 +9,7 @@ namespace Game
     public class ClownBuilder : IClownBuilder
     {
         private ClownNpc _npc;
+
         public void AddMessages(Dictionary<string, string> messages)
         {
             if (messages == null) return;
@@ -23,7 +24,7 @@ namespace Game
             _npc.Name = name;
         }
 
-        public void AddReward(double reward)
+        public void AddReward(decimal reward)
         {
             _npc.Reward = reward;
         }

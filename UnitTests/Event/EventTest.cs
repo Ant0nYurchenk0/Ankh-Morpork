@@ -29,7 +29,7 @@ namespace Event
         public void Resolve_1isInput_CallAcceptAndResolveEvent()
         {
             var _event = new Game.Event(_npc.Object, _guild.Object, _view.Object);
-            _view.Setup(v => v.ReadResponce(It.IsAny<int>())).Returns("1");
+            _view.Setup(v => v.ReadResponse(It.IsAny<int>())).Returns("1");
             var input = new StringReader("1");
             Console.SetIn(input);
 
@@ -42,7 +42,7 @@ namespace Event
         public void Resolve_2isInput_CallDenyAndResolveEvent()
         {
             var _event = new Game.Event(_npc.Object, _guild.Object, _view.Object);
-            _view.Setup(v => v.ReadResponce(It.IsAny<int>())).Returns("2");
+            _view.Setup(v => v.ReadResponse(It.IsAny<int>())).Returns("2");
 
             _event.Resolve(_player.Object);
 

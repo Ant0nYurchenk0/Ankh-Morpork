@@ -14,7 +14,8 @@ namespace Game
             RandomizeAvailability();
             return base.GetNpc();
         }
-        public bool CheckOrder(double reward)
+
+        public bool CheckOrder(decimal reward)
         {
             foreach (AssassinNpc npc in Npcs)
             {
@@ -27,6 +28,7 @@ namespace Game
             }
             return false;
         }
+
         private void RandomizeAvailability()
         {
             foreach (AssassinNpc npc in Npcs)
@@ -34,14 +36,15 @@ namespace Game
                 npc.IsBusy = Convert.ToBoolean(EventBuilder.Random.Next(0, 2));
             }
         }
+
         protected override void CreateNpcs(JArray listOfNpcs)
         {
             var builder = new AssassinBuilder();
             foreach (JObject npc in listOfNpcs.Children<JObject>())
             {
                 builder.Reset();
-                builder.AddMaxReward(Convert.ToDouble(npc[Constant.MaxReward]));
-                builder.AddMinReward(Convert.ToDouble(npc[Constant.MinReward]));
+                builder.AddMaxReward(Convert.ToDecimal(npc[Constant.MaxReward]));
+                builder.AddMinReward(Convert.ToDecimal(npc[Constant.MinReward]));
                 builder.AddMessages(_dataRetriever.RetrieveMessages(npc));
                 builder.AddName(Convert.ToString(npc[Constant.Name]));
                 builder.AddGuild(this);

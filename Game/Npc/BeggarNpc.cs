@@ -4,7 +4,7 @@ namespace Game
 {
     public class BeggarNpc : Npc
     {
-        public double Fee { get;  set; }
+        public decimal Fee { get;  set; }
         public BeggarNpc(IView view = null) : base(view) {}
         public override void Accept(IPlayer player)
         {
@@ -20,7 +20,8 @@ namespace Game
             }
             else
             {
-                Deny(player);
+                if (Fee != 0)
+                    Deny(player);
             }
         }
     }

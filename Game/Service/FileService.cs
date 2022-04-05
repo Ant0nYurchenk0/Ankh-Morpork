@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Text;
 using System.Collections.Generic;
+using System;
 
 namespace Game
 {
@@ -9,14 +10,15 @@ namespace Game
         private static Dictionary<string, string> _cache = new Dictionary<string, string>();
         public string ReadFileCache(string path)
         {
-            var content = string.Empty;
-            if (_cache.TryGetValue(path, out content)) return content;
+            if (_cache.TryGetValue(path, out var content)) return content;
             content = ReadFile(path).ToString();
             _cache.Add(path, content);
             return content;
         }
         public string ReadFile(string path)
         {
+            try
+            {
             var result = new StringBuilder();
             using (var reader = new StreamReader(File.OpenRead(path)))
             {
@@ -27,13 +29,26 @@ namespace Game
                 }
             }
             return result.ToString();
+            }
+            catch
+            {
+                throw new ArgumentException(Message.FileAccessError);
+
+            }
         }
 
         public void WriteToFile(string path, string updatedData)
         {
-            using (var writer = new StreamWriter(path, false))
+            try
             {
-                writer.WriteAsync(updatedData);
+                using (var writer = new StreamWriter(path, false))
+                {
+                    writer.WriteAsync(updatedData);
+                }
+            }
+            catch
+            {
+                throw new ArgumentException(Message.FileAccessError);
             }
         }
     }

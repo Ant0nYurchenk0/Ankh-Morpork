@@ -6,6 +6,7 @@
         public IGuild Guild { get; private set; }
         public bool Resolved { get; private set; }
         private IView _view;
+
         public Event(INpc npc, IGuild guild, IView view = null)
         {
             Npc = npc;
@@ -14,6 +15,7 @@
             Resolved = false;
 
         }
+
         public void Resolve(IPlayer player)
         {
             var isNew = true;
@@ -24,7 +26,7 @@
                 _view.ShowEvent(this, isNew);
                 _view.ShowInventory(player);
                 var options = _view.ShowOptions(Option.ACCEPT, Option.DENY, Option.HELP);
-                switch (_view.ReadResponce(options))
+                switch (_view.ReadResponse(options))
                 {
                     case "1":
                         Accept(player);
@@ -39,16 +41,19 @@
                 isNew = false;
             }
         }
+
         private void Accept(IPlayer player)
         {
             Npc.Accept(player);
             Resolved = true;
         }
+
         private void Deny(IPlayer player)
         {
             Npc.Deny(player);
             Resolved = true;
         }
+
         private void Help()
         {
             _view.ShowMessage(Guild.Description);

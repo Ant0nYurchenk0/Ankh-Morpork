@@ -9,7 +9,8 @@ namespace Game
     public class BeggarBuilder : IBeggarBuilder
     {
         private BeggarNpc _npc;
-        public void AddFee(double fee)
+
+        public void AddFee(decimal fee)
         {
             _npc.Fee = fee;
         }

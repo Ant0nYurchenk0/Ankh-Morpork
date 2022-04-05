@@ -9,14 +9,14 @@ namespace Npc
     {
         private Mock<IPlayer> _player;
         private const string FakeNpcName = "FakeNpc";
-        private const double _fee = 10;
+        private const decimal _fee = 10;
         private BeggarBuilder _builder = new Game.BeggarBuilder();
         [SetUp]
         public void SetUp()
         {
             _player = new Mock<IPlayer>();
             _player.SetupProperty(p => p.IsAlive, true);
-            _player.Setup(p=>p.TryDecreaseMoney(It.IsAny<double>())).Returns(true);
+            _player.Setup(p=>p.TryDecreaseMoney(It.IsAny<decimal>())).Returns(true);
             _builder.Reset();
             _builder.AddName(FakeNpcName);
             _builder.AddFee(_fee);

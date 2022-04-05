@@ -8,6 +8,6 @@ namespace Game
 {
     internal interface IClownBuilder : INpcBuilder<ClownNpc>
     {
-        void AddReward(double reward);
+        void AddReward(decimal reward);
     }
 }

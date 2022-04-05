@@ -14,14 +14,17 @@ namespace Game
         {
             _npc.Guild = guild;
         }
-        public void AddMaxReward(double reward)
+
+        public void AddMaxReward(decimal reward)
         {
             _npc.MaxReward = reward;
         }
-        public void AddMinReward(double reward)
+
+        public void AddMinReward(decimal reward)
         {
             _npc.MinReward = reward;
         }
+
         public void AddMessages(Dictionary<string, string> messages)
         {
             if (messages == null) return;
@@ -35,11 +38,13 @@ namespace Game
         {
             _npc.Name = name;
         }
+
         public void Reset(IView view = null)
         {
             _npc = new AssassinNpc(view);
             _npc.IsBusy = false;
         }
+
         public AssassinNpc GetNpc()
         {
             return _npc;

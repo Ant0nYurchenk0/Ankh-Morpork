@@ -9,6 +9,7 @@ namespace Game
     public class ThieveBuilder : IThieveBuilder
     {
         private ThieveNpc _npc;
+
         public void AddGuild(IThievesGuild guild)
         {
             _npc.Guild = guild;

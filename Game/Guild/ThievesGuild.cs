@@ -5,7 +5,7 @@ namespace Game
 {
     public class ThievesGuild : Guild, IThievesGuild
     {
-        public double DefaultFee { get; private set; }
+        public decimal DefaultFee { get; private set; }
         private int _maxEvents;
         private static int _eventCounter = 0;
 
@@ -30,6 +30,7 @@ namespace Game
                 Npcs.Add(builder.GetNpc());
             }
         }
+
         public override Npc GetNpc()
         {
             var selectedNpc = base.GetNpc();
@@ -38,9 +39,10 @@ namespace Game
                 IsActive = false;
             return selectedNpc;
         }
+
         private void InitFields()
         {
-            if (double.TryParse(_dataRetriever.RetrieveGuildData(Constant.DefaultFee, Name, Config.GuildsPath),
+            if (decimal.TryParse(_dataRetriever.RetrieveGuildData(Constant.DefaultFee, Name, Config.GuildsPath),
                 out var defaultFee))
             {
                 DefaultFee = defaultFee;

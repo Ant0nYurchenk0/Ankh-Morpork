@@ -3,6 +3,6 @@
     public interface IAssassinsGuild
     {
         string OfferMessage { get; }
-        bool CheckOrder(double reward);
+        bool CheckOrder(decimal reward);
     }
 }

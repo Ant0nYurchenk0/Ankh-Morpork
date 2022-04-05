@@ -9,7 +9,7 @@ namespace Npc
     {
         private Mock<IPlayer> _player;
         private const string FakeNpcName = "FakeNpc";
-        private const double _reward = 10;
+        private const decimal _reward = 10;
         private ClownBuilder _builder = new ClownBuilder(); 
         [SetUp]
         public void SetUp()
@@ -37,8 +37,8 @@ namespace Npc
 
             clownNpc.Deny(_player.Object);
 
-            _player.Verify(p => p.IncreaseMoney(It.IsAny<double>()), Times.Never);
-            _player.Verify(p => p.TryDecreaseMoney(It.IsAny<double>()), Times.Never);
+            _player.Verify(p => p.IncreaseMoney(It.IsAny<decimal>()), Times.Never);
+            _player.Verify(p => p.TryDecreaseMoney(It.IsAny<decimal>()), Times.Never);
             Assert.That(_player.Object.IsAlive == true);
         }
     }

@@ -9,7 +9,7 @@ namespace Game
     internal interface IAssassinBuilder : INpcBuilder<AssassinNpc>
     {
         void AddGuild(IAssassinsGuild guild);
-        void AddMaxReward(double reward);
-        void AddMinReward(double reward);
+        void AddMaxReward(decimal reward);
+        void AddMinReward(decimal reward);
     }
 }
