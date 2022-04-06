@@ -4,13 +4,13 @@ using Newtonsoft.Json;
 
 namespace Game
 {
-    public class Player : IDisposable, IPlayer
+    public class Player :  IPlayer
     {
         public bool IsAlive { get; set; }
         public int CurrentScore { get; private set; }
         public int HighScore { get; private set; }
         public decimal Money { get; private set; }
-        private JObject _playerData;
+        public JObject PlayerData { get; private set; }
         private static IFileService _serviceFile;
 
         public Player(IFileService serviceFile = null)
@@ -19,9 +19,9 @@ namespace Game
             IsAlive = true;
             CurrentScore = 0;
             var configStr = _serviceFile.ReadFile(Config.PlayerDataPath);
-            _playerData = JObject.Parse(configStr);
-            HighScore = (int)(_playerData[Constant.HighScore] ?? 0);
-            Money = (decimal)(_playerData[Constant.Money] ?? 0);
+            PlayerData = JObject.Parse(configStr);
+            HighScore = (int)(PlayerData[Constant.HighScore] ?? 0);
+            Money = (decimal)(PlayerData[Constant.Money] ?? 0);
         }
 
         public void IncreaseScore()
@@ -41,11 +41,10 @@ namespace Game
         {
             if (reward > Money)
                 return false;
-            else
-            {
-                Money -= reward;
-                return true;
-            }
+            
+            Money -= reward;
+            return true;
+            
         }
 
         public void Reset()
@@ -56,7 +55,7 @@ namespace Game
 
         public void Dispose()
         {
-            if ((int)_playerData[Constant.HighScore] < HighScore)
+            if ((int)PlayerData[Constant.HighScore] < HighScore)
             {
                 LogData();
             }
@@ -64,8 +63,8 @@ namespace Game
 
         private void LogData()
         {
-            _playerData[Constant.HighScore] = HighScore;
-            string updatedData = JsonConvert.SerializeObject(_playerData);
+            PlayerData[Constant.HighScore] = HighScore;
+            string updatedData = JsonConvert.SerializeObject(PlayerData);
             _serviceFile.WriteToFile(Config.PlayerDataPath, updatedData);
         }
     }

@@ -14,9 +14,9 @@ namespace Game
             foreach (JObject npc in listOfNpcs.Children<JObject>())
             {
                 builder.Reset();
-                builder.AddFee(_dataRetriever.RetrieveFromType(Config.BeggarTypesPath, Convert.ToString(npc[Constant.Type])));
+                builder.AddFee(DataRetriever.RetrieveFromType(Config.BeggarTypesPath, Convert.ToString(npc[Constant.Type])));
                 builder.AddName(Convert.ToString(npc[Constant.Name]));
-                builder.AddMessages(_dataRetriever.RetrieveMessages(npc));
+                builder.AddMessages(DataRetriever.RetrieveMessages(npc));
                 Npcs.Add(builder.GetNpc());
             }
         }

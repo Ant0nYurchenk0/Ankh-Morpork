@@ -39,9 +39,9 @@ namespace Game
             _npc.Name = name;
         }
 
-        public void Reset(IView view = null)
+        public void Reset()
         {
-            _npc = new AssassinNpc(view);
+            _npc = new AssassinNpc();
             _npc.IsBusy = false;
         }
 

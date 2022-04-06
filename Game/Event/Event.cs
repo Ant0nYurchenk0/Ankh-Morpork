@@ -5,13 +5,13 @@
         public INpc Npc { get; private set; }
         public IGuild Guild { get; private set; }
         public bool Resolved { get; private set; }
-        private IView _view;
+        public IView View { get; set; }
 
-        public Event(INpc npc, IGuild guild, IView view = null)
+        public Event(INpc npc, IGuild guild)
         {
             Npc = npc;
             Guild = guild;
-            _view = view ?? new View();
+            View = new View();
             Resolved = false;
 
         }
@@ -23,10 +23,10 @@
                 Resolved = true;
             while (!Resolved)
             {
-                _view.ShowEvent(this, isNew);
-                _view.ShowInventory(player);
-                var options = _view.ShowOptions(Option.ACCEPT, Option.DENY, Option.HELP);
-                switch (_view.ReadResponse(options))
+                View.ShowEvent(this, isNew);
+                View.ShowInventory(player);
+                var options = View.ShowOptions(Option.ACCEPT, Option.DENY, Option.HELP);
+                switch (View.ReadResponse(options))
                 {
                     case "1":
                         Accept(player);
@@ -56,7 +56,7 @@
 
         private void Help()
         {
-            _view.ShowMessage(Guild.Description);
+            View.ShowMessage(Guild.Description);
         }
     }
 }

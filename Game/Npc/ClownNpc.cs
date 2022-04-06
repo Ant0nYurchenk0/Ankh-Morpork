@@ -1,33 +1,22 @@
-﻿using System;
+﻿using System.Linq;
 
 namespace Game
 {
     public class ClownNpc : Npc
     {
         public decimal Reward { get; set; }
-        public ClownNpc(IView view = null) : base(view) {}
+        public ClownNpc() : base() {}
 
         public override void Accept(IPlayer player)
         {
             base.Accept(player);
-            try
-            {
-                _view.ShowMessage(Messages[Constant.AcceptMessage]);
-            }
-            catch(Exception) { }
-            finally
-            {
-                player.IncreaseMoney(Reward);
-            }
+            _view.ShowMessage(Messages.FirstOrDefault(m=>m.Key == Constant.AcceptMessage).Value);
+            player.IncreaseMoney(Reward);
         }
 
         public override void Deny(IPlayer player)
-        {
-            try
-            {                
-                _view.ShowMessage(Messages[Constant.DenyMessage]);
-            }
-            catch (Exception) { }
+        {               
+            _view.ShowMessage(Messages.FirstOrDefault(m => m.Key == Constant.DenyMessage).Value);
         }
     }
 }

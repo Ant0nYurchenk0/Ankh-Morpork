@@ -3,8 +3,8 @@
     public class Controller
     {
         public IView View { get; set; }
-        private Player _player;
-        private bool _gameStarted = false;
+        public IPlayer Player { get; set; }
+        public bool GameStarted { get; private set; } = false;
         public void Run()
         { 
             Play();
@@ -13,9 +13,9 @@
 
         private void GoToMenu()
         {
-            while (!_gameStarted)
+            while (!GameStarted)
             {
-                View.ShowMenu(_player);
+                View.ShowMenu(Player);
                 var options = View.ShowOptions(Option.START, Option.RESET, Option.QUIT);
                 switch (View.ReadResponse(options))
                 {
@@ -34,18 +34,18 @@
 
         private void Play()
         {
-            using (_player = new Player())
+            using (Player = new Player())
             {
-                while (_player.IsAlive)
+                while (Player.IsAlive)
                 {
                     GoToMenu();
                     var newEvent = EventBuilder.CreateEvent();
-                    newEvent.Resolve(_player);
+                    newEvent.Resolve(Player);
                     System.Threading.Thread.Sleep(2000);
                 }
             }
             View.GameOver();
-            _gameStarted = false;
+            GameStarted = false;
             Run();
         }
 
@@ -58,15 +58,15 @@
 
         private void StartGame()
         {
-            if (_player.HighScore == 0)
+            if (Player.HighScore == 0)
                 View.ShowTutorial();
             View.StartGame();
-            _gameStarted = true;
+            GameStarted = true;
         }
 
         private void ResetPlayer()
         {
-            _player.Reset();
+            Player.Reset();
         }
 
         private void Quit()

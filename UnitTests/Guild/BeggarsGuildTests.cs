@@ -28,6 +28,7 @@ namespace Guild
         public void GetNpc_OneNpcInList_NpcThatIsInList()
         {
             var beggarsGuild = new BeggarsGuild(Constant.BeggarsGuild, default, _dataRetriever.Object);
+            
 
             var npc = beggarsGuild.GetNpc();
 

@@ -7,7 +7,7 @@ namespace Game
     {
         public decimal DefaultFee { get; private set; }
         private int _maxEvents;
-        private static int _eventCounter = 0;
+        public static int EventCounter { get; private set; } = 0;
 
         public ThievesGuild(string guildName, ConsoleColor color = ConsoleColor.White, IDataRetrieveService dataRetriever = null)
             : base(guildName, color, dataRetriever) { }
@@ -25,7 +25,7 @@ namespace Game
             {
                 builder.Reset();
                 builder.AddName(Convert.ToString(npc[Constant.Name]));
-                builder.AddMessages(_dataRetriever.RetrieveMessages(npc));
+                builder.AddMessages(DataRetriever.RetrieveMessages(npc));
                 builder.AddGuild(this);
                 Npcs.Add(builder.GetNpc());
             }
@@ -34,20 +34,20 @@ namespace Game
         public override Npc GetNpc()
         {
             var selectedNpc = base.GetNpc();
-            _eventCounter++;
-            if (_eventCounter <= _maxEvents)
+            EventCounter++;
+            if (EventCounter <= _maxEvents)
                 IsActive = false;
             return selectedNpc;
         }
 
         private void InitFields()
         {
-            if (decimal.TryParse(_dataRetriever.RetrieveGuildData(Constant.DefaultFee, Name, Config.GuildsPath),
+            if (decimal.TryParse(DataRetriever.RetrieveGuildData(Constant.DefaultFee, Name, Config.GuildsPath),
                 out var defaultFee))
             {
                 DefaultFee = defaultFee;
             }
-            int.TryParse(_dataRetriever.RetrieveGuildData(Constant.MaxThieves, Name, Config.GuildsPath), out _maxEvents);
+            int.TryParse(DataRetriever.RetrieveGuildData(Constant.MaxThieves, Name, Config.GuildsPath), out _maxEvents);
         }
     }
 }

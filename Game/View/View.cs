@@ -122,34 +122,30 @@ namespace Game
 
         public void ShowTutorial()
         {
-            Console.Clear();
-            Console.WriteLine("Welcome to Ankh-Morpork\n\n\tAnkh-Morpork lies on the River Ankh (the most polluted waterway on the\n" +
-                "\tDiscworld and reputedly solid enough to walk on),\n" +
-                "\twhere the fertile loam of the Sto Plains meets the Circle Sea. This,\n" +
-                "\tnaturally, puts it in an excellent trading position.\n\tThe central city divides more or less into Ankh(the posh part)\n" +
-                "\tand Morpork(the humble part, which includes the slum area known as\n" +
-                "\t\"the Shades\"), which are separated by the River Ankh.");
+            ShowMessage("Welcome to Ankh-Morpork" +
+                "\n\tAnkh-Morpork lies on the River Ankh (the most polluted waterway on the Discworld and reputedly " +
+                "\n\tsolid enough to walk on), where the fertile loam of the Sto Plains meets the Circle Sea. " +
+                "\n\tThis, naturally, puts it in an excellent trading position. The central city divides more " +
+                "\n\tor less into Ankh(the posh part) and Morpork(the humble part, which includes the slum area known as" +
+                "\n\t\"the Shades\"), which are separated by the River Ankh.", true);
             WaitForKey();
-            Console.Clear();
-            Console.WriteLine("During the game, you walk along the street and meet guild representatives,\n" +
-                "who might have a deal for you, which you can accept, deny, or ask for more information.\n" +
-                "You will be prompted with options like these:");
+            ShowMessage("During the game, you walk along the street and meet guild representatives," +
+                "\n\twho might have a deal for you, which you can accept, deny, or ask for more information." +
+                "\n\tYou will be prompted with options like these:", true);
             var range = ShowOptions("Option 1", "Option 2");
-            Console.WriteLine("To choose either of them, you have to type in the number of the desired option.\n" +
-                "In case if you write a wrong number or any other invalid string, you will be asked to type it again.\n" +
-                "Try it now:");
+            ShowMessage("To choose either of them, you have to type in the number of the desired option." +
+                "\n\tIn case if you write a wrong number or any other invalid string, you will be asked to type it again." +
+                "\n\tTry it now:");
             ReadResponse(range);
-            Console.WriteLine("Great!");
+            ShowMessage("Great!");
             WaitForKey();
-            Console.Clear();
-            Console.WriteLine("In some cases, after choosing an option, you will be prompted with a following dialog.\n" +
-                "The response you have to type in there depends on what an npc asks you to do, so follow along.\n" +
-                "For example after accepting an assassin\'s deal you will be asked to write\n" +
-                "the amount you are ready to pay for the deal.");
+            ShowMessage("In some cases, after choosing an option, you will be prompted with a following dialog." +
+                "\n\tThe response you have to type in there depends on what an npc asks you to do, so follow along." +
+                "\n\tFor example after accepting an assassin\'s deal you will be asked to write" +
+                "\n\tthe amount you are ready to pay for the deal.", true);
             WaitForKey();
-            Console.Clear();
-            Console.WriteLine("Player Highscore is counted by the amount of successfully accepted guild deals.\n" +
-                "In other words, if you accept and don't get killed, you get your point, otherwise, you don't.");
+            ShowMessage("Player Highscore is counted by the amount of successfully accepted guild deals." +
+                "\n\tIn other words, if you accept and don't get killed, you get your point, otherwise, you don't.", true);
             WaitForKey();
         }
     }

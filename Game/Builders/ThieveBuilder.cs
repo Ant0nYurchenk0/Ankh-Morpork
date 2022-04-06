@@ -33,9 +33,9 @@ namespace Game
             return _npc;
         }
 
-        public void Reset(IView view = null)
+        public void Reset()
         {
-            _npc = new ThieveNpc(view);
+            _npc = new ThieveNpc();
         }
     }
 }

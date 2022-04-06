@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Newtonsoft.Json.Linq;
 
 namespace Game
@@ -45,7 +46,7 @@ namespace Game
                 builder.Reset();
                 builder.AddMaxReward(Convert.ToDecimal(npc[Constant.MaxReward]));
                 builder.AddMinReward(Convert.ToDecimal(npc[Constant.MinReward]));
-                builder.AddMessages(_dataRetriever.RetrieveMessages(npc));
+                builder.AddMessages(DataRetriever.RetrieveMessages(npc));
                 builder.AddName(Convert.ToString(npc[Constant.Name]));
                 builder.AddGuild(this);
                 Npcs.Add(builder.GetNpc());
@@ -53,8 +54,3 @@ namespace Game
         }
     }
 }
-//([\w]+\[+[\w\.]+\])(?! \?\?)
-//$1($2 ?? 0)
-
-//([\w]+\[+[\w\.]+\])(?! \?\?)(\.ToString)
-//($1 ?? string.Empty)$2

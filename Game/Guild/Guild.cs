@@ -12,10 +12,10 @@ namespace Game
         public List<Npc> Npcs { get; protected set; }
         public ConsoleColor Color { get; protected set; }
         public bool IsActive { get; protected set; }
-        protected static IDataRetrieveService _dataRetriever;
-        public Guild(string guildName, ConsoleColor color = ConsoleColor.White, IDataRetrieveService dataRetriever = null)
+        public IDataRetrieveService DataRetriever { get; set; }
+        protected Guild(string guildName, ConsoleColor color = ConsoleColor.White, IDataRetrieveService dataRetriever = null)
         {
-            _dataRetriever = dataRetriever ?? new DataRetrieveService();
+            DataRetriever = dataRetriever ?? new DataRetrieveService();
             Name = guildName;
             Color = color;
             IsActive = true;
@@ -32,13 +32,13 @@ namespace Game
 
         protected virtual void LoadNpcs()
         {
-            var listOfNpcs = _dataRetriever.RetrieveNpcs(Name, Config.GuildsPath);
+            var listOfNpcs = DataRetriever.RetrieveNpcs(Name, Config.GuildsPath);
             CreateNpcs(listOfNpcs);
         }
 
         protected virtual void LoadData()
         {
-            Description = _dataRetriever.RetrieveGuildData(Constant.Description, Name, Config.GuildsPath);
+            Description = DataRetriever.RetrieveGuildData(Constant.Description, Name, Config.GuildsPath);
         }
 
         protected abstract void CreateNpcs(JArray listOfNpcs);

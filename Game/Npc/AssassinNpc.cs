@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Linq;
 
 namespace Game
 {
@@ -8,27 +8,19 @@ namespace Game
         public decimal MaxReward { get; set; } 
         public bool IsBusy { get; set; }
         public IAssassinsGuild Guild { get; set; }
-        public AssassinNpc(IView view = null) 
-            : base(view) {}
+        public AssassinNpc() 
+            : base() {}
 
         public override void Accept(IPlayer player)
         {
-            try
-            {
-                _view.ShowMessage(Messages[Constant.OfferMessage]);
-            }
-            catch(Exception) { }
+            _view.ShowMessage(Messages.FirstOrDefault(m => m.Key == Constant.OfferMessage).Value);            
             var reward = decimal.Parse(_view.ReadResponse(0));
             if (player.TryDecreaseMoney(reward)
                 && Guild.CheckOrder(reward))
             {
                 base.Accept(player);
-                try
-                {
-                    _view.ShowMessage(Messages[Constant.AcceptMessage]);
-                }
-                catch (Exception) { }
-                return;
+                _view.ShowMessage(Messages.FirstOrDefault(m => m.Key == Constant.AcceptMessage).Value);
+
             }
             else
             {

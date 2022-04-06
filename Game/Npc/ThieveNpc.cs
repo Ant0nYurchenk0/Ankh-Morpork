@@ -1,22 +1,18 @@
-﻿using System;
+﻿using System.Linq;
 
 namespace Game
 {
     public class ThieveNpc : Npc
     {
-        public ThieveNpc(IView view = null) : base(view) {}
+        public ThieveNpc() : base() {}
         public IThievesGuild Guild { get; set; }
         public override void Accept(IPlayer player)
         {
             if (player.TryDecreaseMoney(Guild.DefaultFee))
             {
                 base.Accept(player);
-                try
-                {
-                    _view.ShowMessage(Messages[Constant.AcceptMessage]);
-                }
-                catch (Exception) { }
-                return;
+                _view.ShowMessage(Messages.FirstOrDefault(m => m.Key == Constant.AcceptMessage).Value);
+
             }
             else
             {

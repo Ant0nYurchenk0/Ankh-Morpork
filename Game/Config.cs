@@ -10,14 +10,14 @@ namespace Game
         public static string PlayerDataPath { get ; private set; }
         public static string BeggarTypesPath { get ; private set; }
         public static string ClownTypesPath { get ; private set; }
-        private static IFileService _serviceFile; 
+        public static IFileService ServiceFile { get; set; } 
 
         public static void LoadConfig()
         {
-            _serviceFile = new FileService();
+            ServiceFile = new FileService();
             try
             {
-                var configString = _serviceFile.ReadFileCache(ConfigPath);
+                var configString = ServiceFile.ReadFileCache(ConfigPath);
                 var config = JObject.Parse(configString);
                 PlayerDataPath = config[Path.PlayerDataConfigPath].ToString();
                 GuildsPath = config[Path.GuildDataConfigPath].ToString();

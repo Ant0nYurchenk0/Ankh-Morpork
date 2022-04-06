@@ -10,7 +10,7 @@ namespace Npc
         private Mock<IPlayer> _player;
         private const string FakeNpcName = "FakeNpc";
         private const decimal _fee = 10;
-        private BeggarBuilder _builder = new Game.BeggarBuilder();
+        private BeggarBuilder _builder = new BeggarBuilder();
         [SetUp]
         public void SetUp()
         {

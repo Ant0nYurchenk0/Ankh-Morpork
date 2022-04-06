@@ -14,8 +14,8 @@ namespace Game
             {
                 builder.Reset();
                 builder.AddName(Convert.ToString(npc[Constant.Name]));
-                builder.AddMessages(_dataRetriever.RetrieveMessages(npc));
-                builder.AddReward(_dataRetriever.RetrieveFromType(Config.ClownTypesPath, Convert.ToString(npc[Constant.Type])));
+                builder.AddMessages(DataRetriever.RetrieveMessages(npc));
+                builder.AddReward(DataRetriever.RetrieveFromType(Config.ClownTypesPath, Convert.ToString(npc[Constant.Type])));
                 Npcs.Add(builder.GetNpc());
             }
         }
