@@ -1,4 +1,6 @@
-﻿using Game;
+﻿using Game.Guilds;
+using Game.Constants;
+using Game.Service;
 using Moq;
 using NUnit.Framework;
 using Newtonsoft.Json.Linq;

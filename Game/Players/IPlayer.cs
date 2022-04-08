@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Game
+namespace Game.Players
 {
     public interface IPlayer : IDisposable
     {

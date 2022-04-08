@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Game.Guilds;
+using Game.Constants;
 
-namespace Game
+
+namespace Game.Events
 {
     public static class EventBuilder
     {

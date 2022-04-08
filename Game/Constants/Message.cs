@@ -1,4 +1,4 @@
-﻿namespace Game
+﻿namespace Game.Constants
 {
     public static class Message
     {

@@ -1,6 +1,9 @@
 ﻿using System.Linq;
+using Game.Players;
+using Game.Constants;
 
-namespace Game
+
+namespace Game.Npcs
 {
     public class ClownNpc : Npc
     {

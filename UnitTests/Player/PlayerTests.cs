@@ -1,13 +1,17 @@
 ﻿using Game;
 using NUnit.Framework;
 using Moq;
+using Game.Players;
+using Game.Constants;
+using Game.Service;
 
-namespace Player
+
+namespace Players
 {
     [TestFixture]
     internal class PlayerTests
     {
-        private Game.Player _player;
+        private Player _player;
         private Mock<IFileService> _fakeFileService;
         private int _highscore = 1;
         private decimal _money = 10;
@@ -18,7 +22,7 @@ namespace Player
             _fakeFileService.Setup(f=>f.ReadFile(Config.PlayerDataPath)).Returns("{"+string.Format("{0}:{1},{2}:{3}", 
                 Constant.HighScore, _highscore, Constant.Money, _money)+"}");
             _fakeFileService.Setup(f => f.WriteToFile(Config.PlayerDataPath, It.IsAny<string>()));
-            _player = new Game.Player(_fakeFileService.Object);
+            _player = new Player(_fakeFileService.Object);
         }
         [Test]
         public void IncreaseScore_CurrentScoreIsZero_CurrentScoreOneMoreThanInitial()
@@ -49,7 +53,7 @@ namespace Player
             Assert.That(_player.TryDecreaseMoney(fee) == responce);
         }
         [Test]
-        public void Reset_PlayerHighScoreIsNotZero_HighScreIsZero()
+        public void Reset_PlayerHighScoreIsNotZero_HighScoreIsZero()
         {
             Assert.That(_player.HighScore != 0);
 

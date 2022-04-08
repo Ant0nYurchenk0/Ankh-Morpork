@@ -1,4 +1,9 @@
-﻿namespace Game
+﻿using Game.Guilds;
+using Game.Players;
+using Game.Npcs;
+
+
+namespace Game.Events
 {
     public interface IEvent
     {

@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Game.Constants;
+using Game.Npcs;
 
-namespace Game
+
+
+namespace Game.Builders
 {
-    public class ClownBuilder : IClownBuilder
+    public class ClownBuilder : INpcBuilder<ClownNpc>
     {
         private ClownNpc _npc;
 

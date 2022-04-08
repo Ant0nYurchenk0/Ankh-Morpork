@@ -1,7 +1,11 @@
 ﻿using System;
 using Newtonsoft.Json.Linq;
+using Game.Builders;
+using Game.Constants;
+using Game.Service;
 
-namespace Game
+
+namespace Game.Guilds
 {
     public class BeggarsGuild : Guild
     {
@@ -11,7 +15,7 @@ namespace Game
         protected override void CreateNpcs(JArray listOfNpcs)
         {
             var builder = new BeggarBuilder();
-            foreach (JObject npc in listOfNpcs.Children<JObject>())
+            foreach (var npc in listOfNpcs.Children<JObject>())
             {
                 builder.Reset();
                 builder.AddFee(DataRetriever.RetrieveFromType(Config.BeggarTypesPath, Convert.ToString(npc[Constant.Type])));

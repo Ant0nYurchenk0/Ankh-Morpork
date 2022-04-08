@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Threading;
+using Game.Players;
+using Game.Constants;
+using Game.Events;
 
-namespace Game
+namespace Game.Views
 {
     public class View : IView
     {
@@ -20,7 +23,7 @@ namespace Game
             {
                 Console.Write("As you walk along the street, you meet");
                 Thread.Sleep(500);
-                for (int i = 0; i < secondsToWait * 2; i++)
+                for (var i = 0; i < secondsToWait * 2; i++)
                 {
                     Console.Write('.');
                     Thread.Sleep(500);
@@ -31,13 +34,13 @@ namespace Game
             Console.Write($"{newEvent.Npc.Name} of {newEvent.Guild.Name}");
             Console.ResetColor();
             Console.WriteLine(":");
-            Console.WriteLine($"-{newEvent.Npc.Messages[Constant.MeetMessage]}");
+            Console.WriteLine($"—{newEvent.Npc.Messages[Constant.MeetMessage]}");
         }
 
         public int ShowOptions(params string[] options)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
-            for (int i = 0; i < options.Length; i++)
+            for (var i = 0; i < options.Length; i++)
             {
                 Console.WriteLine($" {i + 1}.{options[i]}");
             }

@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Game.Npcs;
+using Game.Constants;
+using Game.Guilds;
 
-namespace Game
+namespace Game.Builders
 {
-    public class AssassinBuilder : IAssassinBuilder
+    public class AssassinBuilder : INpcBuilder<AssassinNpc>
     {
         public AssassinNpc _npc;
 

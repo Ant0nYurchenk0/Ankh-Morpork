@@ -2,8 +2,9 @@
 using System.Text;
 using System.Collections.Generic;
 using System;
+using Game.Constants;
 
-namespace Game
+namespace Game.Service
 {
     public class FileService :IFileService
     {

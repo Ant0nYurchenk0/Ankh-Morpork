@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
-using System;
+using Game.Constants;
+using Game.Service;
+
 
 namespace Game
 {
@@ -12,22 +14,41 @@ namespace Game
         public static string ClownTypesPath { get ; private set; }
         public static IFileService ServiceFile { get; set; } 
 
-        public static void LoadConfig()
+        public static string LoadConfig()
         {
             ServiceFile = new FileService();
-            try
+            if (ConfigPath == null)
+                return string.Empty;
+            var configString = ServiceFile.ReadFileCache(ConfigPath);
+            var config = JObject.Parse(configString);
+            if (string.IsNullOrEmpty(PlayerDataPath = LoadFromConfig(config, Path.PlayerDataConfigPath)))
             {
-                var configString = ServiceFile.ReadFileCache(ConfigPath);
-                var config = JObject.Parse(configString);
-                PlayerDataPath = config[Path.PlayerDataConfigPath].ToString();
-                GuildsPath = config[Path.GuildDataConfigPath].ToString();
-                BeggarTypesPath = config[Path.BeggarTypesPath].ToString();
-                ClownTypesPath = config[Path.ClownTypesPath].ToString() ;
+                return Path.PlayerDataConfigPath;
             }
-            catch 
+            if (string.IsNullOrEmpty(GuildsPath = LoadFromConfig(config, Path.GuildDataConfigPath)))
             {
-                throw new ArgumentException(Message.FileAccessError);
+                return Path.GuildDataConfigPath;
             }
+            if (string.IsNullOrEmpty(BeggarTypesPath = LoadFromConfig(config, Path.BeggarTypesPath)))
+            {
+                return Path.BeggarTypesPath;
+            }
+            if (string.IsNullOrEmpty(ClownTypesPath = LoadFromConfig(config, Path.ClownTypesPath)))
+            {
+                return Path.ClownTypesPath;
+            }
+            
+            return string.Empty;
+            
+        }
+        private static string LoadFromConfig(JObject config, string key)
+        {
+            if (config.TryGetValue(key, out var configData))
+            {                
+                return configData.ToString();
+            }
+            else
+                return null;
         }
     }
 }

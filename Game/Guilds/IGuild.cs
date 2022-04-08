@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using Game.Npcs;
 
-namespace Game
+namespace Game.Guilds
 {
     public interface IGuild
     {

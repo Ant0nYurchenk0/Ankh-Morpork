@@ -1,7 +1,12 @@
 ﻿using System;
 using Newtonsoft.Json.Linq;
+using Game.Builders;
+using Game.Constants;
+using Game.Service;
+using Game.Npcs;
 
-namespace Game
+
+namespace Game.Guilds
 {
     public class ThievesGuild : Guild, IThievesGuild
     {
@@ -21,7 +26,7 @@ namespace Game
         protected override void CreateNpcs(JArray listOfNpcs)
         {
             var builder = new ThieveBuilder();
-            foreach (JObject npc in listOfNpcs.Children<JObject>())
+            foreach (var npc in listOfNpcs.Children<JObject>())
             {
                 builder.Reset();
                 builder.AddName(Convert.ToString(npc[Constant.Name]));

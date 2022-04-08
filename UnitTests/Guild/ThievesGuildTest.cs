@@ -1,7 +1,10 @@
-﻿using Game;
-using Moq;
+﻿using Moq;
 using NUnit.Framework;
 using Newtonsoft.Json.Linq;
+using Game.Service;
+using Game.Constants;
+using Game.Guilds;
+
 
 namespace Guild
 {
@@ -40,7 +43,7 @@ namespace Guild
         {
             var thievesGuild = new ThievesGuild(Constant.ThievesGuild, default, _dataRetriever.Object);
 
-            for(int i = 0; i< MaxThieves; i++)
+            for(var i = 0; i< MaxThieves; i++)
                 thievesGuild.GetNpc();
 
             Assert.That(thievesGuild.IsActive == false);            

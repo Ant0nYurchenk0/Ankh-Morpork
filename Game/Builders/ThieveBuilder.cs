@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Game.Guilds;
+using Game.Constants;
+using Game.Npcs;
 
-namespace Game
+
+
+namespace Game.Builders
 {
-    public class ThieveBuilder : IThieveBuilder
+    public class ThieveBuilder : INpcBuilder<ThieveNpc>
     {
         private ThieveNpc _npc;
 

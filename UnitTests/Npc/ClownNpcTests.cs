@@ -1,6 +1,9 @@
 ﻿using Game;
 using NUnit.Framework;
 using Moq;
+using Game.Players;
+using Game.Builders;
+
 
 namespace Npc
 {

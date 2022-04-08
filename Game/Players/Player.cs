@@ -1,8 +1,10 @@
-﻿using System;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using Game.Constants;
+using Game.Service;
 
-namespace Game
+
+namespace Game.Players
 {
     public class Player :  IPlayer
     {
@@ -11,7 +13,7 @@ namespace Game
         public int HighScore { get; private set; }
         public decimal Money { get; private set; }
         public JObject PlayerData { get; private set; }
-        private static IFileService _serviceFile;
+        private readonly IFileService _serviceFile;
 
         public Player(IFileService serviceFile = null)
         {

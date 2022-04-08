@@ -1,8 +1,15 @@
 ﻿using System;
 using System.Linq;
 using Newtonsoft.Json.Linq;
+using Game.Npcs;
+using Game.Builders;
+using Game.Constants;
+using Game.Service;
+using Game.Events;
 
-namespace Game
+
+
+namespace Game.Guilds
 {
     public class AssassinsGuild : Guild, IAssassinsGuild
     {
@@ -18,15 +25,11 @@ namespace Game
 
         public bool CheckOrder(decimal reward)
         {
-            foreach (AssassinNpc npc in Npcs)
-            {
-                if (!npc.IsBusy
-                    && npc.MaxReward >= reward
-                    && npc.MinReward <= reward)
-                {
-                    return true;
-                }
-            }
+            if (Npcs.Cast<AssassinNpc>().Any(n => !n.IsBusy
+                     && n.MaxReward >= reward
+                     && n.MinReward <= reward))
+                return true;
+            
             return false;
         }
 
@@ -41,7 +44,7 @@ namespace Game
         protected override void CreateNpcs(JArray listOfNpcs)
         {
             var builder = new AssassinBuilder();
-            foreach (JObject npc in listOfNpcs.Children<JObject>())
+            foreach (var npc in listOfNpcs.Children<JObject>())
             {
                 builder.Reset();
                 builder.AddMaxReward(Convert.ToDecimal(npc[Constant.MaxReward]));

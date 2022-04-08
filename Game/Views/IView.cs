@@ -1,4 +1,7 @@
-﻿namespace Game
+﻿using Game.Players;
+using Game.Events;
+
+namespace Game.Views
 {
     public interface IView
     {

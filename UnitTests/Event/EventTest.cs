@@ -1,10 +1,14 @@
 ﻿using NUnit.Framework;
 using Moq;
-using Game;
 using System;
 using System.IO;
+using Game.Players;
+using Game.Guilds;
+using Game.Views;
+using Game.Events;
+using Game.Npcs;
 
-namespace Event
+namespace Events
 {
     [TestFixture]
     internal class EventTest
@@ -28,7 +32,7 @@ namespace Event
         [Test]
         public void Resolve_1isInput_CallAcceptAndResolveEvent()
         {
-            var _event = new Game.Event(_npc.Object, _guild.Object);
+            var _event = new Event(_npc.Object, _guild.Object);
             _event.View = _view.Object;
             _view.Setup(v => v.ReadResponse(It.IsAny<int>())).Returns("1");
             var input = new StringReader("1");
@@ -42,7 +46,7 @@ namespace Event
         [Test]
         public void Resolve_2isInput_CallDenyAndResolveEvent()
         {
-            var _event = new Game.Event(_npc.Object, _guild.Object);
+            var _event = new Event(_npc.Object, _guild.Object);
             _event.View = _view.Object;
             _view.Setup(v => v.ReadResponse(It.IsAny<int>())).Returns("2");
 
@@ -54,7 +58,7 @@ namespace Event
         [Test]
         public void Resolve_NpcIsNull_ResolveButNotCallAnyMethod()
         {
-            var _event = new Game.Event(null, _guild.Object);
+            var _event = new Event(null, _guild.Object);
             _event.View = _view.Object;
 
             _event.Resolve(_player.Object);

@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
-using System.Linq;
+using Game.Constants;
+using Game.Service;
+using Game.Events;
+using Game.Npcs;
 
-namespace Game
+namespace Game.Guilds
 {
     public abstract class Guild : IGuild
     {

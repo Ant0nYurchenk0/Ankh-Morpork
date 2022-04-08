@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 
-namespace Game
+namespace Game.Service
 {
     public interface IDataRetrieveService
     {

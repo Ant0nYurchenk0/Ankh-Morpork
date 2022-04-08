@@ -1,4 +1,11 @@
-﻿namespace Game
+﻿using Game.Guilds;
+using Game.Views;
+using Game.Players;
+using Game.Constants;
+using Game.Npcs;
+
+
+namespace Game.Events
 {
     public class Event : IEvent
     {

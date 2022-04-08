@@ -1,4 +1,9 @@
-﻿namespace Game
+﻿using Game.Constants;
+using Game.Views;
+using Game.Events;
+using Game.Players;
+
+namespace Game
 {
     public class Controller
     {
@@ -52,7 +57,9 @@
         public void Init()
         {
             Config.ConfigPath = Path.ConfigPath;
-            Config.LoadConfig();
+            var errorFile = string.Empty;
+            if (!string.IsNullOrEmpty(errorFile = Config.LoadConfig()))
+                View.ShowMessage(errorFile + " "+ Message.FileAccessError, clearPage: true);
             EventBuilder.LoadGuilds();
         }
 

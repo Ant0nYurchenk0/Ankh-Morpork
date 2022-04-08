@@ -1,7 +1,11 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
+using Game.Players;
+using Game.Views;
+using Game.Constants;
 
-namespace Game
+
+namespace Game.Npcs
 {
     public abstract class Npc : INpc
     {

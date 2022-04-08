@@ -2,10 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Game.Constants;
 
-namespace Game
+namespace Game.Service
 {
     public class DataRetrieveService : IDataRetrieveService
     {

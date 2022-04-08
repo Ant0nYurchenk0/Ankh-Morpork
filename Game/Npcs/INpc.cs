@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using Game.Players;
 
-namespace Game
+namespace Game.Npcs
 {
     public interface INpc
     {

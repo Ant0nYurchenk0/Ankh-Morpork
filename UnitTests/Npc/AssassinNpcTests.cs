@@ -1,8 +1,12 @@
-﻿using Game;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Moq;
 using System;
 using System.IO;
+using Game.Builders;
+using Game.Players;
+using Game.Guilds;
+
+
 
 namespace Npc
 {
