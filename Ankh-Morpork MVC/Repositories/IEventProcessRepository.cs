@@ -6,7 +6,7 @@ using Ankh_Morpork_MVC.Models;
 
 namespace Ankh_Morpork_MVC.Repositories
 {
-    public interface ICharacterRepository
+    public interface IEventProcessRepository
     {        
         bool ProcessResponce(bool accept);
     }

@@ -10,6 +10,9 @@ namespace Ankh_Morpork_MVC.Dtos
     {
         public Character Character { get; set; }
         public double PlayerMoney { get; set; }
+        public double PlayerBeer{ get; set; }
+        public double PlayerHood{ get; set; }
         public double Reward { get; set; }
+        public int Score { get; set; }
     }
 }

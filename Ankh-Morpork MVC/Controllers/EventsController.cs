@@ -13,12 +13,11 @@ namespace Ankh_Morpork_MVC.Controllers
 {
     public class EventsController : Controller
     {
-        // GET: Events
-        private CharacterDbContext _context;
+        private GameDbContext _context;
         private EventRepository _eventRepository;
         public EventsController()
         {
-            _context = new CharacterDbContext(); 
+            _context = new GameDbContext(); 
             _eventRepository = new EventRepository();
         }        
 
@@ -26,13 +25,23 @@ namespace Ankh_Morpork_MVC.Controllers
         public ActionResult CreateEvent()
         {            
             _eventRepository.ResetEvent();
-            _eventRepository.AddCharacter();
+            _eventRepository.AddBody();
             if (_context.Events.Count() == 0)
+            {
                 _eventRepository.AddMoney(Values.PlayerMoney);
+                _eventRepository.AddBeer(Values.PlayerBeer);
+                _eventRepository.AddHood(Values.PlayerHood);                
+            }
             else
-                _eventRepository.AddMoney(_context.Events
+            {
+                var lastEvent = _context.Events
                 .Where(e => e.Id == _context.Events.Max(m => m.Id))
-                .FirstOrDefault().PlayerMoney);
+                .FirstOrDefault();
+                _eventRepository.AddMoney(lastEvent.PlayerMoney);
+                _eventRepository.AddBeer(lastEvent.PlayerBeer);
+                _eventRepository.AddHood(lastEvent.PlayerHood);
+                _eventRepository.AddScore(lastEvent.Score);
+            }
             _eventRepository.PostEvent();
             return View(_eventRepository.ViewEvent(), Mapper.Map<Event, EventDto>(_eventRepository.GetEvent()));
         }

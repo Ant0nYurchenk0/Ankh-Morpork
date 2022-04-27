@@ -5,9 +5,9 @@ using System.Web;
 
 namespace Ankh_Morpork_MVC.Models
 {
-    public class Thieve : Character
+    public enum ItemTypes
     {
-        public double? Fee { get; set; }
-
+        Beer = 1,
+        Hood = 2
     }
 }

@@ -1,0 +1,21 @@
+﻿@using Ankh_Morpork_MVC.Models
+@model System.Collections.Generic.List<Game>
+
+@{
+    ViewBag.Title = "Statistics";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Statistics</h2>
+<ul>
+
+@{ 
+    foreach(var game in Model)
+            {
+                <li>@game.Id</li>           
+                <li>@game.DatePlayed</li>           
+                <li>@game.Score</li>           
+            }
+}
+</ul>
+

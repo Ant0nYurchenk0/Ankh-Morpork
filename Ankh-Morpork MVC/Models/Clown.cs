@@ -5,9 +5,8 @@ using System.Web;
 
 namespace Ankh_Morpork_MVC.Models
 {
-    public class Thieve : Character
+    public class Clown : Character
     {
-        public double? Fee { get; set; }
-
+        public double? Reward { get; set; }
     }
 }

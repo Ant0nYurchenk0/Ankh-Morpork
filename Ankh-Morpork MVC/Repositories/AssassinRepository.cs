@@ -6,34 +6,47 @@ using System.Web;
 
 namespace Ankh_Morpork_MVC.Repositories
 {
-    public class AssassinRepository : ICharacterRepository
+    public class AssassinRepository : IEventProcessRepository
     {
-        private CharacterDbContext _context;
+        private GameDbContext _context;
         private Random _random;
         private double _reward;
+        private bool _hood;
 
         public AssassinRepository()
         {
-            _context = new CharacterDbContext();
+            _context = new GameDbContext();
             _random = new Random();
 
         }
+
         public bool ProcessResponce(bool accept)
         {
             if (!accept || !TryApplyReward(_reward))
                 return false;
             return true;
         }
-        public void AddReward(double reward)
+
+        public void AddReward(double reward, bool hood)
         {
             _reward = reward;
+            _hood = hood;
         }
+
         private bool TryApplyReward(double reward)
         {
             RandomizeBusiness();
             var currentEvent = _context.Events
                 .Where(e => e.Id == _context.Events.Max(m => m.Id))
                 .FirstOrDefault();
+            if (_hood)
+            {
+                currentEvent.PlayerHood--;
+                _context.SaveChanges();
+                if (currentEvent.PlayerHood < 0)
+                    return false;
+                return true;
+            }
             currentEvent.PlayerMoney -= reward;
             _context.SaveChanges();
             if ((currentEvent.PlayerMoney) < 0)
@@ -44,6 +57,7 @@ namespace Ankh_Morpork_MVC.Repositories
                 return true;
             return false;
         }
+
         private void RandomizeBusiness()
         {
             foreach (var assassin in _context.Assassins)

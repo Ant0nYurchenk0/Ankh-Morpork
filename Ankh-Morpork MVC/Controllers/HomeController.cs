@@ -1,4 +1,5 @@
 ﻿using Ankh_Morpork_MVC.Models;
+using Ankh_Morpork_MVC.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,12 @@ namespace Ankh_Morpork_MVC.Controllers
 {
     public class HomeController : Controller
     {
-        private CharacterDbContext _context;
+        private GameDbContext _context;
+        private GameRepository _repository;
         public HomeController()
         {
-            _context = new CharacterDbContext();   
+            _context = new GameDbContext();   
+            _repository = new GameRepository();
         }
 
         public ActionResult Index()
@@ -28,10 +31,28 @@ namespace Ankh_Morpork_MVC.Controllers
         [Route("")]
         public ActionResult GameOver()
         {
-            ClearEvents();
+            if(_context.Events.Count() > 0)
+            {
+                LogGame();
+                ClearEvents();
+            }
             return View("Index");
         }
 
+
+        [Route("Statistics")]
+        public ActionResult Statistics()
+        {
+            var games = _context.Games.ToList();
+            return View(games);
+        }
+        private void LogGame()
+        {
+            _repository.ResetGame();
+            _repository.AddDate();
+            _repository.AddScore();
+            _repository.PostGame();
+        }
         private void ClearEvents()
         {
             foreach(var e in _context.Events)

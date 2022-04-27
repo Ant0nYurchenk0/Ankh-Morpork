@@ -1,0 +1,19 @@
+﻿@model Ankh_Morpork_MVC.Dtos.EventDto
+@using Ankh_Morpork_MVC.Models
+@{
+    var character = (Beggar)Model.Character;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<p>Score: @Model.Score</p>
+
+<h2>@character.Name of Clown's Guild</h2>
+<h3>@character.MeetMessage</h3>
+<p>Money: @Model.PlayerMoney</p>
+<p>Beer: @Model.PlayerBeer</p>
+<p></p>
+<p>@character.MoneyFee</p>
+@using (Html.BeginForm("Accept", "Beggars", new { moneyFee = character.MoneyFee ?? 0, beerFee = character.BeerFee ?? false }))
+{
+    <button type="submit">Submit</button>
+    @Html.ActionLink("Deny", "Deny", "Beggars", new { accept = false }, null)
+}

@@ -131,13 +131,16 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\MappingProfile.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Configurations\AssassinConfiguration.cs" />
-    <Compile Include="Configurations\CharacterConfiguration.cs" />
     <Compile Include="Constants\GuildDatas.cs" />
     <Compile Include="Constants\Values.cs" />
     <Compile Include="Controllers\AssassinsController.cs" />
+    <Compile Include="Controllers\BeersController.cs" />
+    <Compile Include="Controllers\BeggarsController.cs" />
+    <Compile Include="Controllers\ClownsController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HoodsController.cs" />
+    <Compile Include="Controllers\ThievesController.cs" />
     <Compile Include="Dtos\EventDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -162,17 +165,72 @@
     <Compile Include="Migrations\202204270947024_AddThievesTable.designer.cs">
       <DependentUpon>202204270947024_AddThievesTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204271030214_OptionalFieldsNullable.cs" />
+    <Compile Include="Migrations\202204271030214_OptionalFieldsNullable.designer.cs">
+      <DependentUpon>202204271030214_OptionalFieldsNullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204271056280_AddClownsTable.cs" />
+    <Compile Include="Migrations\202204271056280_AddClownsTable.designer.cs">
+      <DependentUpon>202204271056280_AddClownsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204271201242_AddBeggrTable.cs" />
+    <Compile Include="Migrations\202204271201242_AddBeggrTable.designer.cs">
+      <DependentUpon>202204271201242_AddBeggrTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204271239542_BeerAdded.cs" />
+    <Compile Include="Migrations\202204271239542_BeerAdded.designer.cs">
+      <DependentUpon>202204271239542_BeerAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204271247165_UpdateDb.cs" />
+    <Compile Include="Migrations\202204271247165_UpdateDb.designer.cs">
+      <DependentUpon>202204271247165_UpdateDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204271321167_AddPrice.cs" />
+    <Compile Include="Migrations\202204271321167_AddPrice.designer.cs">
+      <DependentUpon>202204271321167_AddPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204271323389_AddPrice1.cs" />
+    <Compile Include="Migrations\202204271323389_AddPrice1.designer.cs">
+      <DependentUpon>202204271323389_AddPrice1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204271340460_AddBeerFeeToBeggar.cs" />
+    <Compile Include="Migrations\202204271340460_AddBeerFeeToBeggar.designer.cs">
+      <DependentUpon>202204271340460_AddBeerFeeToBeggar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204271424034_AddHoods.cs" />
+    <Compile Include="Migrations\202204271424034_AddHoods.designer.cs">
+      <DependentUpon>202204271424034_AddHoods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204271513500_AddScore.cs" />
+    <Compile Include="Migrations\202204271513500_AddScore.designer.cs">
+      <DependentUpon>202204271513500_AddScore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204271540266_AddStatistics.cs" />
+    <Compile Include="Migrations\202204271540266_AddStatistics.designer.cs">
+      <DependentUpon>202204271540266_AddStatistics.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Assassin.cs" />
-    <Compile Include="Models\CharacterDbContext.cs" />
+    <Compile Include="Models\Beggar.cs" />
+    <Compile Include="Models\GameDbContext.cs" />
     <Compile Include="Models\CharacterTypes.cs" />
+    <Compile Include="Models\Clown.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Character.cs" />
+    <Compile Include="Models\Game.cs" />
+    <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\ItemTypes.cs" />
     <Compile Include="Models\Thieve.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AssassinRepository.cs" />
+    <Compile Include="Repositories\BeerRepository.cs" />
+    <Compile Include="Repositories\BeggarsRepository.cs" />
+    <Compile Include="Repositories\ClownRepository.cs" />
     <Compile Include="Repositories\EventRepository.cs" />
-    <Compile Include="Repositories\ICharacterRepository.cs" />
+    <Compile Include="Repositories\GameRepository.cs" />
+    <Compile Include="Repositories\HoodRepository.cs" />
+    <Compile Include="Repositories\IEventProcessRepository.cs" />
+    <Compile Include="Repositories\ThieveRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -211,10 +269,15 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Assassins\NewAssassin.cshtml" />
+    <Content Include="Views\Thieves\NewThieve.cshtml" />
+    <Content Include="Views\Clowns\NewClown.cshtml" />
+    <Content Include="Views\Beggars\NewBeggar.cshtml" />
+    <Content Include="Views\Beers\NewBeer.cshtml" />
+    <Content Include="Views\Hoods\NewHood.cshtml" />
+    <Content Include="Views\Home\Statistics.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Events\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -244,6 +307,39 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204270947024_AddThievesTable.resx">
       <DependentUpon>202204270947024_AddThievesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204271030214_OptionalFieldsNullable.resx">
+      <DependentUpon>202204271030214_OptionalFieldsNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204271056280_AddClownsTable.resx">
+      <DependentUpon>202204271056280_AddClownsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204271201242_AddBeggrTable.resx">
+      <DependentUpon>202204271201242_AddBeggrTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204271239542_BeerAdded.resx">
+      <DependentUpon>202204271239542_BeerAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204271247165_UpdateDb.resx">
+      <DependentUpon>202204271247165_UpdateDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204271321167_AddPrice.resx">
+      <DependentUpon>202204271321167_AddPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204271323389_AddPrice1.resx">
+      <DependentUpon>202204271323389_AddPrice1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204271340460_AddBeerFeeToBeggar.resx">
+      <DependentUpon>202204271340460_AddBeerFeeToBeggar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204271424034_AddHoods.resx">
+      <DependentUpon>202204271424034_AddHoods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204271513500_AddScore.resx">
+      <DependentUpon>202204271513500_AddScore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204271540266_AddStatistics.resx">
+      <DependentUpon>202204271540266_AddStatistics.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

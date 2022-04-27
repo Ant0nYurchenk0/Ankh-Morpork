@@ -1,5 +1,4 @@
-﻿using Ankh_Morpork_MVC.Models;
-using Ankh_Morpork_MVC.Repositories;
+﻿using Ankh_Morpork_MVC.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,18 +7,18 @@ using System.Web.Mvc;
 
 namespace Ankh_Morpork_MVC.Controllers
 {
-    public class AssassinsController : Controller
+    public class ThievesController : Controller
     {
-        private AssassinRepository _repository;
-        public AssassinsController()
+        private ThieveRepository _repository;
+        public ThievesController()
         {
-            _repository = new AssassinRepository();
+            _repository = new ThieveRepository();
         }
-
-        [Route("Assassins/Accept/{reward}/{hood}")]
-        public ActionResult Accept(double reward, bool hood)
-        {            
-            _repository.AddReward(reward, hood);
+        [HttpPost]
+        [Route("Thieves/Accept/{fee}")]
+        public ActionResult Accept(double fee)
+        {
+            _repository.AddFee(fee);
             if (!_repository.ProcessResponce(accept: true))
                 return Deny();
             return RedirectToAction("CreateEvent", "Events");
