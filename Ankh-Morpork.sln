@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game", "Game\Game.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{CCCCC43D-AE2E-4084-9148-FC84C7F2E30D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ankh-Morpork MVC", "Ankh-Morpork MVC\Ankh-Morpork MVC.csproj", "{3BD23917-CB9D-4C61-8470-98E46DF07975}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CCCCC43D-AE2E-4084-9148-FC84C7F2E30D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCCCC43D-AE2E-4084-9148-FC84C7F2E30D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCCCC43D-AE2E-4084-9148-FC84C7F2E30D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BD23917-CB9D-4C61-8470-98E46DF07975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BD23917-CB9D-4C61-8470-98E46DF07975}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BD23917-CB9D-4C61-8470-98E46DF07975}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BD23917-CB9D-4C61-8470-98E46DF07975}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
