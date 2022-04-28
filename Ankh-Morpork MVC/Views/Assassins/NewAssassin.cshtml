@@ -4,24 +4,95 @@
     var character = (Assassin)Model.Character;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<p>Score: @Model.Score</p>
-<h2>@character.Name of Assassin's Guild</h2>
-<h3>@character.MeetMessage</h3>
-<p>Money: @Model.PlayerMoney</p>
-<p>Hoods: @Model.PlayerHood</p>
-<p>@character.OfferMessage</p>
-<p id="show-reward"></p>
+
 @using (Html.BeginForm("Accept", "Assassins", new { reward = Model.Reward, hood = false }))
 {
-    @Html.TextBoxFor(m => m.Reward, null, new { type = "range", @class = "form-range", min = "0", max = Model.PlayerMoney, step = "0.01", id = "reward-bar" })
-    <button type="submit">Submit</button>
-    @Html.ActionLink("Deny", "Deny", "Assassins", new { accept = false }, null)
-    { if (Model.PlayerHood > 0)
-        {
-            @Html.ActionLink("Use Hood", "Accept", "Assassins", new { reward = 0, hood = true }, null)
 
-        }
-    }
+    <div class="container">
+        <div class=" flip-card effect-on-active flip-vertical" id="flip-card">
+            <div class="front">
+                <div class="card play-card assassin-guild" >
+                    <img class="card-img-top character-image" src="~/Source/Assassins/assassin.jpg">
+                    <div class="card-body">
+                        <div class="guild-logo" id="assassin-logo">
+                            <img src="~/Source/Assassins/logo.png" />
+                        </div>
+                        <div class="deal">
+                            <p id="show-reward"></p>
+                        </div>
+                        <a onclick="FlipCard()" class="information-top">
+                            <img src="~/Source/info.png" />
+                        </a>
+                        <h3 class="character-name">@character.Name</h3>
+                        <h5 class="guild">Assassins' Guild</h5>
+                        <p class="card-text offer-message">@character.OfferMessage</p>
+                        @Html.TextBoxFor(m => m.Reward, null, new { type = "range", min = "0", max = Model.PlayerMoney, step = "0.01", id = "reward-bar" })
+                        <p class="card-text meet-message">@character.MeetMessage</p>
+                    </div>
+                </div>
+            </div>
+            <div class="back">
+                <div class="card play-card assassin-guild">
+                    <div class="card-body">
+                        <div class="guild-image" id="assassin-logo">
+                            <img src="~/Source/Assassins/logo.png" />
+                        </div>
+                        <a onclick="FlipCard()" class="information-bottom">
+                            <img src="~/Source/info.png" />
+                        </a>
+                        <h3 class="character-name">Assassins' Guild</h3>
+                        <p class="card-text meet-message">@character.GuildData</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container inventory-container">
+            <img class="inventory" src="../Source/Inventory.png"/>
+            <div class="row">
+                <div class="col-3">
+                    <button class="deny-button" href="@Url.Action("Deny", "Assassins", new { accept = false })">
+                        <img src="~/Source/close.png" />
+                    </button>
+                </div>
+                <div class="col-2">
+                    <div class="count">
+                        <img src="~/Source/coins.png" />
+                        <p class="coins">@Model.PlayerMoney</p>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="count">
+                        <img src="~/Source/beer.png"/>
+                        <p class="beer">@Model.PlayerBeer</p>
+                    </div>
+                </div>
+
+                <div class="col-2">
+                    @{
+                        if (Model.PlayerHood > 0)
+                        {
+                            <button class="hood-button-active" href="@Url.Action("Accept", "Assassins", new { reward = 1, hood = true })">
+                                <img src="~/Source/hood.png"/>
+                            </button>
+                        }
+                        else
+                        {
+                            <div class="hood-button-disabled">
+                                <img src="~/Source/hood-bw.png" />
+                            </div>
+                        }
+                    }
+                </div>
+                <div class="col-3">
+                    <button type="submit" class="accept-button">
+                        <img src="~/Source/check.png"/>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 }
 
 @section Scripts{
@@ -31,6 +102,14 @@
         output.innerHTML = slider.value;
         slider.oninput = function () {
             output.innerHTML = this.value;
+        }
+        function FlipCard() {
+            var element = document.getElementById("flip-card");
+            if (element.classList.contains("active") === true)
+                element.classList.remove("active");
+            else
+                element.classList.add("active");
+            
         }
     </script>
 } 

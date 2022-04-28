@@ -18,7 +18,7 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress />
+    <Use64BitIISExpress>true</Use64BitIISExpress>
     <IISExpressSSLPort>44344</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -145,69 +145,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202204261101065_AddAssassinTable.cs" />
-    <Compile Include="Migrations\202204261101065_AddAssassinTable.designer.cs">
-      <DependentUpon>202204261101065_AddAssassinTable.cs</DependentUpon>
+    <Compile Include="Migrations\202204271604534_AddStatistics.cs" />
+    <Compile Include="Migrations\202204271604534_AddStatistics.designer.cs">
+      <DependentUpon>202204271604534_AddStatistics.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202204261245338_AddEventsTable.cs" />
-    <Compile Include="Migrations\202204261245338_AddEventsTable.designer.cs">
-      <DependentUpon>202204261245338_AddEventsTable.cs</DependentUpon>
+    <Compile Include="Migrations\202204271606533_Populate.cs" />
+    <Compile Include="Migrations\202204271606533_Populate.designer.cs">
+      <DependentUpon>202204271606533_Populate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202204261331484_PopulateAssassinsTable.cs" />
-    <Compile Include="Migrations\202204261331484_PopulateAssassinsTable.designer.cs">
-      <DependentUpon>202204261331484_PopulateAssassinsTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202204270832151_PopulateAsssassinsTable2.cs" />
-    <Compile Include="Migrations\202204270832151_PopulateAsssassinsTable2.designer.cs">
-      <DependentUpon>202204270832151_PopulateAsssassinsTable2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202204270947024_AddThievesTable.cs" />
-    <Compile Include="Migrations\202204270947024_AddThievesTable.designer.cs">
-      <DependentUpon>202204270947024_AddThievesTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202204271030214_OptionalFieldsNullable.cs" />
-    <Compile Include="Migrations\202204271030214_OptionalFieldsNullable.designer.cs">
-      <DependentUpon>202204271030214_OptionalFieldsNullable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202204271056280_AddClownsTable.cs" />
-    <Compile Include="Migrations\202204271056280_AddClownsTable.designer.cs">
-      <DependentUpon>202204271056280_AddClownsTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202204271201242_AddBeggrTable.cs" />
-    <Compile Include="Migrations\202204271201242_AddBeggrTable.designer.cs">
-      <DependentUpon>202204271201242_AddBeggrTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202204271239542_BeerAdded.cs" />
-    <Compile Include="Migrations\202204271239542_BeerAdded.designer.cs">
-      <DependentUpon>202204271239542_BeerAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202204271247165_UpdateDb.cs" />
-    <Compile Include="Migrations\202204271247165_UpdateDb.designer.cs">
-      <DependentUpon>202204271247165_UpdateDb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202204271321167_AddPrice.cs" />
-    <Compile Include="Migrations\202204271321167_AddPrice.designer.cs">
-      <DependentUpon>202204271321167_AddPrice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202204271323389_AddPrice1.cs" />
-    <Compile Include="Migrations\202204271323389_AddPrice1.designer.cs">
-      <DependentUpon>202204271323389_AddPrice1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202204271340460_AddBeerFeeToBeggar.cs" />
-    <Compile Include="Migrations\202204271340460_AddBeerFeeToBeggar.designer.cs">
-      <DependentUpon>202204271340460_AddBeerFeeToBeggar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202204271424034_AddHoods.cs" />
-    <Compile Include="Migrations\202204271424034_AddHoods.designer.cs">
-      <DependentUpon>202204271424034_AddHoods.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202204271513500_AddScore.cs" />
-    <Compile Include="Migrations\202204271513500_AddScore.designer.cs">
-      <DependentUpon>202204271513500_AddScore.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202204271540266_AddStatistics.cs" />
-    <Compile Include="Migrations\202204271540266_AddStatistics.designer.cs">
-      <DependentUpon>202204271540266_AddStatistics.cs</DependentUpon>
+    <Compile Include="Migrations\202204280624395_AddThievesMetColumnToEvents.cs" />
+    <Compile Include="Migrations\202204280624395_AddThievesMetColumnToEvents.designer.cs">
+      <DependentUpon>202204280624395_AddThievesMetColumnToEvents.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Assassin.cs" />
@@ -233,16 +181,72 @@
     <Compile Include="Repositories\ThieveRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Game.css" />
+    <Content Include="Content\metro-all.css" />
+    <Content Include="Content\metro-all.min.css" />
+    <Content Include="Content\metro-colors.css" />
+    <Content Include="Content\metro-colors.min.css" />
+    <Content Include="Content\metro-common.css" />
+    <Content Include="Content\metro-common.min.css" />
+    <Content Include="Content\metro-components.css" />
+    <Content Include="Content\metro-components.min.css" />
+    <Content Include="Content\metro-icons.css" />
+    <Content Include="Content\metro-icons.min.css" />
+    <Content Include="Content\metro-reset.css" />
+    <Content Include="Content\metro-reset.min.css" />
+    <Content Include="Content\metro.css" />
+    <Content Include="Content\metro.min.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="mif\metro.svg" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="mif\metro.woff" />
+    <Content Include="mif\metro.ttf" />
+    <Content Include="mif\metro.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -253,7 +257,10 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\metro.js" />
+    <Content Include="Scripts\metro.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Source\background.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -265,8 +272,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Assassins\NewAssassin.cshtml" />
     <Content Include="Views\Thieves\NewThieve.cshtml" />
@@ -275,71 +280,26 @@
     <Content Include="Views\Beers\NewBeer.cshtml" />
     <Content Include="Views\Hoods\NewHood.cshtml" />
     <Content Include="Views\Home\Statistics.cshtml" />
+    <Content Include="Views\Home\GameOver.cshtml" />
+    <Content Include="Scripts\metro.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202204261101065_AddAssassinTable.resx">
-      <DependentUpon>202204261101065_AddAssassinTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202204271604534_AddStatistics.resx">
+      <DependentUpon>202204271604534_AddStatistics.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204261245338_AddEventsTable.resx">
-      <DependentUpon>202204261245338_AddEventsTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202204271606533_Populate.resx">
+      <DependentUpon>202204271606533_Populate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204261331484_PopulateAssassinsTable.resx">
-      <DependentUpon>202204261331484_PopulateAssassinsTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204270832151_PopulateAsssassinsTable2.resx">
-      <DependentUpon>202204270832151_PopulateAsssassinsTable2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204270947024_AddThievesTable.resx">
-      <DependentUpon>202204270947024_AddThievesTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204271030214_OptionalFieldsNullable.resx">
-      <DependentUpon>202204271030214_OptionalFieldsNullable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204271056280_AddClownsTable.resx">
-      <DependentUpon>202204271056280_AddClownsTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204271201242_AddBeggrTable.resx">
-      <DependentUpon>202204271201242_AddBeggrTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204271239542_BeerAdded.resx">
-      <DependentUpon>202204271239542_BeerAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204271247165_UpdateDb.resx">
-      <DependentUpon>202204271247165_UpdateDb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204271321167_AddPrice.resx">
-      <DependentUpon>202204271321167_AddPrice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204271323389_AddPrice1.resx">
-      <DependentUpon>202204271323389_AddPrice1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204271340460_AddBeerFeeToBeggar.resx">
-      <DependentUpon>202204271340460_AddBeerFeeToBeggar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204271424034_AddHoods.resx">
-      <DependentUpon>202204271424034_AddHoods.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204271513500_AddScore.resx">
-      <DependentUpon>202204271513500_AddScore.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204271540266_AddStatistics.resx">
-      <DependentUpon>202204271540266_AddStatistics.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202204280624395_AddThievesMetColumnToEvents.resx">
+      <DependentUpon>202204280624395_AddThievesMetColumnToEvents.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -358,9 +318,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>59578</DevelopmentServerPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44344/</IISUrl>
+          <IISUrl>http://localhost:60182/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -1,13 +1,31 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Error</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="SHORTCUT ICON" href="~/Source/icon.png" />
+    <title>@ViewBag.Title Ankh-Morpork</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <hgroup>
-        <h1>Error.</h1>
-        <h2>An error occurred while processing your request.</h2>
-    </hgroup>
+    <div class="container menu">
+        <h1 class="menu-header main-menu-header">Game Over</h1>
+        @Html.ActionLink("Main Menu", "Index", "Home", null, new { @class = "menu-button" })
+        <a class="menu-button" href="javascript:close_window();">Quit</a>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 </html>
+@section Scripts{
+    <script>
+        function close_window() {
+            if (confirm("Close Window?")) {
+                window.close();
+            }
+        }
+    </script>
+}

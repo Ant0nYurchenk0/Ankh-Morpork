@@ -14,7 +14,6 @@ namespace Ankh_Morpork_MVC.Models
         public double PlayerBeer { get; set; }
         public double PlayerHood { get; set; }
         public int Score { get; set; }
-
-
+        public int ThievesMet { get; set; }
     }
 }

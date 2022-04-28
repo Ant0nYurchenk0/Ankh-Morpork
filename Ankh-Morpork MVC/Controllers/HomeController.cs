@@ -28,7 +28,7 @@ namespace Ankh_Morpork_MVC.Controllers
             return RedirectToAction("CreateEvent", "Events");
         }
 
-        [Route("")]
+        [Route("GameOver")]
         public ActionResult GameOver()
         {
             if(_context.Events.Count() > 0)
@@ -36,7 +36,7 @@ namespace Ankh_Morpork_MVC.Controllers
                 LogGame();
                 ClearEvents();
             }
-            return View("Index");
+            return View("GameOver");
         }
 
 

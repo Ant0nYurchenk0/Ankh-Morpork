@@ -1,0 +1,352 @@
+﻿body {
+    background-image: url(../Source/background.jpg);
+    background-size: auto;
+    font-family: 'MedievalSharp', cursive;
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.main-menu-header {
+    padding-bottom: 150px;
+}
+
+.menu {
+    background-image: url(../Source/menu.jpg);
+    height: 800px;
+    max-width: 600px;
+    background-size: cover;
+    margin: auto;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 50px #000000;
+}
+
+.menu-header {
+    color: #8b0000;
+    font-weight: 700;
+    font-size: 3.2rem;
+    padding-top: 100px;
+    box-sizing: border-box;
+    text-shadow: 0px 1px 5px #ffc000;
+}
+
+.menu-button {
+    margin: 10px auto;
+    width: 250px;
+    letter-spacing: 2px;
+    color: #ffc000;
+    font-size: 18px;
+    font-weight: 400;
+    text-shadow: 0 1px 3px #000;
+    text-align: center;
+    padding: 10px 0;
+    background: radial-gradient(circle, #8b0000, #8b0000);
+    border-top: 4px ridge #ffb000;
+    border-left: 4px groove #ffb000;
+    border-right: 4px ridge #ffb000;
+    border-bottom: 4px groove #ffb000;
+    box-shadow: inset 0px 0px 5px 3px rgba(1,1,1,0.3);
+    flex: none;
+    display: block;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.menu-button:hover {
+    background: radial-gradient(circle, #e52b2b, #8b0000);
+    box-shadow: 0px 0 5px 5px rgba(255,255,255,0.2);
+    color: #ffc000;
+}
+
+.menu-button:active {
+    background: radial-gradient(circle, #ec6a6a, #e52b2b);
+    box-shadow: 0px 0 5px 5px rgba(255,255,255,0.2);
+    color: #ffc000;
+}
+
+.back-button {
+    margin-top: 30px;
+}
+
+.statistics-table {
+    color: #0a0b12;
+    border-color: transparent;
+}
+
+.table-container {
+    max-height: 500px;
+    margin: auto;
+    width: 100%;
+    overflow: scroll;
+}
+
+.table-container::-webkit-scrollbar {
+    display: none;
+}
+
+table th {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.play-card {
+    width: 400px;
+    height: 750px;
+    background-image: url(../Source/menu.jpg);
+    object-fit: cover;
+    background-repeat: no-repeat;
+    border: 7px solid;
+    border-radius: 10px;
+    text-align: center;
+    margin: auto;
+
+
+}
+.front, .back{
+
+    box-shadow: 1px 1px 50px #000000;
+    border-radius: 10px;
+}
+.flip-card {
+    margin: auto;
+    width: 400px;
+    height: 750px;
+}
+
+.character-image {
+    max-height: 480px;
+    object-fit: cover;
+}
+
+.offer-message {
+    margin-bottom: 0;
+    margin-top: 30px;
+}
+
+.meet-message {
+    position: relative;
+    font-weight: 600;
+}
+
+.character-name {
+    font-weight: 600;
+}
+
+.guild {
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.assassin-guild {
+    border-color: #575757;
+}
+
+#assassin-logo {
+    background: radial-gradient( circle, darkgray, #000000);
+}
+
+.guild-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 30px auto;
+
+}
+.guild-image img {
+    height: 150px;
+    width: 150px;
+    margin-top: 20px;
+
+}
+.guild-logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    position: absolute;
+    top: -470px;
+    left: 10px;
+}
+
+.guild-logo img {
+    height: 50px;
+    width: 50px;
+    margin-top: 10px;
+}
+
+.deal {
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+    background: radial-gradient( circle, #ffc000, #000000);
+    position: absolute;
+    top: -390px;
+    left: 10px;
+    text-align: center;
+}
+
+.deal p {
+    font-size: 1.3rem;
+    font-weight: 900;
+    margin-top: 20px;
+}
+.information-top {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    top: -470px;
+    right: 10px;
+    background: #ffffffa1;
+}
+.information-top img {
+    height: 15px;
+    width: 15px;
+}
+.information-bottom {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: #ffffffa1;
+}
+
+.information-bottom img {
+    height: 15px;
+    width: 15px;
+}
+#reward-bar {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    border-radius: 12.5px;
+}
+
+#reward-bar:hover {
+    opacity: 1;
+}
+
+#reward-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: radial-gradient( circle, #8b0000, #000000);
+    border-radius: 50%;
+    cursor: pointer;
+}
+.row{
+    width: 450px;
+    height: 160px;
+    margin: 50px auto 0;  
+    position: static;
+    position: absolute;
+    top: 15px;
+    left: 30px;
+}
+.col-3 {
+    text-align: center;
+}
+.inventory {
+    max-height: 160px;
+    margin-top: 70px;
+    text-align: center;
+    filter: drop-shadow(0 -6mm 4mm black);
+}
+.inventory-container {
+    max-width: 500px;
+    margin: auto;
+}
+.accept-button {
+    border: none;
+    background-color: transparent;
+    margin-top: 40px;
+}
+.accept-button img {
+    height: 70px;
+    width: 70px;
+}
+.deny-button{
+    border: none;
+    background-color: transparent;
+    margin-top: 40px;
+}
+.deny-button img {
+
+    height: 70px;
+    width: 70px;
+}
+.hood-button-active {
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+    background: radial-gradient( circle, #8b0000, #000000);
+    margin-top: 45px;
+}
+
+.hood-button-active img {
+    height: 40px;
+    width: 40px;
+    margin-bottom: 5px;
+}
+.count {
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+    background: radial-gradient( circle, #ffc000, #000000);
+    margin-top: 45px;
+    border: 2px;
+    box-sizing: border-box;
+}
+.count img {
+    height: 40px;
+    width: 40px;
+    margin-left: 15px;
+    margin-top: 12px;
+}
+.count p {
+    text-align: center;
+    position: relative;
+    background-color: #ffc000;
+    font-weight: 600;
+    border: 1px solid;
+    border-color: #a27b00;
+}
+.beer{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    margin-left: 40px;
+    margin-top:0; 
+}
+.coins{
+    margin-top:0; 
+    height: 20px;
+    width: 50px;
+    border-radius: 10px;    
+    margin-left: 30px;
+}
+.hood-button-disabled {
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+    background: radial-gradient( circle, #8b8b8b, #000000);
+    margin-top: 45px;
+}
+.hood-button-disabled img {
+    height: 40px;
+    width: 40px;
+    margin-top: 10px;
+    margin-left: 15px;
+}

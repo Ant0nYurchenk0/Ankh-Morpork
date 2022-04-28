@@ -41,6 +41,7 @@ namespace Ankh_Morpork_MVC.Controllers
                 _eventRepository.AddBeer(lastEvent.PlayerBeer);
                 _eventRepository.AddHood(lastEvent.PlayerHood);
                 _eventRepository.AddScore(lastEvent.Score);
+                _eventRepository.SetThievesMet(lastEvent.ThievesMet);
             }
             _eventRepository.PostEvent();
             return View(_eventRepository.ViewEvent(), Mapper.Map<Event, EventDto>(_eventRepository.GetEvent()));

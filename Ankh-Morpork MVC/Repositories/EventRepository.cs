@@ -19,10 +19,11 @@ namespace Ankh_Morpork_MVC.Repositories
         
         public void AddBody()
         {
-            if ((IsItem()) == true)
-                AddItem();
-            else
-                AddCharacter();
+            CreateAssassin();
+            //if ((IsItem()) == true)
+            //    AddItem();
+            //else
+            //    AddCharacter();
             
         }
 
@@ -72,6 +73,11 @@ namespace Ankh_Morpork_MVC.Repositories
             }
         }
 
+        internal void SetThievesMet(int thievesMet)
+        {
+            _event.ThievesMet = thievesMet;
+        }
+
         internal void AddScore(int score)
         {
             _event.Score+=(score+1);
@@ -89,7 +95,8 @@ namespace Ankh_Morpork_MVC.Repositories
 
         public void ResetEvent()
         {
-            _event = new Event(); 
+            _event = new Event();
+            _event.ThievesMet = 0;
         }
 
         public void PostEvent()
@@ -129,6 +136,7 @@ namespace Ankh_Morpork_MVC.Repositories
             var charArray = _context.Thieves.ToArray();
             _event.Character = charArray[randomIndex];
             _viewName = "..\\Thieves\\NewThieve";
+            _event.ThievesMet++;
         }
         private void CreateClown()
         {

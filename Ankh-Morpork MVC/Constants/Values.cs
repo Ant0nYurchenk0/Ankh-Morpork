@@ -9,7 +9,7 @@ namespace Ankh_Morpork_MVC.Constants
     {
         public const double PlayerMoney = 100;
         public const double PlayerBeer = 0;
-        public const double PlayerHood = 1;
+        public const double PlayerHood = 0;
         public const int MaxBeer = 2;
         public const int MaxHoods = 1;
         public const double ThieveFee = 10;
