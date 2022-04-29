@@ -19,12 +19,11 @@ namespace Ankh_Morpork_MVC.Repositories
         
         public void AddBody()
         {
-            CreateAssassin();
-            //if ((IsItem()) == true)
-            //    AddItem();
-            //else
-            //    AddCharacter();
-            
+            if ((IsItem()) == true)
+                AddItem();
+            else
+                AddCharacter();
+
         }
 
         private void AddItem()
@@ -111,7 +110,7 @@ namespace Ankh_Morpork_MVC.Repositories
         private void CreateHood()
         {
             var randomIndex = _random.Next(_context.Items.Count(i => i.ItemType == ItemTypes.Hood));
-            var charArray = _context.Items.ToArray();
+            var charArray = _context.Items.Where(i => i.ItemType == ItemTypes.Hood).ToArray();
             _event.Character = charArray[randomIndex];
             _viewName = "..\\Hoods\\NewHood";
         }
@@ -119,7 +118,7 @@ namespace Ankh_Morpork_MVC.Repositories
         private void CreateBeer()
         {
             var randomIndex = _random.Next(_context.Items.Count(i=>i.ItemType == ItemTypes.Beer));
-            var charArray = _context.Items.ToArray();
+            var charArray = _context.Items.Where(i => i.ItemType == ItemTypes.Beer).ToArray();
             _event.Character = charArray[randomIndex];
             _viewName = "..\\Beers\\NewBeer";
         }

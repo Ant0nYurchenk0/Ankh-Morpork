@@ -70,10 +70,27 @@ body::-webkit-scrollbar {
 .back-button {
     margin-top: 30px;
 }
-
+.hidden{
+    display: none;
+}
 .statistics-table {
     color: #0a0b12;
     border-color: transparent;
+    caption-side: bottom;
+    border-collapse: collapse;
+    --bs-table-bg: transparent;
+    --bs-table-accent-bg: transparent;
+    --bs-table-striped-color: #212529;
+    --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+    --bs-table-active-color: #212529;
+    --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+    --bs-table-hover-color: #212529;
+    --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    vertical-align: top;
+    border-color: #dee2e6;
 }
 
 .table-container {
@@ -87,19 +104,15 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-table th {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-}
+
 
 .play-card {
     width: 400px;
     height: 750px;
-    background-image: url(../Source/menu.jpg);
+    background-image: url(../Source/card.png);
     object-fit: cover;
     background-repeat: no-repeat;
+    background-position: center;
     border: 7px solid;
     border-radius: 10px;
     text-align: center;
@@ -149,7 +162,58 @@ table th {
 #assassin-logo {
     background: radial-gradient( circle, darkgray, #000000);
 }
+#thief-logo {
+    background: radial-gradient( circle, purple, #000000);
+}
+.thief-guild {
+    border-color: #570057;
+}
+#clown-logo {
+    background: radial-gradient( circle, darkgreen, #000000);
+}
 
+.clown-guild {
+    border-color: #005700;
+}
+#beggar-logo {
+    background: radial-gradient( circle, darkblue, #000000);
+}
+
+.beggar-guild {
+    border-color: #000057;
+}
+#hood-logo {
+    background: radial-gradient( circle, darkred, #000000);
+}
+.guild-logo#hood-logo img{
+    width: 40px;
+    height: 40px;
+}
+.guild-image#hood-logo img {
+    height: 120px;
+    width: 120px;
+    margin-top: 30px;
+}
+#beer-logo {
+    background: radial-gradient( circle, #ffc000, #000000);
+}
+
+.guild-logo#beer-logo img {
+    width: 40px;
+    height: 40px;
+}
+
+.guild-image#beer-logo img {
+    height: 120px;
+    width: 120px;
+    margin-top: 30px;
+}
+.beer-guild {
+    border-color: #816100;
+}
+.hood-guild {
+    border-color: #570000;
+}
 .guild-image {
     width: 200px;
     height: 200px;
@@ -193,6 +257,12 @@ table th {
     font-size: 1.3rem;
     font-weight: 900;
     margin-top: 20px;
+}
+.deal img {
+    width: 40px;
+    height: 40px;
+    margin-top: 14px;
+    margin-left: 1px;
 }
 .information-top {
     width: 30px;
@@ -283,9 +353,9 @@ table th {
     margin-top: 40px;
 }
 .deny-button img {
-
     height: 70px;
     width: 70px;
+    margin-top: 45px;
 }
 .hood-button-active {
     width: 70px;
@@ -299,6 +369,8 @@ table th {
     height: 40px;
     width: 40px;
     margin-bottom: 5px;
+    margin-top: 11px;
+    margin-left: 15px;
 }
 .count {
     width: 70px;

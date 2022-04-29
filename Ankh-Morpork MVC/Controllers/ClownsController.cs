@@ -14,7 +14,6 @@ namespace Ankh_Morpork_MVC.Controllers
         {
             _repository = new ClownRepository();
         }
-        [HttpPost]
         [Route("Clowns/Accept/{reward}")]
         public ActionResult Accept(double reward)
         {

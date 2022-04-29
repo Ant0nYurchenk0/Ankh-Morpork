@@ -4,15 +4,105 @@
     var character = (Thieve)Model.Character;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<p>Score: @Model.Score</p>
 
-<h2>@character.Name of Thieves's Guild</h2>
-<h3>@character.MeetMessage</h3>
-<p>Money: @Model.PlayerMoney</p>
-<p></p>
 @using (Html.BeginForm("Accept", "Thieves", new { fee = character.Fee }))
 {
-    <button type="submit">Submit</button>
-    @Html.ActionLink("Deny", "Deny", "Thieves", new { accept = false }, null)
+    <div class="container">
+        <div class=" flip-card effect-on-active flip-vertical" id="flip-card">
+            <div class="front">
+                <div class="card play-card thief-guild">
+                    <img class="card-img-top character-image" src="~/Source/Thieves/thief.png">
+                    <div class="card-body">
+                        <div class="guild-logo" id="thief-logo">
+                            <img src="~/Source/Thieves/logo.png" />
+                        </div>
+                        <div class="deal">
+                            <p>@character.Fee</p>
+                        </div>
+                        <a onclick="FlipCard()" class="information-top">
+                            <img src="~/Source/info.png" />
+                        </a>
+                        <h3 class="character-name">@character.Name</h3>
+                        <h5 class="guild">Thieves' Guild</h5>
+                        <p class="card-text meet-message">@character.MeetMessage</p>
+                    </div>
+                </div>
+            </div>
+            <div class="back">
+                <div class="card play-card thief-guild">
+                    <div class="card-body">
+                        <div class="guild-image" id="thief-logo">
+                            <img src="~/Source/Thieves/logo.png" />
+                        </div>
+                        <a onclick="FlipCard()" class="information-bottom">
+                            <img src="~/Source/info.png" />
+                        </a>
+                        <h3 class="character-name">Thieves' Guild</h3>
+                        <p class="card-text meet-message">@character.GuildData</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container inventory-container">
+            <img class="inventory" src="../Source/Inventory.png" />
+            <div class="row">
+                <div class="col-3">
+                    <a class="deny-button" href="@Url.Action("Deny", "Thieves", null)">
+                        <img src="~/Source/close.png" />
+                    </a>
+                </div>
+                <div class="col-2">
+                    <div class="count">
+                        <img src="~/Source/coins.png" />
+                        <p class="coins">@Model.PlayerMoney</p>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="count">
+                        <img src="~/Source/beer.png" />
+                        <p class="beer">@Model.PlayerBeer</p>
+                    </div>
+                </div>
+
+                <div class="col-2">
+                    @{
+                        if (Model.PlayerHood > 0)
+                        {
+                            <div class="hood-button-active">
+
+                                <img src="~/Source/hood.png" />
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="hood-button-disabled">
+                                <img src="~/Source/hood-bw.png" />
+                            </div>
+                        }
+                    }
+                </div>
+                <div class="col-3">
+                    <button class="accept-button" type="submit">
+                        <img src="~/Source/check.png" />
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
 }
 
+
+
+@section Scripts{
+    <script>
+        function FlipCard() {
+            var element = document.getElementById("flip-card");
+            if (element.classList.contains("active") === true)
+                element.classList.remove("active");
+            else
+                element.classList.add("active");
+
+        }
+    </script>
+}

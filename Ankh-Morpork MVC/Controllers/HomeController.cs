@@ -43,8 +43,15 @@ namespace Ankh_Morpork_MVC.Controllers
         [Route("Statistics")]
         public ActionResult Statistics()
         {
-            var games = _context.Games.ToList();
+            var games = _context.Games.OrderByDescending(g=>g.Id).Take(10).ToList();
             return View(games);
+        }
+        public ActionResult ResetPlayer()
+        {
+            foreach(var game in _context.Games)
+                _context.Games.Remove(game);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
         private void LogGame()
         {
@@ -59,5 +66,6 @@ namespace Ankh_Morpork_MVC.Controllers
                 _context.Events.Remove(e);
             _context.SaveChanges();
         }
+
     }
 }

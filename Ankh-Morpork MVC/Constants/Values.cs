@@ -13,6 +13,6 @@ namespace Ankh_Morpork_MVC.Constants
         public const int MaxBeer = 2;
         public const int MaxHoods = 1;
         public const double ThieveFee = 10;
-        public const int ItemProbability = 10;
+        public const int ItemProbability = 20;
     }
 }

@@ -5,13 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm("Accept", "Assassins", new { reward = Model.Reward, hood = false }))
+@using (Html.BeginForm("Accept", "Assassins", new { reward = 0, hood = false }))
 {
-
     <div class="container">
         <div class=" flip-card effect-on-active flip-vertical" id="flip-card">
             <div class="front">
-                <div class="card play-card assassin-guild" >
+                <div class="card play-card assassin-guild">
                     <img class="card-img-top character-image" src="~/Source/Assassins/assassin.jpg">
                     <div class="card-body">
                         <div class="guild-logo" id="assassin-logo">
@@ -26,7 +25,7 @@
                         <h3 class="character-name">@character.Name</h3>
                         <h5 class="guild">Assassins' Guild</h5>
                         <p class="card-text offer-message">@character.OfferMessage</p>
-                        @Html.TextBoxFor(m => m.Reward, null, new { type = "range", min = "0", max = Model.PlayerMoney, step = "0.01", id = "reward-bar" })
+                        @Html.TextBoxFor(m => m.Reward, null, new { type = "range", min = "0", max = Model.PlayerMoney, step = "0.01", id = "reward-bar" });
                         <p class="card-text meet-message">@character.MeetMessage</p>
                     </div>
                 </div>
@@ -47,12 +46,12 @@
             </div>
         </div>
         <div class="container inventory-container">
-            <img class="inventory" src="../Source/Inventory.png"/>
+            <img class="inventory" src="../Source/Inventory.png" />
             <div class="row">
                 <div class="col-3">
-                    <button class="deny-button" href="@Url.Action("Deny", "Assassins", new { accept = false })">
+                    <a class="deny-button" href="@Url.Action("Deny", "Assassins", null)">
                         <img src="~/Source/close.png" />
-                    </button>
+                    </a>
                 </div>
                 <div class="col-2">
                     <div class="count">
@@ -62,7 +61,7 @@
                 </div>
                 <div class="col-2">
                     <div class="count">
-                        <img src="~/Source/beer.png"/>
+                        <img src="~/Source/beer.png" />
                         <p class="beer">@Model.PlayerBeer</p>
                     </div>
                 </div>
@@ -71,9 +70,12 @@
                     @{
                         if (Model.PlayerHood > 0)
                         {
-                            <button class="hood-button-active" href="@Url.Action("Accept", "Assassins", new { reward = 1, hood = true })">
-                                <img src="~/Source/hood.png"/>
-                            </button>
+                            <a href="@Url.Action("Accept", "Assassins")/0/true">
+                                <div class="hood-button-active">
+
+                                    <img src="~/Source/hood.png" />
+                                </div>
+                            </a>
                         }
                         else
                         {
@@ -84,16 +86,17 @@
                     }
                 </div>
                 <div class="col-3">
-                    <button type="submit" class="accept-button">
-                        <img src="~/Source/check.png"/>
+                    <button class="accept-button" type="submit">
+                        <img src="~/Source/check.png" />
                     </button>
                 </div>
             </div>
         </div>
+
     </div>
-
-
 }
+
+
 
 @section Scripts{
     <script>
@@ -109,7 +112,7 @@
                 element.classList.remove("active");
             else
                 element.classList.add("active");
-            
+
         }
     </script>
-} 
+}

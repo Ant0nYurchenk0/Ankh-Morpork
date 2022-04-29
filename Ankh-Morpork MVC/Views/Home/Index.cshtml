@@ -1,15 +1,6 @@
 ﻿<div class="container menu">
-    <h1 class="menu-header main-menu-header">Main Menu</h1>
+    <h1 class="menu-header main-menu-header">Ankh-Morpork<br>Main Menu</h1>
     @Html.ActionLink("Start", "CreateEvent", "Events", null, new { @class = "menu-button" })
     @Html.ActionLink("Statistics", "Statistics", "Home", null, new { @class = "menu-button" })
-    <a class="menu-button" href="javascript:close_window();">Quit</a>
+    @Html.ActionLink("Reset Player", "ResetPlayer", "Home", null, new { @class = "menu-button" })
 </div>
-@section Scripts{
-    <script>
-        function close_window() {
-            if (confirm("Close Window?")) {
-                window.close();
-            }
-        }
-    </script>
-}
