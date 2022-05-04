@@ -9,10 +9,10 @@ namespace Ankh_Morpork_MVC.Controllers
 {
     public class BeggarsController : Controller
     {
-        private BeggarsRepository _repository;
-        public BeggarsController()
+        private IBeggarsRepository _repository;
+        public BeggarsController(IBeggarsRepository repository)
         {
-            _repository = new BeggarsRepository();
+            _repository = repository;
         }
         [HttpPost]
         [Route("Beggars/Accept/{moneyFee}/{beerFee}")]

@@ -6,16 +6,16 @@ using System.Web;
 
 namespace Ankh_Morpork_MVC.Repositories
 {
-    public class AssassinRepository : IEventProcessRepository
+    public class AssassinRepository :  IAssassinRepository
     {
-        private GameDbContext _context;
+        private IGameDbContext _context;
         private Random _random;
         private double _reward;
         private bool _hood;
 
-        public AssassinRepository()
+        public AssassinRepository(IGameDbContext context)
         {
-            _context = new GameDbContext();
+            _context = context;
             _random = new Random();
 
         }

@@ -75,6 +75,7 @@
     <Compile Include="Guild\BeggarsGuildTests.cs" />
     <Compile Include="Guild\ClownsGuildTests.cs" />
     <Compile Include="Guild\ThievesGuildTest.cs" />
+    <Compile Include="MVCRepositories\Assassin.cs" />
     <Compile Include="Npc\AssassinNpcTests.cs" />
     <Compile Include="Npc\BeggarNpcTest.cs" />
     <Compile Include="Npc\ClownNpcTests.cs" />
@@ -86,6 +87,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Ankh-Morpork MVC\Ankh-Morpork MVC.csproj">
+      <Project>{3bd23917-cb9d-4c61-8470-98e46df07975}</Project>
+      <Name>Ankh-Morpork MVC</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Game\Game.csproj">
       <Project>{190e48f8-2ff9-4fb2-bfca-c0335e3d72d5}</Project>
       <Name>Game</Name>

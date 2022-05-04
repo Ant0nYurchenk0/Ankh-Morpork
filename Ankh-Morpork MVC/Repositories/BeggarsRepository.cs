@@ -6,15 +6,15 @@ using System.Web;
 
 namespace Ankh_Morpork_MVC.Repositories
 {
-    public class BeggarsRepository : IEventProcessRepository
+    public class BeggarsRepository :  IBeggarsRepository
     {
-        private GameDbContext _context;
+        private IGameDbContext _context;
         private double _moneyFee;
         private bool _beerFee;
 
-        public BeggarsRepository()
+        public BeggarsRepository(IGameDbContext context)
         {
-            _context = new GameDbContext();
+            _context = context;
         }
 
         public bool ProcessResponce(bool accept)
@@ -36,7 +36,7 @@ namespace Ankh_Morpork_MVC.Repositories
                 .Where(e => e.Id == _context.Events.Max(m => m.Id))
                 .FirstOrDefault();
             currentEvent.PlayerMoney -= _moneyFee;
-            if(_beerFee)
+            if (_beerFee)
                 currentEvent.PlayerBeer--;
             _context.SaveChanges();
             if ((currentEvent.PlayerMoney) < 0)

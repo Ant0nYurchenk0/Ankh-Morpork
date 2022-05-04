@@ -9,10 +9,10 @@ namespace Ankh_Morpork_MVC.Controllers
 {
     public class HoodsController : Controller
     {
-        private HoodRepository _repository;
-        public HoodsController()
+        private IHoodRepository _repository;
+        public HoodsController(IHoodRepository repository)
         {
-            _repository = new HoodRepository();
+            _repository = repository;
         }
         [HttpPost]
         [Route("Hoods/Accept/{fee}")]

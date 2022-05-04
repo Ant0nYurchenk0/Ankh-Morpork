@@ -6,14 +6,14 @@ using System.Web;
 
 namespace Ankh_Morpork_MVC.Repositories
 {
-    public class ClownRepository : IEventProcessRepository
+    public class ClownRepository :  IClownRepository
     {
-        private GameDbContext _context;
+        private IGameDbContext _context;
         private double _reward;
 
-        public ClownRepository()
+        public ClownRepository(IGameDbContext context)
         {
-            _context = new GameDbContext();
+            _context = context;
         }
 
         public bool ProcessResponce(bool accept)

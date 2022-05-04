@@ -6,13 +6,13 @@ using System.Web;
 
 namespace Ankh_Morpork_MVC.Repositories
 {
-    public class GameRepository
+    public class GameRepository : IGameRepository
     {
-        private GameDbContext _context;
+        private IGameDbContext _context;
         private Game _game;
-        public GameRepository()
+        public GameRepository(IGameDbContext context)
         {
-            _context = new GameDbContext();
+            _context = context;
         }
         public void AddDate()
         {

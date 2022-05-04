@@ -9,10 +9,10 @@ namespace Ankh_Morpork_MVC.Controllers
 {
     public class ClownsController : Controller
     {
-        private ClownRepository _repository;
-        public ClownsController()
+        private IClownRepository _repository;
+        public ClownsController(IClownRepository repository)
         {
-            _repository = new ClownRepository();
+            _repository = repository;
         }
         [Route("Clowns/Accept/{reward}")]
         public ActionResult Accept(double reward)

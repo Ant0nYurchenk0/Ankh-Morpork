@@ -10,13 +10,18 @@ using System.Web.Mvc;
 
 namespace Ankh_Morpork_MVC.Repositories
 {
-    public class EventRepository
+    public class EventRepository : IEventRepository
     {
+        private IGameDbContext _context;
+        private Random _random;
         private Event _event;
-        private GameDbContext _context = new GameDbContext();
-        private Random _random = new Random();
         private string _viewName;
-        
+
+        public EventRepository(IGameDbContext context)
+        {
+            _context = context;
+            _random = new Random();
+        }
         public void AddBody()
         {
             if ((IsItem()) == true)
@@ -45,7 +50,7 @@ namespace Ankh_Morpork_MVC.Repositories
         }
 
 
-        internal void AddHood(double playerHood)
+        public void AddHood(double playerHood)
         {
             _event.PlayerHood = playerHood;
         }
@@ -72,17 +77,17 @@ namespace Ankh_Morpork_MVC.Repositories
             }
         }
 
-        internal void SetThievesMet(int thievesMet)
+        public void SetThievesMet(int thievesMet)
         {
             _event.ThievesMet = thievesMet;
         }
 
-        internal void AddScore(int score)
+        public void AddScore(int score)
         {
-            _event.Score+=(score+1);
+            _event.Score += (score + 1);
         }
 
-        internal void AddBeer(double playerBeer)
+        public void AddBeer(double playerBeer)
         {
             _event.PlayerBeer = playerBeer;
         }
@@ -102,8 +107,8 @@ namespace Ankh_Morpork_MVC.Repositories
         {
             _context.Events.Add(_event);
             _context.SaveChanges();
-        } 
-        
+        }
+
         public string ViewEvent() => _viewName;
 
         public Event GetEvent() => _event;
@@ -117,7 +122,7 @@ namespace Ankh_Morpork_MVC.Repositories
 
         private void CreateBeer()
         {
-            var randomIndex = _random.Next(_context.Items.Count(i=>i.ItemType == ItemTypes.Beer));
+            var randomIndex = _random.Next(_context.Items.Count(i => i.ItemType == ItemTypes.Beer));
             var charArray = _context.Items.Where(i => i.ItemType == ItemTypes.Beer).ToArray();
             _event.Character = charArray[randomIndex];
             _viewName = "..\\Beers\\NewBeer";
@@ -130,7 +135,7 @@ namespace Ankh_Morpork_MVC.Repositories
             _viewName = "..\\Assassins\\NewAssassin";
         }
         private void CreateThieve()
-        {                            
+        {
             var randomIndex = _random.Next(_context.Thieves.Count());
             var charArray = _context.Thieves.ToArray();
             _event.Character = charArray[randomIndex];
@@ -150,7 +155,7 @@ namespace Ankh_Morpork_MVC.Repositories
             var charArray = _context.Beggars.ToArray();
             _event.Character = charArray[randomIndex];
             _viewName = "..\\Beggars\\NewBeggar";
-        }      
+        }
         private bool IsItem()
         {
             var percents = 100;

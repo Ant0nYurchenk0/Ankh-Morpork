@@ -13,38 +13,38 @@ namespace Ankh_Morpork_MVC.Controllers
 {
     public class EventsController : Controller
     {
-        private GameDbContext _context;
-        private EventRepository _eventRepository;
-        public EventsController()
+        private IGameDbContext _context;
+        private IEventRepository _repository;
+        public EventsController(IGameDbContext context, IEventRepository repository)
         {
-            _context = new GameDbContext(); 
-            _eventRepository = new EventRepository();
+            _context = context;
+            _repository = repository;
         }        
 
         [Route("Events/New")]
         public ActionResult CreateEvent()
         {            
-            _eventRepository.ResetEvent();
-            _eventRepository.AddBody();
+            _repository.ResetEvent();
+            _repository.AddBody();
             if (_context.Events.Count() == 0)
             {
-                _eventRepository.AddMoney(Values.PlayerMoney);
-                _eventRepository.AddBeer(Values.PlayerBeer);
-                _eventRepository.AddHood(Values.PlayerHood);                
+                _repository.AddMoney(Values.PlayerMoney);
+                _repository.AddBeer(Values.PlayerBeer);
+                _repository.AddHood(Values.PlayerHood);                
             }
             else
             {
                 var lastEvent = _context.Events
                 .Where(e => e.Id == _context.Events.Max(m => m.Id))
                 .FirstOrDefault();
-                _eventRepository.AddMoney(lastEvent.PlayerMoney);
-                _eventRepository.AddBeer(lastEvent.PlayerBeer);
-                _eventRepository.AddHood(lastEvent.PlayerHood);
-                _eventRepository.AddScore(lastEvent.Score);
-                _eventRepository.SetThievesMet(lastEvent.ThievesMet);
+                _repository.AddMoney(lastEvent.PlayerMoney);
+                _repository.AddBeer(lastEvent.PlayerBeer);
+                _repository.AddHood(lastEvent.PlayerHood);
+                _repository.AddScore(lastEvent.Score);
+                _repository.SetThievesMet(lastEvent.ThievesMet);
             }
-            _eventRepository.PostEvent();
-            return View(_eventRepository.ViewEvent(), Mapper.Map<Event, EventDto>(_eventRepository.GetEvent()));
+            _repository.PostEvent();
+            return View(_repository.ViewEvent(), Mapper.Map<Event, EventDto>(_repository.GetEvent()));
         }
     }
 }

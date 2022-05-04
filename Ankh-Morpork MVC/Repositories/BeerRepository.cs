@@ -7,14 +7,14 @@ using System.Web;
 
 namespace Ankh_Morpork_MVC.Repositories
 {
-    public class BeerRepository :IEventProcessRepository
+    public class BeerRepository :  IBeerRepository
     {
-        private GameDbContext _context;
+        private IGameDbContext _context;
         private double _fee;
 
-        public BeerRepository()
+        public BeerRepository(IGameDbContext context)
         {
-            _context = new GameDbContext();
+            _context = context;
         }
 
         public bool ProcessResponce(bool accept)
@@ -24,7 +24,7 @@ namespace Ankh_Morpork_MVC.Repositories
             return true;
         }
 
-        internal void AddFee(double fee)
+        public void AddFee(double fee)
         {
             _fee = fee;
         }

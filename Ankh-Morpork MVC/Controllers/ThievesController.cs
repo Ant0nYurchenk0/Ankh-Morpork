@@ -9,10 +9,10 @@ namespace Ankh_Morpork_MVC.Controllers
 {
     public class ThievesController : Controller
     {
-        private ThieveRepository _repository;
-        public ThievesController()
+        private IThieveRepository _repository;
+        public ThievesController(IThieveRepository repository)
         {
-            _repository = new ThieveRepository();
+            _repository = repository;
         }
         [HttpPost]
         [Route("Thieves/Accept/{fee}")]

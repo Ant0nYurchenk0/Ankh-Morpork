@@ -10,12 +10,12 @@ namespace Ankh_Morpork_MVC.Controllers
 {
     public class HomeController : Controller
     {
-        private GameDbContext _context;
-        private GameRepository _repository;
-        public HomeController()
+        private IGameDbContext _context;
+        private IGameRepository _repository;
+        public HomeController(IGameDbContext context, IGameRepository repository)
         {
-            _context = new GameDbContext();   
-            _repository = new GameRepository();
+            _context = context;   
+            _repository = repository;
         }
 
         public ActionResult Index()
