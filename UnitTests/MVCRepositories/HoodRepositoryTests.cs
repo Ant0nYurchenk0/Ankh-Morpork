@@ -1,13 +1,11 @@
-﻿using NUnit.Framework;
-using Moq;
-using System;
+﻿using Ankh_Morpork_MVC.Constants;
 using Ankh_Morpork_MVC.Models;
+using Ankh_Morpork_MVC.Repositories;
+using Moq;
+using NUnit.Framework;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using Ankh_Morpork_MVC.Repositories;
-using System.Threading.Tasks;
-using Ankh_Morpork_MVC.Constants;
 
 namespace UnitTests.MVCRepositories
 {

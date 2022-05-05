@@ -1,12 +1,10 @@
-﻿using NUnit.Framework;
+﻿using Ankh_Morpork_MVC.Models;
+using Ankh_Morpork_MVC.Repositories;
 using Moq;
-using System;
-using Ankh_Morpork_MVC.Models;
+using NUnit.Framework;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using Ankh_Morpork_MVC.Repositories;
-using System.Threading.Tasks;
 
 namespace UnitTests.MVCRepositories
 {
@@ -19,7 +17,7 @@ namespace UnitTests.MVCRepositories
         public void SetUp()
         {
             var fakeContext = new Mock<GameDbContext>();
-            fakeContext.Object.Events = SetUpEvents().Object;           
+            fakeContext.Object.Events = SetUpEvents().Object;
             _context = fakeContext.Object;
         }
 

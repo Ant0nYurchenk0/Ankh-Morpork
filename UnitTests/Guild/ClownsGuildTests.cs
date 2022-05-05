@@ -1,9 +1,9 @@
-﻿using Moq;
-using NUnit.Framework;
-using Newtonsoft.Json.Linq;
-using Game.Service;
-using Game.Constants;
+﻿using Game.Constants;
 using Game.Guilds;
+using Game.Service;
+using Moq;
+using Newtonsoft.Json.Linq;
+using NUnit.Framework;
 
 
 namespace Guild

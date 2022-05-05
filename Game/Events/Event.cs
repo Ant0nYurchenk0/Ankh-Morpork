@@ -1,8 +1,8 @@
-﻿using Game.Guilds;
-using Game.Views;
-using Game.Players;
-using Game.Constants;
+﻿using Game.Constants;
+using Game.Guilds;
 using Game.Npcs;
+using Game.Players;
+using Game.Views;
 
 
 namespace Game.Events

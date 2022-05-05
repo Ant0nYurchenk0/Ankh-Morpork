@@ -1,12 +1,12 @@
-﻿using System.IO;
-using System.Text;
-using System.Collections.Generic;
+﻿using Game.Constants;
 using System;
-using Game.Constants;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
 
 namespace Game.Service
 {
-    public class FileService :IFileService
+    public class FileService : IFileService
     {
         private static Dictionary<string, string> _cache = new Dictionary<string, string>();
         public string ReadFileCache(string path)
@@ -20,16 +20,16 @@ namespace Game.Service
         {
             try
             {
-            var result = new StringBuilder();
-            using (var reader = new StreamReader(File.OpenRead(path)))
-            {
-                var line = string.Empty;
-                while ((line = reader.ReadLine()) != null)
+                var result = new StringBuilder();
+                using (var reader = new StreamReader(File.OpenRead(path)))
                 {
-                    result.Append("\n" + line);
+                    var line = string.Empty;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        result.Append("\n" + line);
+                    }
                 }
-            }
-            return result.ToString();
+                return result.ToString();
             }
             catch
             {

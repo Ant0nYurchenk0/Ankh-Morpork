@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Game.Players;
+﻿using Game.Players;
+using System.Collections.Generic;
 
 namespace Game.Npcs
 {

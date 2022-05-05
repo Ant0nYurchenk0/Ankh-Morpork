@@ -1,15 +1,15 @@
-﻿using Game.Guilds;
-using Game.Constants;
+﻿using Game.Constants;
+using Game.Guilds;
 using Game.Service;
 using Moq;
-using NUnit.Framework;
 using Newtonsoft.Json.Linq;
+using NUnit.Framework;
 
 namespace Guild
 {
     [TestFixture]
-    internal class AssassinsGuildTest 
-    { 
+    internal class AssassinsGuildTest
+    {
         private Mock<IDataRetrieveService> _dataRetriever;
         private JArray _fakeNpcArray;
         private JObject _fakeNpc;

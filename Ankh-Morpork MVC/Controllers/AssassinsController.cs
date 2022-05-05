@@ -1,10 +1,4 @@
-﻿using Ankh_Morpork_MVC.Models;
-using Ankh_Morpork_MVC.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
+﻿using Ankh_Morpork_MVC.Repositories;
 using System.Web.Mvc;
 
 namespace Ankh_Morpork_MVC.Controllers
@@ -20,7 +14,7 @@ namespace Ankh_Morpork_MVC.Controllers
 
         [Route("Assassins/Accept/{reward}/{hood}")]
         public ActionResult Accept(double reward, bool hood)
-        {            
+        {
             _repository.AddReward(reward, hood);
             _repository.RandomizeBusiness();
             if (!_repository.ProcessResponce(accept: true))

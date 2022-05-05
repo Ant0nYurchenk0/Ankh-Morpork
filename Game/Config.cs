@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json.Linq;
-using Game.Constants;
+﻿using Game.Constants;
 using Game.Service;
+using Newtonsoft.Json.Linq;
 
 
 namespace Game
@@ -9,10 +9,10 @@ namespace Game
     {
         public static string ConfigPath { get; set; }
         public static string GuildsPath { get; private set; }
-        public static string PlayerDataPath { get ; private set; }
-        public static string BeggarTypesPath { get ; private set; }
-        public static string ClownTypesPath { get ; private set; }
-        public static IFileService ServiceFile { get; set; } 
+        public static string PlayerDataPath { get; private set; }
+        public static string BeggarTypesPath { get; private set; }
+        public static string ClownTypesPath { get; private set; }
+        public static IFileService ServiceFile { get; set; }
 
         public static string LoadConfig()
         {
@@ -37,14 +37,14 @@ namespace Game
             {
                 return Path.ClownTypesPath;
             }
-            
+
             return string.Empty;
-            
+
         }
         private static string LoadFromConfig(JObject config, string key)
         {
             if (config.TryGetValue(key, out var configData))
-            {                
+            {
                 return configData.ToString();
             }
             else

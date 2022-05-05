@@ -1,8 +1,8 @@
-﻿using System.Linq;
-using System.Collections.Generic;
+﻿using Game.Constants;
 using Game.Players;
 using Game.Views;
-using Game.Constants;
+using System.Collections.Generic;
+using System.Linq;
 
 
 namespace Game.Npcs
@@ -17,7 +17,7 @@ namespace Game.Npcs
         protected Npc()
         {
             Messages = new Dictionary<string, string>();
-            _view =  new View();
+            _view = new View();
         }
 
         public virtual void Accept(IPlayer player)
@@ -29,7 +29,7 @@ namespace Game.Npcs
         {
             _view.ShowMessage(Messages.FirstOrDefault(m => m.Key == Constant.DenyMessage).Value);
             player.IsAlive = false;
-            
+
         }
     }
 }

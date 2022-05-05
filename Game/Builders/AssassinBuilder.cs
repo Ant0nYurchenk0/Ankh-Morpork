@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using Game.Npcs;
-using Game.Constants;
+﻿using Game.Constants;
 using Game.Guilds;
+using Game.Npcs;
+using System.Collections.Generic;
 
 namespace Game.Builders
 {

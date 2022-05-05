@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using Newtonsoft.Json.Linq;
-using Game.Constants;
-using Game.Service;
+﻿using Game.Constants;
 using Game.Events;
 using Game.Npcs;
+using Game.Service;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
 
 namespace Game.Guilds
 {

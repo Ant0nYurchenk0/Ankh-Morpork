@@ -1,8 +1,8 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Game.Constants;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Game.Constants;
 
 namespace Game.Service
 {
@@ -16,7 +16,7 @@ namespace Game.Service
 
         public decimal RetrieveFromType(string path, string type)
         {
-            var types =RetrieveTypes(path);
+            var types = RetrieveTypes(path);
             return Convert.ToDecimal(types[type]);
         }
 
@@ -27,7 +27,7 @@ namespace Game.Service
             var guildData = guilds.Children<JObject>()
                 .Where(guild => guild[Constant.Name].ToString() == guildName)
                 .FirstOrDefault();
-            return guildData[fieldName].ToString();            
+            return guildData[fieldName].ToString();
         }
 
         public Dictionary<string, string> RetrieveMessages(JObject npc)
@@ -56,6 +56,6 @@ namespace Game.Service
             var json = _serviceFile.ReadFileCache(path);
             return JObject.Parse(json);
         }
-        
+
     }
 }

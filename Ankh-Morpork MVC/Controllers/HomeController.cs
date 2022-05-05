@@ -1,9 +1,6 @@
 ﻿using Ankh_Morpork_MVC.Models;
 using Ankh_Morpork_MVC.Repositories;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Ankh_Morpork_MVC.Controllers
@@ -14,7 +11,7 @@ namespace Ankh_Morpork_MVC.Controllers
         private IGameRepository _repository;
         public HomeController(IGameDbContext context, IGameRepository repository)
         {
-            _context = context;   
+            _context = context;
             _repository = repository;
         }
 
@@ -24,14 +21,14 @@ namespace Ankh_Morpork_MVC.Controllers
         }
 
         public ActionResult StartGame()
-        {            
+        {
             return RedirectToAction("CreateEvent", "Events");
         }
 
         [Route("GameOver")]
         public ActionResult GameOver()
         {
-            if(_context.Events.Count() > 0)
+            if (_context.Events.Count() > 0)
             {
                 LogGame();
                 ClearEvents();
@@ -43,12 +40,12 @@ namespace Ankh_Morpork_MVC.Controllers
         [Route("Statistics")]
         public ActionResult Statistics()
         {
-            var games = _context.Games.OrderByDescending(g=>g.Id).Take(10).ToList();
+            var games = _context.Games.OrderByDescending(g => g.Id).Take(10).ToList();
             return View(games);
         }
         public ActionResult ResetPlayer()
         {
-            foreach(var game in _context.Games)
+            foreach (var game in _context.Games)
                 _context.Games.Remove(game);
             _context.SaveChanges();
             return RedirectToAction("Index");
@@ -62,7 +59,7 @@ namespace Ankh_Morpork_MVC.Controllers
         }
         private void ClearEvents()
         {
-            foreach(var e in _context.Events)
+            foreach (var e in _context.Events)
                 _context.Events.Remove(e);
             _context.SaveChanges();
         }

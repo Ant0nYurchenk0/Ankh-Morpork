@@ -1,12 +1,12 @@
-﻿using NUnit.Framework;
+﻿using Game.Events;
+using Game.Guilds;
+using Game.Npcs;
+using Game.Players;
+using Game.Views;
 using Moq;
+using NUnit.Framework;
 using System;
 using System.IO;
-using Game.Players;
-using Game.Guilds;
-using Game.Views;
-using Game.Events;
-using Game.Npcs;
 
 namespace Events
 {
@@ -40,7 +40,7 @@ namespace Events
 
             _event.Resolve(_player.Object);
 
-            _npc.Verify(n=>n.Accept(_player.Object), Times.Once());
+            _npc.Verify(n => n.Accept(_player.Object), Times.Once());
             Assert.That(_event.Resolved, Is.True);
         }
         [Test]
@@ -52,7 +52,7 @@ namespace Events
 
             _event.Resolve(_player.Object);
 
-            _npc.Verify(n=>n.Deny(_player.Object), Times.Once());
+            _npc.Verify(n => n.Deny(_player.Object), Times.Once());
             Assert.That(_event.Resolved, Is.True);
         }
         [Test]
@@ -63,8 +63,8 @@ namespace Events
 
             _event.Resolve(_player.Object);
 
-            _npc.Verify(n=>n.Accept(_player.Object), Times.Never());
-            _npc.Verify(n=>n.Deny(_player.Object), Times.Never());            
+            _npc.Verify(n => n.Accept(_player.Object), Times.Never());
+            _npc.Verify(n => n.Deny(_player.Object), Times.Never());
             Assert.That(_event.Resolved, Is.True);
         }
     }

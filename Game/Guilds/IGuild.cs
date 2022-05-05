@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Game.Npcs;
+using System;
 using System.Collections.Generic;
-using Game.Npcs;
 
 namespace Game.Guilds
 {

@@ -1,7 +1,7 @@
 ﻿using Game.Constants;
-using Game.Views;
 using Game.Events;
 using Game.Players;
+using Game.Views;
 
 namespace Game
 {
@@ -11,7 +11,7 @@ namespace Game
         public IPlayer Player { get; set; }
         public bool GameStarted { get; private set; } = false;
         public void Run()
-        { 
+        {
             Play();
             View.WaitForKey();
         }
@@ -59,7 +59,7 @@ namespace Game
             Config.ConfigPath = Path.ConfigPath;
             var errorFile = string.Empty;
             if (!string.IsNullOrEmpty(errorFile = Config.LoadConfig()))
-                View.ShowMessage(errorFile + " "+ Message.FileAccessError, clearPage: true);
+                View.ShowMessage(errorFile + " " + Message.FileAccessError, clearPage: true);
             EventBuilder.LoadGuilds();
         }
 

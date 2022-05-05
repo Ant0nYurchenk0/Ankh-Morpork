@@ -1,12 +1,12 @@
-﻿using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
-using Game.Constants;
+﻿using Game.Constants;
 using Game.Service;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 
 namespace Game.Players
 {
-    public class Player :  IPlayer
+    public class Player : IPlayer
     {
         public bool IsAlive { get; set; }
         public int CurrentScore { get; private set; }
@@ -43,10 +43,10 @@ namespace Game.Players
         {
             if (reward > Money)
                 return false;
-            
+
             Money -= reward;
             return true;
-            
+
         }
 
         public void Reset()

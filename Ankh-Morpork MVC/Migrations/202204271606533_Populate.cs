@@ -1,9 +1,8 @@
 ﻿namespace Ankh_Morpork_MVC.Migrations
 {
     using Ankh_Morpork_MVC.Constants;
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class Populate : DbMigration
     {
         public override void Up()

@@ -1,12 +1,9 @@
 ﻿using Ankh_Morpork_MVC.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace Ankh_Morpork_MVC.Repositories
 {
-    public class BeggarRepository :  IBeggarsRepository
+    public class BeggarRepository : IBeggarsRepository
     {
         private IGameDbContext _context;
         private double _moneyFee;

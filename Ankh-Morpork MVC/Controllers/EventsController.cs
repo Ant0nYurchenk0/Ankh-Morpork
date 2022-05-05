@@ -1,13 +1,10 @@
-﻿using Ankh_Morpork_MVC.Models;
-using Ankh_Morpork_MVC.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Ankh_Morpork_MVC.Constants;
-using AutoMapper;
+﻿using Ankh_Morpork_MVC.Constants;
 using Ankh_Morpork_MVC.Dtos;
+using Ankh_Morpork_MVC.Models;
+using Ankh_Morpork_MVC.Repositories;
+using AutoMapper;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace Ankh_Morpork_MVC.Controllers
 {
@@ -19,18 +16,18 @@ namespace Ankh_Morpork_MVC.Controllers
         {
             _context = context;
             _repository = repository;
-        }        
+        }
 
         [Route("Events/New")]
         public ActionResult CreateEvent()
-        {            
+        {
             _repository.ResetEvent();
             _repository.AddBody();
             if (_context.Events.Count() == 0)
             {
                 _repository.AddMoney(Values.PlayerMoney);
                 _repository.AddBeer(Values.PlayerBeer);
-                _repository.AddHood(Values.PlayerHood);                
+                _repository.AddHood(Values.PlayerHood);
             }
             else
             {

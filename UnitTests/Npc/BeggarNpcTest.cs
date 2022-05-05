@@ -1,7 +1,7 @@
-﻿using NUnit.Framework;
-using Moq;
+﻿using Game.Builders;
 using Game.Players;
-using Game.Builders;
+using Moq;
+using NUnit.Framework;
 
 
 namespace Npc
@@ -18,7 +18,7 @@ namespace Npc
         {
             _player = new Mock<IPlayer>();
             _player.SetupProperty(p => p.IsAlive, true);
-            _player.Setup(p=>p.TryDecreaseMoney(It.IsAny<decimal>())).Returns(true);
+            _player.Setup(p => p.TryDecreaseMoney(It.IsAny<decimal>())).Returns(true);
             _builder.Reset();
             _builder.AddName(FakeNpcName);
             _builder.AddFee(_fee);

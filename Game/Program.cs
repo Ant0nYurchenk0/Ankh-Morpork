@@ -1,5 +1,5 @@
-﻿using System;
-using Game.Views;
+﻿using Game.Views;
+using System;
 
 namespace Game
 {
@@ -11,7 +11,7 @@ namespace Game
             {
                 var view = new View();
                 var controller = new Controller();
-                controller.View = view; 
+                controller.View = view;
                 controller.Init();
                 controller.Run();
             }

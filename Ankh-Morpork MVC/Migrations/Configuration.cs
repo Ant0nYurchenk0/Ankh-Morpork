@@ -1,9 +1,6 @@
 ﻿namespace Ankh_Morpork_MVC.Migrations
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<Ankh_Morpork_MVC.Models.GameDbContext>
     {

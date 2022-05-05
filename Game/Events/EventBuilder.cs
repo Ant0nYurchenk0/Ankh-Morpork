@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Game.Constants;
+using Game.Guilds;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Game.Guilds;
-using Game.Constants;
 
 
 namespace Game.Events

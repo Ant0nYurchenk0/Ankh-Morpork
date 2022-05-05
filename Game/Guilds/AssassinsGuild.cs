@@ -1,11 +1,11 @@
-﻿using System;
-using System.Linq;
-using Newtonsoft.Json.Linq;
-using Game.Npcs;
-using Game.Builders;
+﻿using Game.Builders;
 using Game.Constants;
-using Game.Service;
 using Game.Events;
+using Game.Npcs;
+using Game.Service;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Linq;
 
 
 
@@ -29,7 +29,7 @@ namespace Game.Guilds
                      && n.MaxReward >= reward
                      && n.MinReward <= reward))
                 return true;
-            
+
             return false;
         }
 

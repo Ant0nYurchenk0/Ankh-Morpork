@@ -1,5 +1,5 @@
-﻿using Game.Players;
-using Game.Events;
+﻿using Game.Events;
+using Game.Players;
 
 namespace Game.Views
 {

@@ -1,8 +1,7 @@
-﻿using Game;
-using NUnit.Framework;
-using Moq;
+﻿using Game.Builders;
 using Game.Players;
-using Game.Builders;
+using Moq;
+using NUnit.Framework;
 
 
 namespace Npc
@@ -13,7 +12,7 @@ namespace Npc
         private Mock<IPlayer> _player;
         private const string FakeNpcName = "FakeNpc";
         private const decimal _reward = 10;
-        private ClownBuilder _builder = new ClownBuilder(); 
+        private ClownBuilder _builder = new ClownBuilder();
         [SetUp]
         public void SetUp()
         {

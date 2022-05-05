@@ -1,14 +1,14 @@
-﻿using System.Linq;
-using Game.Players;
+﻿using Game.Constants;
 using Game.Guilds;
-using Game.Constants;
+using Game.Players;
+using System.Linq;
 
 
 namespace Game.Npcs
 {
     public class ThieveNpc : Npc
     {
-        public ThieveNpc() : base() {}
+        public ThieveNpc() : base() { }
         public IThievesGuild Guild { get; set; }
         public override void Accept(IPlayer player)
         {

@@ -1,15 +1,15 @@
-﻿using System;
-using Newtonsoft.Json.Linq;
-using Game.Builders;
+﻿using Game.Builders;
 using Game.Constants;
 using Game.Service;
+using Newtonsoft.Json.Linq;
+using System;
 
 
 namespace Game.Guilds
 {
     public class BeggarsGuild : Guild
     {
-        public BeggarsGuild(string guildName, ConsoleColor color = ConsoleColor.White, IDataRetrieveService dataRetriever = null) 
+        public BeggarsGuild(string guildName, ConsoleColor color = ConsoleColor.White, IDataRetrieveService dataRetriever = null)
             : base(guildName, color, dataRetriever) { }
 
         protected override void CreateNpcs(JArray listOfNpcs)

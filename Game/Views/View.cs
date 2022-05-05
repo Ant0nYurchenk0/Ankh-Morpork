@@ -1,8 +1,8 @@
-﻿using System;
-using System.Threading;
-using Game.Players;
-using Game.Constants;
+﻿using Game.Constants;
 using Game.Events;
+using Game.Players;
+using System;
+using System.Threading;
 
 namespace Game.Views
 {
@@ -12,7 +12,7 @@ namespace Game.Views
         {
             Console.Clear();
             Console.WriteLine("It can be dangerous to walk the streets. So watch out!\n");
-            Thread.Sleep(500);            
+            Thread.Sleep(500);
         }
 
         public void ShowEvent(IEvent newEvent, bool isNew = true)
@@ -116,7 +116,7 @@ namespace Game.Views
             Console.BackgroundColor = ConsoleColor.DarkGray;
             Console.ForegroundColor = ConsoleColor.Yellow;
             var intMoney = (int)player.Money;
-            var decimalMoney = (int)((player.Money - intMoney)*100);
+            var decimalMoney = (int)((player.Money - intMoney) * 100);
             Console.WriteLine($" AM: {intMoney} " +
                 $" Pennies: {decimalMoney} " +
                 $"\t Score: {player.CurrentScore} ");

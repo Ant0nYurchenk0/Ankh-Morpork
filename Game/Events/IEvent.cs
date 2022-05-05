@@ -1,6 +1,6 @@
 ﻿using Game.Guilds;
-using Game.Players;
 using Game.Npcs;
+using Game.Players;
 
 
 namespace Game.Events

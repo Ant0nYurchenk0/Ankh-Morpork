@@ -1,9 +1,9 @@
 ﻿using Game;
-using NUnit.Framework;
-using Moq;
-using Game.Players;
 using Game.Constants;
+using Game.Players;
 using Game.Service;
+using Moq;
+using NUnit.Framework;
 
 
 namespace Players
@@ -19,8 +19,8 @@ namespace Players
         public void SetUp()
         {
             _fakeFileService = new Mock<IFileService>();
-            _fakeFileService.Setup(f=>f.ReadFile(Config.PlayerDataPath)).Returns("{"+string.Format("{0}:{1},{2}:{3}", 
-                Constant.HighScore, _highscore, Constant.Money, _money)+"}");
+            _fakeFileService.Setup(f => f.ReadFile(Config.PlayerDataPath)).Returns("{" + string.Format("{0}:{1},{2}:{3}",
+                Constant.HighScore, _highscore, Constant.Money, _money) + "}");
             _fakeFileService.Setup(f => f.WriteToFile(Config.PlayerDataPath, It.IsAny<string>()));
             _player = new Player(_fakeFileService.Object);
         }

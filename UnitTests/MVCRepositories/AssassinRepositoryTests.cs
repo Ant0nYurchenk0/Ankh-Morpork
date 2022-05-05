@@ -1,13 +1,10 @@
-﻿using NUnit.Framework;
+﻿using Ankh_Morpork_MVC.Models;
+using Ankh_Morpork_MVC.Repositories;
 using Moq;
-using System;
-using Ankh_Morpork_MVC.Models;
+using NUnit.Framework;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using Ankh_Morpork_MVC.Repositories;
-using System.Threading.Tasks;
-using System.Linq.Expressions;
 
 namespace UnitTests.MVCRepositories
 {
@@ -20,7 +17,7 @@ namespace UnitTests.MVCRepositories
         public void SetUp()
         {
             var fakeContext = new Mock<GameDbContext>();
-            fakeContext.Object.Assassins =  SetUpAssassins().Object;
+            fakeContext.Object.Assassins = SetUpAssassins().Object;
             fakeContext.Object.Events = SetUpEvents().Object;
             _context = fakeContext.Object;
         }
@@ -38,8 +35,8 @@ namespace UnitTests.MVCRepositories
 
         [Test]
         public void ProcessResponce_TrueAndMoneyNotHoodNotBusy_DecreasedMoney()
-        {            
-            var repository = new AssassinRepository(_context);            
+        {
+            var repository = new AssassinRepository(_context);
             repository.AddReward(10, false);
 
             var responce = repository.ProcessResponce(true);
