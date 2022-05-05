@@ -1,6 +1,6 @@
 ﻿namespace Ankh_Morpork_MVC.Repositories
 {
-    public interface IThieveRepository : IEventProcessRepository
+    public interface IThiefRepository : IEventProcessRepository
     {
         void AddFee(double fee);
     }

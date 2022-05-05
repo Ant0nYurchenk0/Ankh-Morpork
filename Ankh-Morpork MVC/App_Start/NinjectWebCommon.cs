@@ -65,8 +65,8 @@ namespace Ankh_Morpork_MVC.App_Start
             kernel.Bind<IGameDbContext>().To<GameDbContext>();
             kernel.Bind<IEventRepository>().To<EventRepository>();
             kernel.Bind<IAssassinRepository>().To<AssassinRepository>();
-            kernel.Bind<IThieveRepository>().To<ThieveRepository>();
-            kernel.Bind<IBeggarsRepository>().To<BeggarsRepository>();
+            kernel.Bind<IThiefRepository>().To<ThiefRepository>();
+            kernel.Bind<IBeggarsRepository>().To<BeggarRepository>();
             kernel.Bind<IClownRepository>().To<ClownRepository>();
             kernel.Bind<IHoodRepository>().To<HoodRepository>();
             kernel.Bind<IBeerRepository>().To<BeerRepository>();

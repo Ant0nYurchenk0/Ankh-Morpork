@@ -9,8 +9,8 @@ namespace Ankh_Morpork_MVC.Controllers
 {
     public class ThievesController : Controller
     {
-        private IThieveRepository _repository;
-        public ThievesController(IThieveRepository repository)
+        private IThiefRepository _repository;
+        public ThievesController(IThiefRepository repository)
         {
             _repository = repository;
         }

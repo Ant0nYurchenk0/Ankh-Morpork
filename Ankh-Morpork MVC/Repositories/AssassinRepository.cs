@@ -19,6 +19,15 @@ namespace Ankh_Morpork_MVC.Repositories
             _random = new Random();
 
         }
+        public void RandomizeBusiness()
+        {
+            foreach (var assassin in _context.Assassins)
+            {
+                assassin.IsBusy = Convert.ToBoolean(_random.Next(2));
+            }
+            _context.SaveChanges();
+
+        }
 
         public bool ProcessResponce(bool accept)
         {
@@ -35,37 +44,39 @@ namespace Ankh_Morpork_MVC.Repositories
 
         private bool TryApplyReward(double reward)
         {
-            RandomizeBusiness();
-            var currentEvent = _context.Events
-                .Where(e => e.Id == _context.Events.Max(m => m.Id))
-                .FirstOrDefault();
+            var currentEvent = LastEvent();
+
             if (_hood)
-            {
-                currentEvent.PlayerHood--;
-                _context.SaveChanges();
-                if (currentEvent.PlayerHood < 0)
-                    return false;
-                return true;
-            }
+                return TryApplyHood(currentEvent);
+
             currentEvent.PlayerMoney -= reward;
             _context.SaveChanges();
             if ((currentEvent.PlayerMoney) < 0)
                 return false;
+            return CheckReward(reward);
+        }
+
+        private Event LastEvent()
+        {
+            return _context.Events
+                .Where(e => e.Id == _context.Events.Max(m => m.Id))
+                .FirstOrDefault();
+        }
+        private bool TryApplyHood(Event currentEvent)
+        {
+            currentEvent.PlayerHood--;
+            _context.SaveChanges();
+            if (currentEvent.PlayerHood < 0)
+                return false;
+            return true;
+        }
+        private bool CheckReward(double reward)
+        {
             var assassins = _context.Assassins.ToList();
             if (assassins.Any(a => a.IsBusy == false
                 && (a.MinReward <= reward && a.MaxReward >= reward)))
                 return true;
             return false;
-        }
-
-        private void RandomizeBusiness()
-        {
-            foreach (var assassin in _context.Assassins)
-            {
-                assassin.IsBusy = Convert.ToBoolean(_random.Next(2));
-            }
-            _context.SaveChanges();
-
         }
     }
 }

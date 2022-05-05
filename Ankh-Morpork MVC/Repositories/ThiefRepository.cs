@@ -6,16 +6,14 @@ using System.Web;
 
 namespace Ankh_Morpork_MVC.Repositories
 {
-    public class ThieveRepository : IEventProcessRepository, IThieveRepository
+    public class ThiefRepository : IEventProcessRepository, IThiefRepository
     {
         private IGameDbContext _context;
-        private Random _random;
         private double _fee;
 
-        public ThieveRepository(IGameDbContext context)
+        public ThiefRepository(IGameDbContext context)
         {
             _context = context;
-            _random = new Random();
 
         }
 

@@ -10,7 +10,7 @@ namespace Ankh_Morpork_MVC.Models
     {
         public DbSet<Event> Events { get; set; }
         public DbSet<Assassin> Assassins { get; set; }
-        public DbSet<Thieve> Thieves { get; set; }
+        public DbSet<Thief> Thieves { get; set; }
         public DbSet<Clown> Clowns { get; set; }
         public DbSet<Beggar> Beggars { get; set; }
         public DbSet<Item> Items { get; set; }

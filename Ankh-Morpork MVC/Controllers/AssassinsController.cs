@@ -22,6 +22,7 @@ namespace Ankh_Morpork_MVC.Controllers
         public ActionResult Accept(double reward, bool hood)
         {            
             _repository.AddReward(reward, hood);
+            _repository.RandomizeBusiness();
             if (!_repository.ProcessResponce(accept: true))
                 return Deny();
             return RedirectToAction("CreateEvent", "Events");

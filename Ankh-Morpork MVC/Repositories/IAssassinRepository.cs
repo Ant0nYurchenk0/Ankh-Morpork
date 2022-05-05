@@ -3,5 +3,6 @@
     public interface IAssassinRepository : IEventProcessRepository
     {
         void AddReward(double reward, bool hood);
+        void RandomizeBusiness();
     }
 }

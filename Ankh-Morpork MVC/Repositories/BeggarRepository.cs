@@ -6,13 +6,13 @@ using System.Web;
 
 namespace Ankh_Morpork_MVC.Repositories
 {
-    public class BeggarsRepository :  IBeggarsRepository
+    public class BeggarRepository :  IBeggarsRepository
     {
         private IGameDbContext _context;
         private double _moneyFee;
         private bool _beerFee;
 
-        public BeggarsRepository(IGameDbContext context)
+        public BeggarRepository(IGameDbContext context)
         {
             _context = context;
         }

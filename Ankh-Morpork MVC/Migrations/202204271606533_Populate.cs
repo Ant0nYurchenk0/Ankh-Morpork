@@ -115,38 +115,38 @@
                 $"'Benjamin'," +
                 $"'Hey, you, gimme your wallet'," +
                 $"10," +
-                $"'Thieve'," +
-                $"'{GuildDatas.Thieve}');");
+                $"'Thief'," +
+                $"'{GuildDatas.Thief}');");
             Sql($"insert into Characters (Name, MeetMessage, Fee, Discriminator, GuildData) values(" +
                 $"'Vitya'," +
                 $"'Gop stop'," +
                 $"10," +
-                $"'Thieve'," +
-                $"'{GuildDatas.Thieve}');");
+                $"'Thief'," +
+                $"'{GuildDatas.Thief}');");
             Sql($"insert into Characters (Name, MeetMessage, Fee, Discriminator, GuildData) values(" +
                 $"'Katie'," +
                 $"'Honey, whats that up in the sky'," +
                 $"10," +
-                $"'Thieve'," +
-                $"'{GuildDatas.Thieve}');");
+                $"'Thief'," +
+                $"'{GuildDatas.Thief}');");
             Sql($"insert into Characters (Name, MeetMessage, Fee, Discriminator, GuildData) values(" +
                 $"'Ibrahim'," +
                 $"'جئت لأسرق منك'," +
                 $"10," +
-                $"'Thieve'," +
-                $"'{GuildDatas.Thieve}');");
+                $"'Thief'," +
+                $"'{GuildDatas.Thief}');");
             Sql($"insert into Characters (Name, MeetMessage, Fee, Discriminator, GuildData) values(" +
                 $"'Franklin'," +
                 $"'Yo, nigga, money or life'," +
                 $"10," +
-                $"'Thieve'," +
-                $"'{GuildDatas.Thieve}');");
+                $"'Thief'," +
+                $"'{GuildDatas.Thief}');");
             Sql($"insert into Characters (Name, MeetMessage, Fee, Discriminator, GuildData) values(" +
                 $"'George'," +
                 $"'Have some bucks?'," +
                 $"10," +
-                $"'Thieve'," +
-                $"'{GuildDatas.Thieve}');");
+                $"'Thief'," +
+                $"'{GuildDatas.Thief}');");
         }
 
         private void PopulateBeggars()
